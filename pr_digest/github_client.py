@@ -9,6 +9,10 @@ API_BASE = "https://api.github.com"
 
 class GitHubClient:
     def __init__(self, token: str):
+        # Strip whitespace/newlines defensively: pasting a token into a GitHub
+        # repo secret commonly picks up a trailing \n, which requests rejects
+        # when building the Authorization header.
+        token = (token or "").strip()
         self.session = requests.Session()
         self.session.headers.update({
             "Authorization": f"Bearer {token}",
