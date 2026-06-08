@@ -1,67 +1,101 @@
 # team-tooling
 
-Internal tooling for tracking upstream PRs across the team.
+A small bot I built to keep our team's open upstream KServe PRs in one
+place, so reviewers and approvers don't have to chase scattered threads to
+see what's waiting on them.
 
-## What this does
+## What it does
 
-Posts a digest of the team's open upstream PRs to Slack on a schedule,
-**grouped by squad** within one channel. Inside each squad, PRs fall into three
-buckets, oldest-first:
+It surfaces our open PRs in two places, grouped by squad:
 
-- **Ready for approver stamp** — LGTM'd (the `lgtm` label *or* a team member's
-  `/lgtm` comment) but not yet `/approve`'d, *any size*. This is the bottleneck
-  we most want visible.
-- **Fast lane** — small (≤ `fast_lane_max_size` lines / `fast_lane_max_files`
+- **A pinned GitHub issue** that refreshes every few hours. The
+  always-current "what needs review right now" board, on one stable URL
+  anyone can bookmark or link to.
+- **A scheduled Slack message** that links to the issue. Lower-cadence so
+  it doesn't drown the team in posts.
+
+Inside each squad, PRs land in three buckets, oldest first:
+
+- **Ready for approver stamp**: LGTM'd (the `lgtm` label *or* a team
+  member's `/lgtm` comment) but not yet `/approve`'d, *any size*. The
+  bottleneck I most want visible.
+- **Fast lane**: small (≤ `fast_lane_max_size` lines / `fast_lane_max_files`
   files), still awaiting LGTM.
-- **Deep review** — larger PRs, still awaiting LGTM.
+- **Deep review**: larger PRs, still awaiting LGTM.
 
-WIP-titled PRs are filtered out. A separate stale-alert @-mentions approvers on
-PRs with no activity (not just age) for `stale_days`, also grouped by squad.
+WIP-titled PRs are filtered out. A separate stale-alert @-mentions our
+approvers on PRs with no activity (not just age) for `stale_days`, also
+grouped by squad.
 
-Schedule lives in the workflow cron (see Architecture) — cadence is still being
-tuned, so treat the cron as the source of truth, not this README.
+Schedules live in the workflow crons (see Architecture). The cron is the
+source of truth, not this README.
 
-The goal is to fight out-of-sight-out-of-mind and make the LGTM → /approve
-handoff visible.
+The whole point is to fight out-of-sight-out-of-mind and make the LGTM →
+/approve handoff visible to all of us.
 
 ### Community LGTM
 
-Most team members aren't OWNERS reviewers, so their `/lgtm` comments don't apply
-Prow's `lgtm` label. The digest still counts a team member's `/lgtm` comment as
-review signal (`LGTM (comment)` badge) and promotes the PR to *Ready for
-approver stamp*. Cancel handling is per-author latest-wins (`/lgtm cancel`
-un-does it).
+Most of us aren't OWNERS reviewers upstream, so our `/lgtm` comments don't
+trip Prow's `lgtm` label. The bot still counts a team member's `/lgtm`
+comment as review signal (shown as `LGTM (comment)`) and promotes the PR to
+*Ready for approver stamp*. Cancel handling is per-author latest-wins, so
+`/lgtm cancel` undoes it.
 
-## Setup
+## Why this repo is public
 
-### 1. Generate a GitHub token
+The pinned issue only works if anyone on the team and the upstream
+approvers can open it from the URL or click through a cross-reference
+notification on their PR. With a private repo, only collaborators can see
+the issue and the whole "single shared URL" idea falls apart, so I made it
+public.
 
-Settings → Developer settings → Personal access tokens → **Fine-grained tokens**.
-- Resource owner: your user account (or a shared bot account, see Bus Factor)
-- Repository access: **Public repositories (read-only)** is enough
-- Expiration: max 1 year. Set a calendar reminder for the day before.
+Nothing in here is sensitive:
 
-### 2. Create a Slack incoming webhook
+- Secrets (`GH_TOKEN`, `SLACK_WEBHOOK`) live in repo Secrets, never
+  committed.
+- `.env` is gitignored.
+- `config.yml` lists public GitHub handles.
+- The issue body just shows PRs that are already public upstream in
+  `kserve/kserve`.
 
-In Slack: app directory → Incoming Webhooks → add to the team channel.
-Copy the webhook URL.
+## How it's set up
 
-### 3. Add secrets
+### GitHub token
 
-In this repo's Settings → Secrets and variables → Actions → New repository secret:
+I use a fine-grained PAT scoped to **public-repo read**. The Action's
+built-in `GITHUB_TOKEN` handles the issue-write side independently (the
+workflow grants it `issues: write`), so my PAT never needs more scope than
+that. Expiration is one year, with a calendar reminder for the day before.
 
-- `GH_TOKEN` — the PAT from step 1
-- `SLACK_WEBHOOK` — the URL from step 2
+### The pinned issue
 
-### 4. Edit `config.yml`
+Issue #1 in this repo is the live digest. The bot rewrites the body on
+every cron run, so the URL is permanent. Pinned from the Issues tab.
 
-Fill in `squads` (GitHub handles grouped by squad), `approvers` (handle → Slack
-member ID), and any repos you want to watch. Push to main and the schedule
-kicks in automatically.
+### Slack incoming webhook (optional)
 
-### 5. Test it manually
+Only needed for `pr-digest.yml` and `stale-alert.yml`. Created at
+api.slack.com/apps as a new app → Incoming Webhooks → install to one
+channel. If you're only here for the GitHub issue, skip this.
 
-Actions tab → **Upstream PR Digest** → Run workflow. Should post within ~30s.
+### Repo secrets
+
+In Settings → Secrets and variables → Actions:
+
+- `GH_TOKEN`: my PAT, pasted cleanly with no leading or trailing
+  whitespace.
+- `SLACK_WEBHOOK`: the webhook URL (only needed if you're running the
+  Slack workflows).
+
+### `config.yml`
+
+Single source of truth:
+
+- `squads`: GitHub handles grouped by squad.
+- `approvers`: maps a GitHub handle to a Slack member ID for the
+  stale-alert mention (Slack profile → ⋯ → "Copy member ID").
+- `issue.repo` and `issue.number`: which issue gets rewritten.
+- `repos`: which upstream repos to watch.
 
 ## Bus factor
 
@@ -69,32 +103,36 @@ Actions tab → **Upstream PR Digest** → Run workflow. Should post within ~30s
 - **PAT expires:** _TODO: fill in date_
 - **Slack webhook owner:** _TODO: fill in_
 
-When the PAT owner leaves or the token expires, the bot dies silently
-(no Slack post). Whoever notices first regenerates the PAT and updates the
-`GH_TOKEN` secret.
+If the PAT owner leaves or the token expires, the bot goes silent (no
+Slack post, no issue update). Whoever notices first can regenerate the PAT
+and update the `GH_TOKEN` secret. Longer-term I'd like a shared bot
+GitHub account so this doesn't ride on any one person.
 
-Long-term, consider a shared bot GitHub account so the PAT doesn't ride on
-any individual.
-
-## Local testing
+## Running it locally
 
 ```bash
 pip install -r requirements.txt
 export GH_TOKEN=github_pat_...
+
+# Preview the pinned-issue Markdown without writing to GitHub:
+python -m pr_digest.issue --dry-run
+
+# Slack:
 export SLACK_WEBHOOK=https://hooks.slack.com/services/...
 python -m pr_digest.digest          # posts the digest to Slack
-python -m pr_digest.stale           # posts the stale alert (@-mentions approvers)
+python -m pr_digest.stale           # stale alert (@-mentions approvers)
 ```
 
-Preview the buckets/grouping **without posting to Slack** — writes a text file:
+Preview the buckets and grouping without posting anywhere, dumped to a
+text file:
 
 ```bash
 export GH_TOKEN=github_pat_...
-python -m pr_digest.dump                          # writes digest_output.txt
-python -m pr_digest.dump --all-authors --limit 20 # quick sample, any author
+python -m pr_digest.dump
+python -m pr_digest.dump --all-authors --limit 20  # quick sample
 ```
 
-Run the tests:
+Tests:
 
 ```bash
 pip install pytest
@@ -104,58 +142,56 @@ pytest tests/
 ## Architecture
 
 ```
-config.yml                  ← single source of truth (squads, approvers, thresholds)
+config.yml                       ← single source of truth
 .github/workflows/
-├── pr-digest.yml           ← digest schedule (cron is source of truth)
-└── stale-alert.yml         ← stale-alert schedule (cron is source of truth)
+├── pr-issue.yml                 ← refreshes the pinned GitHub issue
+├── pr-digest.yml                ← Slack digest (cron is source of truth)
+└── stale-alert.yml              ← stale-alert schedule
 pr_digest/
-├── config.py               ← loads config.yml (squads → flat team_members union)
-├── github_client.py        ← API wrapper + rate-limit handling
-├── slack_formatter.py      ← Block Kit rendering, grouped by squad
-├── digest.py               ← daily digest: search → enrich → bucket → partition
-├── dump.py                 ← text-file preview, no Slack
-└── stale.py                ← stale alert (idle PRs, @-mentions approvers)
+├── config.py                    ← loads config.yml (squads → flat team_members union)
+├── github_client.py             ← API wrapper + rate-limit handling
+├── slack_formatter.py           ← Block Kit rendering, grouped by squad
+├── markdown_formatter.py        ← GitHub Markdown rendering for the issue body
+├── digest.py                    ← shared pipeline: search → enrich → bucket → partition
+├── dump.py                      ← text-file preview, no posting
+├── issue.py                     ← rewrites the pinned GitHub issue
+└── stale.py                     ← stale alert (idle PRs, @-mentions approvers)
 tests/
-└── test_bucketing.py       ← bucketing, community-LGTM, squad partitioning
+└── test_bucketing.py            ← bucketing, community-LGTM, squad partitioning, rendering
 ```
+
+The issue workflow uses the Action's built-in `GITHUB_TOKEN` (with
+`issues: write` set in the workflow's `permissions` block) to rewrite the
+issue body. The read-only PAT (`GH_TOKEN`) handles upstream KServe
+queries. So no Slack-app admin approval to fight, and no PAT scope beyond
+public-repo read.
 
 ## Common changes
 
 **Add a team member:** add their GitHub handle under the right squad in
 `squads` in `config.yml`.
 
-**Add a squad:** add a new key under `squads` with its members — the digest
+**Add a squad:** add a new key under `squads` with its members. The digest
 grows a new grouped section automatically.
 
-**Move someone between squads:** move their handle between squad lists. Handle
-matching is case-insensitive.
+**Move someone between squads:** move their handle between squad lists.
+Handle matching is case-insensitive.
 
-**Add a repo to watch:** add it to `repos`. Works fine for multiple upstream
-repos and any midstream/downstream you also care about.
+**Change the pinned issue:** edit `issue.repo` and `issue.number` in
+`config.yml`. The bot rewrites whatever issue you point it at.
 
-**Tune the fast-lane threshold:** edit `thresholds.fast_lane_max_size`. 500 is
-a starting guess. After a couple weeks of data, check whether PRs in the fast
-lane actually got faster reviews — if not, the threshold may be wrong.
+**Add a repo to watch:** add it to `repos`. Works fine for multiple
+upstream repos and any midstream or downstream you also care about.
 
-**Exclude noisy file types:** add globs to `exclude_paths`. Generated files,
-vendored deps, lockfiles inflate PR size without adding review burden.
+**Tune the fast-lane threshold:** `thresholds.fast_lane_max_size`. 500 is
+a starting guess; after a couple weeks of data it's worth checking
+whether fast-lane PRs actually got faster reviews.
 
-**Change the schedule:** edit cron in `.github/workflows/pr-digest.yml`. Bias
-the timing toward when *approvers* start their day, not the whole team — they're
-the bottleneck.
+**Exclude noisy file types:** add globs to `exclude_paths`. Generated
+files, vendored deps, lockfiles inflate PR size without adding review
+burden.
 
-## Roadmap (not built yet)
-
-- **Multi-channel routing (maybe)** — today all squads post to one channel,
-  grouped by squad. *If* a squad wants its own channel, that's possible (one
-  webhook per channel, or a real Slack app with a bot token) — but it's an
-  option, not a commitment.
-- Track time-in-state ("LGTM'd but unapproved for N days") to quantify the
-  bottleneck.
-- Per-approver workload view — how many PRs each approver is gating.
-- Cross-repo dashboard if midstream/downstream get added.
-- Snooze / claim buttons via a real Slack app (requires bot token, not just
-  webhook).
-
-Resist the temptation to build any of this until the basic version has been
-running long enough to prove what actually helps.
+**Change the schedule:** edit cron in the relevant workflow under
+`.github/workflows/`. The Slack timing leans toward when *approvers*
+start their day. The pinned issue can refresh more often since it doesn't
+notify on every update.
