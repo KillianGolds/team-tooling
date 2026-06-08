@@ -1,0 +1,68 @@
+# Upstream repos to watch. Add midstream/downstream here later if useful.
+repos:
+  - kserve/kserve
+
+# Team GitHub handles, grouped by squad. PRs authored by anyone here are
+# tracked. The digest is grouped by squad within a single channel; multi-channel
+# routing (one channel per squad) is a future option — see README roadmap.
+# Note: Jooho and spolti sit on the kserve squad AND are approvers.
+squads:
+  llm-d:
+    - pierDipi
+    - bartoszmajsak
+    - vivekk16
+    - andresllh
+    - threcc
+    - KillianGolds
+    - jlost
+  kserve:
+    - israel-hdez
+    - VedantMahabaleshwarkar
+    - mholder6
+    - maskarb
+    - Jooho
+    - spolti
+
+# Map approver GitHub handles to their Slack user IDs.
+# To find a Slack user ID: click profile → ⋯ menu → "Copy member ID".
+#
+# TESTING — only KillianGolds is in here so the Monday stale alert pings the
+# user during dry runs instead of bothering real approvers. Restore the real
+# list (commented below) before going live.
+approvers:
+  - github: KillianGolds
+    slack: U0B3P0JMYB1
+#  - github: jooho
+#    slack: TODO_SLACK_ID
+#  - github: spolti
+#    slack: TODO_SLACK_ID
+#  # cjohannsen-cloudera is an OWNERS approver but an outside contributor
+#  # (different org, not in our Slack) — intentionally not pingable.
+
+# Where the always-current PR digest issue lives. The Action updates this
+# issue's body on a schedule, and the weekly Slack ping links to it. The
+# Action's built-in GITHUB_TOKEN can write here (no Slack-app admin approval).
+# Workflow: create the issue manually, paste its number here, then pin it.
+issue:
+  repo: KillianGolds/team-tooling
+  number: 1
+
+thresholds:
+  fast_lane_max_size: 500   # additions + deletions
+  fast_lane_max_files: 5    # also caps fast-lane by file count
+  stale_days: 7             # days without activity before stale-alert fires
+
+# Glob patterns for files to exclude from the line-count.
+# Generated/vendored stuff inflates PR size without adding review burden.
+exclude_paths:
+  - "go.sum"
+  - "go.mod"
+  - "vendor/**"
+  - "bundle/**"             # generated OLM operator bundle (manifests/CSVs/CRDs)
+  - "**/*.pb.go"
+  - "**/zz_generated_*.go"
+  - "**/*_generated.go"
+  - "**/mock_*.go"
+  - "**/testdata/**"
+  # remove the next line if you want docs changes to count toward size
+  - "**/*.md"

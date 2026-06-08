@@ -1,0 +1,26 @@
+name: Upstream PR Digest
+
+on:
+  schedule:
+    - cron: '0 8 * * 1-5'    # 8am UTC — EU morning
+    - cron: '0 13 * * 1-5'   # 1pm UTC — US East morning
+  workflow_dispatch:
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - run: pip install -r requirements.txt
+
+      - run: python -m pr_digest.digest
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
