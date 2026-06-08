@@ -9,6 +9,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     permissions:
+      contents: read  # actions/checkout needs this; setting `permissions:` replaces the defaults
       issues: write   # built-in GITHUB_TOKEN edits the live digest issue
     timeout-minutes: 10
     steps:
