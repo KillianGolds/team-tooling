@@ -21,10 +21,14 @@ def _format_pr_line(pr: dict) -> str:
     badges.append(age_badge(pr["age_days"]))
 
     badge_str = " · ".join(badges)
-    # Wrap the whole title+number in the link so GitHub's auto-linker doesn't
-    # cross-reference `#N` to the wrong repo.
+    # Append `/files` to the PR URL: GitHub's cross-reference detector matches
+    # bare `/pull/N` URLs, so appending a subpath breaks the pattern while
+    # still navigating to the same PR (Files changed tab). Stops the bot from
+    # leaving "mentioned this PR" events on upstream kserve PRs.
+    # Also: wrapping the whole `#N title` in the link prevents the `#N`
+    # autolinker from cross-referencing to the wrong repo.
     return (
-        f"- **[#{pr['number']} {title}]({pr['url']})** · "
+        f"- **[#{pr['number']} {title}]({pr['url']}/files)** · "
         f"{size_label(pr)} · "
         f"by `{pr['author']}` · {badge_str}"
     )

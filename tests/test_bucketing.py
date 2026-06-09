@@ -250,8 +250,10 @@ def test_markdown_all_excluded_label_threads_through():
     assert "2 files, all excluded" in md
 
 
-def test_markdown_link_wraps_number_and_title():
-    # The whole "#N title" goes inside the link so GitHub doesn't auto-link `#N`.
+def test_markdown_link_uses_files_subpath_to_suppress_cross_refs():
+    # /files suffix breaks GitHub's PR cross-reference detection while still
+    # navigating to the PR (Files changed tab). Stops the bot leaving
+    # "github-actions[bot] mentioned this PR" events on upstream kserve PRs.
     pr = _md_pr(title="hello", age=1)
     md = build_digest_markdown([("llm-d", [], [pr], [])])
-    assert "[#42 hello](https://github.com/kserve/kserve/pull/42)" in md
+    assert "[#42 hello](https://github.com/kserve/kserve/pull/42/files)" in md
