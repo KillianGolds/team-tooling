@@ -22,6 +22,14 @@ squads:
     - maskarb
     - Jooho
     - spolti
+  serving-runtimes:
+    - brettmthompson
+    - Raghul-M
+    - RH-steve-grubb
+    - rpancham
+    - Snomaan6846
+    - mwaykole
+
 
 # Map approver GitHub handles to their Slack user IDs.
 # To find a Slack user ID: click profile → ⋯ menu → "Copy member ID".
@@ -36,8 +44,6 @@ approvers:
 #    slack: TODO_SLACK_ID
 #  - github: spolti
 #    slack: TODO_SLACK_ID
-#  # cjohannsen-cloudera is an OWNERS approver but an outside contributor
-#  # (different org, not in our Slack) — intentionally not pingable.
 
 # Where the always-current PR digest issue lives. The Action updates this
 # issue's body on a schedule, and the weekly Slack ping links to it. The
