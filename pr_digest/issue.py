@@ -14,7 +14,7 @@ import os
 import sys
 
 from pr_digest.config import load_config
-from pr_digest.digest import build_squad_sections, drop_wip, enrich_pr
+from pr_digest.digest import build_digest_sections, drop_wip, enrich_pr
 from pr_digest.github_client import GitHubClient
 from pr_digest.markdown_formatter import build_digest_markdown
 
@@ -50,14 +50,15 @@ def main() -> None:
         for item in items
     ]
 
-    sections = build_squad_sections(
+    community_buckets, squad_sections = build_digest_sections(
         enriched,
         config["squads"],
         config["thresholds"]["fast_lane_max_size"],
         config["thresholds"]["fast_lane_max_files"],
+        config["thresholds"]["community_idle_cap_days"],
     )
 
-    body = build_digest_markdown(sections)
+    body = build_digest_markdown(community_buckets, squad_sections)
 
     if args.dry_run:
         print(body)
@@ -72,10 +73,11 @@ def main() -> None:
     owner, repo = issue_cfg["repo"].split("/", 1)
     write_client.update_issue_body(owner, repo, issue_cfg["number"], body)
 
-    summary = ", ".join(
-        f"{name}: {len(r)}/{len(f)}/{len(d)}" for name, r, f, d in sections
-    )
-    print(f"Updated {issue_cfg['repo']}#{issue_cfg['number']}: {summary}")
+    cr, cf, cd = community_buckets
+    parts = [f"community: {len(cr)}/{len(cf)}/{len(cd)}"] + [
+        f"{name}: {len(r)}/{len(f)}/{len(d)}" for name, r, f, d in squad_sections
+    ]
+    print(f"Updated {issue_cfg['repo']}#{issue_cfg['number']}: {', '.join(parts)}")
 
 
 if __name__ == "__main__":

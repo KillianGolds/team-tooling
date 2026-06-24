@@ -58,6 +58,7 @@ thresholds:
   fast_lane_max_size: 500   # additions + deletions
   fast_lane_max_files: 5    # also caps fast-lane by file count
   stale_days: 7             # days without activity before stale-alert fires
+  community_idle_cap_days: 45  # drop community PRs older than this unless someone is formally assigned
 
 # Glob patterns for files to exclude from the line-count.
 # Generated/vendored stuff inflates PR size without adding review burden.

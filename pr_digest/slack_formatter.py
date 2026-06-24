@@ -40,6 +40,8 @@ def _format_pr_line(pr: dict) -> str:
     elif pr.get("community_lgtm") and not pr["approved"]:
         badges.append("🟢 LGTM (comment)")
     badges.append(age_badge(pr["age_days"]))
+    if pr.get("community_assignee"):
+        badges.append(f"👀 reviewing: `{pr['community_assignee']}`")
 
     badge_str = " · ".join(badges)
     return (
@@ -84,11 +86,44 @@ def _squad_blocks(name: str, ready: list[dict], fast: list[dict], deep: list[dic
     return blocks
 
 
-def build_digest_blocks(sections: list[SquadSection]) -> list[dict]:
-    """Daily digest, grouped by squad. Each squad shows ready/fast/deep."""
-    t_ready = sum(len(r) for _, r, _, _ in sections)
-    t_fast = sum(len(f) for _, _, f, _ in sections)
-    t_deep = sum(len(d) for _, _, _, d in sections)
+def _community_blocks(
+    ready: list[dict], fast: list[dict], deep: list[dict]
+) -> list[dict]:
+    """Top-of-digest Community PRs section: cross-team PRs the team is
+    engaged in (external author, with at least one team participant via
+    assignee / mention / comment). Same bucket structure as a squad section."""
+    blocks: list[dict] = [_section(
+        f"*🤝 Community PRs we're helping land*  "
+        f"_({len(ready)} ready · {len(fast)} fast · {len(deep)} deep · "
+        f"team member assigned or reviewing, external author)_"
+    )]
+    if ready:
+        blocks.append(_section(
+            "*🟢 Ready for approver stamp*  _(LGTM'd, awaiting /approve — any size)_"
+        ))
+        blocks.extend(_chunked_sections([_format_pr_line(p) for p in ready]))
+    if fast:
+        blocks.append(_section("*Fast lane*  _(small, awaiting LGTM)_"))
+        blocks.extend(_chunked_sections([_format_pr_line(p) for p in fast]))
+    if deep:
+        blocks.append(_section("*Deep review*  _(larger PRs, awaiting LGTM)_"))
+        blocks.extend(_chunked_sections([_format_pr_line(p) for p in deep]))
+    return blocks
+
+
+def build_digest_blocks(
+    community_buckets: tuple[list[dict], list[dict], list[dict]],
+    squad_sections: list[SquadSection],
+) -> list[dict]:
+    """Daily digest. Renders Community PRs section first (when non-empty),
+    then each squad with ready/fast/deep."""
+    cr, cf, cd = community_buckets
+    sr = sum(len(r) for _, r, _, _ in squad_sections)
+    sf = sum(len(f) for _, _, f, _ in squad_sections)
+    sd = sum(len(d) for _, _, _, d in squad_sections)
+    t_ready = len(cr) + sr
+    t_fast = len(cf) + sf
+    t_deep = len(cd) + sd
 
     blocks: list[dict] = [
         {"type": "header", "text": {"type": "plain_text", "text": "📋 Upstream PR Digest"}},
@@ -109,8 +144,12 @@ def build_digest_blocks(sections: list[SquadSection]) -> list[dict]:
         blocks.append(_section("🎉 No open upstream PRs from the team. Nice."))
         return blocks
 
-    for i, (name, ready, fast, deep) in enumerate(sections):
-        if i > 0:
+    community_total = len(cr) + len(cf) + len(cd)
+    if community_total:
+        blocks.extend(_community_blocks(cr, cf, cd))
+
+    for i, (name, ready, fast, deep) in enumerate(squad_sections):
+        if i > 0 or community_total:
             blocks.append({"type": "divider"})
         blocks.extend(_squad_blocks(name, ready, fast, deep))
 
@@ -118,10 +157,13 @@ def build_digest_blocks(sections: list[SquadSection]) -> list[dict]:
 
 
 def build_stale_blocks(
-    stale_sections: list[tuple[str, list[dict]]], approver_slack_ids: list[str]
+    community_stale: list[dict],
+    stale_sections: list[tuple[str, list[dict]]],
+    approver_slack_ids: list[str],
 ) -> list[dict]:
-    """Weekly stale alert, grouped by squad. Tags approvers explicitly."""
-    total = sum(len(prs) for _, prs in stale_sections)
+    """Weekly stale alert. Community PRs first (flat list — staleness is the
+    only filter, so no inner bucketing), then squads. Tags approvers."""
+    total = len(community_stale) + sum(len(prs) for _, prs in stale_sections)
     blocks: list[dict] = [
         {"type": "header", "text": {"type": "plain_text", "text": "⏰ Stale Upstream PRs"}},
     ]
@@ -141,6 +183,13 @@ def build_stale_blocks(
     if approver_slack_ids:
         mentions = " ".join(f"<@{sid}>" for sid in approver_slack_ids)
         blocks.append(_section(f"cc {mentions}"))
+
+    if community_stale:
+        blocks.append({"type": "divider"})
+        blocks.append(_section(
+            f"*🤝 Community PRs we're helping land*  _({len(community_stale)} stale)_"
+        ))
+        blocks.extend(_chunked_sections([_format_pr_line(p) for p in community_stale]))
 
     for name, prs in stale_sections:
         if not prs:

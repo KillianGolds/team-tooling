@@ -2,7 +2,9 @@
 from pr_digest.digest import (
     _has_community_lgtm,
     bucket_prs,
+    filter_community_by_idle,
     partition_by_squad,
+    partition_for_digest,
     squad_for_author,
 )
 from pr_digest.github_client import filtered_size
@@ -12,13 +14,17 @@ from pr_digest.slack_formatter import age_badge, size_label
 
 def _pr(
     size=100, file_count=2, lgtm=False, community_lgtm=False,
-    approved=False, age=1, title="test", author="alice",
+    approved=False, age=1, idle=None, title="test", author="alice",
+    assignees=None,
 ):
     return {
         "title": title, "url": "http://x", "number": 1, "repo": "x/y",
-        "author": author, "size": size, "file_count": file_count,
+        "author": author, "assignees": assignees or [],
+        "size": size, "file_count": file_count,
         "lgtm": lgtm, "community_lgtm": community_lgtm, "approved": approved,
-        "age_days": age, "created_at": "2024-01-01T00:00:00Z",
+        "age_days": age,
+        "idle_days": age if idle is None else idle,
+        "created_at": "2024-01-01T00:00:00Z",
     }
 
 
@@ -219,14 +225,17 @@ def _md_pr(**overrides):
     return base
 
 
+_EMPTY_COMMUNITY: tuple[list, list, list] = ([], [], [])
+
+
 def test_markdown_empty_digest_says_so():
-    md = build_digest_markdown([])
+    md = build_digest_markdown(_EMPTY_COMMUNITY, [])
     assert "No open upstream PRs" in md
 
 
 def test_markdown_with_squad_renders_headers_and_links():
     pr = _md_pr(lgtm=True, title="fix(x): test", age=10, author="alice")
-    md = build_digest_markdown([("llm-d", [pr], [], [])])
+    md = build_digest_markdown(_EMPTY_COMMUNITY, [("llm-d", [pr], [], [])])
     assert "## 🧩 llm-d" in md
     assert "🟢 Ready for approver stamp" in md
     assert "fix(x): test" in md
@@ -238,7 +247,10 @@ def test_markdown_squad_with_nothing_open_renders_nothing_open_line():
     # When some squads have PRs and others don't, the empty one still gets its
     # own header so people can see "yes we checked, nothing for your squad".
     busy = _md_pr(lgtm=True, age=5)
-    md = build_digest_markdown([("llm-d", [busy], [], []), ("kserve", [], [], [])])
+    md = build_digest_markdown(
+        _EMPTY_COMMUNITY,
+        [("llm-d", [busy], [], []), ("kserve", [], [], [])],
+    )
     assert "## 🧩 kserve" in md
     assert "nothing open" in md
 
@@ -246,7 +258,7 @@ def test_markdown_squad_with_nothing_open_renders_nothing_open_line():
 def test_markdown_all_excluded_label_threads_through():
     pr = _md_pr(title="docs only", size=0, file_count=0, age=2)
     pr["raw_file_count"] = 2
-    md = build_digest_markdown([("llm-d", [], [pr], [])])
+    md = build_digest_markdown(_EMPTY_COMMUNITY, [("llm-d", [], [pr], [])])
     assert "2 files, all excluded" in md
 
 
@@ -255,5 +267,117 @@ def test_markdown_link_uses_files_subpath_to_suppress_cross_refs():
     # navigating to the PR (Files changed tab). Stops the bot leaving
     # "github-actions[bot] mentioned this PR" events on upstream kserve PRs.
     pr = _md_pr(title="hello", age=1)
-    md = build_digest_markdown([("llm-d", [], [pr], [])])
+    md = build_digest_markdown(_EMPTY_COMMUNITY, [("llm-d", [], [pr], [])])
     assert "[#42 hello](https://github.com/kserve/kserve/pull/42/files)" in md
+
+
+# --- partition_for_digest ---
+
+
+def test_partition_for_digest_team_authored_goes_to_squad():
+    pr = _pr(author="pierDipi")
+    community, sections = partition_for_digest([pr], SQUADS)
+    assert community == []
+    assert dict(sections)["llm-d"] == [pr]
+
+
+def test_partition_for_digest_external_with_team_assignee_goes_to_community():
+    pr = _pr(author="external-contributor", assignees=["KillianGolds"])
+    community, sections = partition_for_digest([pr], SQUADS)
+    assert len(community) == 1
+    assert community[0]["community_assignee"] == "KillianGolds"
+
+
+def test_partition_for_digest_external_without_team_assignee_still_goes_to_community():
+    # `involves:` search guarantees the team is engaged (commenter/mention),
+    # even when nobody is formally assigned. PR still belongs in community.
+    pr = _pr(author="external-contributor", assignees=[])
+    community, sections = partition_for_digest([pr], SQUADS)
+    assert len(community) == 1
+    assert "community_assignee" not in community[0]
+
+
+def test_partition_for_digest_author_precedence_over_assignee():
+    # llm-d author assigned to a kserve teammate still stays in llm-d.
+    pr = _pr(author="pierDipi", assignees=["spolti"])
+    community, sections = partition_for_digest([pr], SQUADS)
+    assert community == []
+    assert dict(sections)["llm-d"] == [pr]
+
+
+def test_partition_for_digest_skips_non_team_assignees_for_marker():
+    # External author with only a bot assignee: no `community_assignee` set.
+    pr = _pr(author="external", assignees=["openshift-ci[bot]"])
+    community, sections = partition_for_digest([pr], SQUADS)
+    assert len(community) == 1
+    assert "community_assignee" not in community[0]
+
+
+def test_partition_for_digest_first_team_assignee_wins():
+    pr = _pr(author="external", assignees=["openshift-ci[bot]", "pierDipi", "spolti"])
+    community, sections = partition_for_digest([pr], SQUADS)
+    assert community[0]["community_assignee"] == "pierDipi"
+
+
+# --- Community section rendering ---
+
+
+def test_markdown_community_section_renders_at_top_when_non_empty():
+    pr = _md_pr(author="external", age=5)
+    pr["community_assignee"] = "KillianGolds"
+    md = build_digest_markdown(([], [pr], []), [])
+    assert "🤝 Community PRs we're helping land" in md
+    assert "👀 reviewing: `KillianGolds`" in md
+    # Community section appears before the squad sections.
+    assert md.index("Community PRs") < md.index("---", md.index("Community PRs"))
+
+
+def test_markdown_community_section_omitted_when_empty():
+    pr = _md_pr(lgtm=True, author="pierDipi", age=5)
+    md = build_digest_markdown(_EMPTY_COMMUNITY, [("llm-d", [pr], [], [])])
+    assert "Community PRs we're helping land" not in md
+
+
+def test_markdown_community_assignee_marker_absent_for_team_authored_prs():
+    # Team-authored squad PRs don't carry the marker even if they happen to
+    # have an assignee field set somewhere.
+    pr = _md_pr(author="pierDipi", age=5)
+    md = build_digest_markdown(_EMPTY_COMMUNITY, [("llm-d", [], [pr], [])])
+    assert "👀 reviewing:" not in md
+
+
+def test_markdown_community_pr_without_assignee_renders_no_marker():
+    # When `involves:` catches a PR via commenter/mention but no team member
+    # is formally assigned, the line renders without the per-line marker.
+    # The section header alone provides context.
+    pr = _md_pr(author="external", age=5)
+    md = build_digest_markdown(([], [pr], []), [])
+    assert "🤝 Community PRs we're helping land" in md
+    assert "👀 reviewing:" not in md
+
+
+# --- filter_community_by_idle ---
+
+
+def test_filter_community_drops_old_unassigned_prs():
+    # No team_assignee, older than the cap: dropped.
+    pr = _pr(author="external", age=120)
+    assert filter_community_by_idle([pr], idle_cap_days=90) == []
+
+
+def test_filter_community_keeps_recent_unassigned_prs():
+    pr = _pr(author="external", age=30)
+    assert filter_community_by_idle([pr], idle_cap_days=90) == [pr]
+
+
+def test_filter_community_keeps_old_pr_with_explicit_assignee():
+    # Explicit shepherding intent (formal assignee) beats the age cap.
+    pr = _pr(author="external", age=400)
+    pr["community_assignee"] = "KillianGolds"
+    assert filter_community_by_idle([pr], idle_cap_days=90) == [pr]
+
+
+def test_filter_community_boundary_at_cap_is_kept():
+    # age == cap is kept (cap is inclusive upper bound).
+    pr = _pr(author="external", age=90)
+    assert filter_community_by_idle([pr], idle_cap_days=90) == [pr]

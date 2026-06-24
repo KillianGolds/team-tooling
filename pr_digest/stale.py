@@ -1,11 +1,19 @@
 """Weekly stale alert: PRs sitting without activity get an @-mention.
 
-Grouped by squad, like the daily digest, but filtered to idle PRs only.
+Includes a Community PRs section at the top (cross-team PRs the team has
+taken on) and squad sections below. A cross-team PR a teammate volunteered
+to help land that's been idle two weeks is exactly the signal we want
+surfaced, so community PRs go through the same idle filter as team-authored.
 """
 import os
 
 from pr_digest.config import load_config
-from pr_digest.digest import drop_wip, enrich_pr, partition_by_squad
+from pr_digest.digest import (
+    drop_wip,
+    enrich_pr,
+    filter_community_by_idle,
+    partition_for_digest,
+)
 from pr_digest.github_client import GitHubClient
 from pr_digest.slack_formatter import build_stale_blocks, post_to_slack
 
@@ -31,16 +39,25 @@ def main() -> None:
         if p["idle_days"] >= stale_days and not p["approved"]
     ]
 
+    community_stale, squad_partitions = partition_for_digest(stale, config["squads"])
+    # Apply the same idle-age cap the digest uses: skip ancient community PRs
+    # where nobody formally assigned themselves (would be noise).
+    community_stale = filter_community_by_idle(
+        community_stale, config["thresholds"]["community_idle_cap_days"]
+    )
+    community_stale.sort(key=lambda x: -x["idle_days"])
+
     stale_sections: list[tuple[str, list[dict]]] = []
-    for name, prs in partition_by_squad(stale, config["squads"]):
+    for name, prs in squad_partitions:
         prs.sort(key=lambda x: -x["idle_days"])
         stale_sections.append((name, prs))
 
     approver_slack_ids = [a["slack"] for a in config["approvers"] if a.get("slack")]
 
-    blocks = build_stale_blocks(stale_sections, approver_slack_ids)
+    blocks = build_stale_blocks(community_stale, stale_sections, approver_slack_ids)
     post_to_slack(webhook, blocks, fallback="Stale upstream PR alert")
-    print(f"Posted stale alert: {sum(len(p) for _, p in stale_sections)} PR(s)")
+    total = len(community_stale) + sum(len(p) for _, p in stale_sections)
+    print(f"Posted stale alert: {total} PR(s)")
 
 
 if __name__ == "__main__":

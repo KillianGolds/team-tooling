@@ -12,7 +12,7 @@ import sys
 from datetime import datetime, timezone
 
 from pr_digest.config import load_config
-from pr_digest.digest import build_squad_sections, drop_wip, enrich_pr
+from pr_digest.digest import build_digest_sections, drop_wip, enrich_pr
 from pr_digest.github_client import GitHubClient
 from pr_digest.slack_formatter import age_badge, size_label
 
@@ -27,6 +27,8 @@ def _format_pr(pr: dict) -> str:
     elif pr.get("community_lgtm") and not pr["approved"]:
         flags.append("LGTM (comment)")
     flags.append(age_badge(pr["age_days"]))
+    if pr.get("community_assignee"):
+        flags.append(f"reviewing: {pr['community_assignee']}")
     flag_str = " · ".join(flags)
     return (
         f"  #{pr['number']:<6} {title}\n"
@@ -44,11 +46,18 @@ def _bucket_block(label: str, prs: list[dict]) -> list[str]:
     return out
 
 
-def render(sections: list[tuple[str, list[dict], list[dict], list[dict]]]) -> str:
+def render(
+    community_buckets: tuple[list[dict], list[dict], list[dict]],
+    squad_sections: list[tuple[str, list[dict], list[dict], list[dict]]],
+) -> str:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    t_ready = sum(len(r) for _, r, _, _ in sections)
-    t_fast = sum(len(f) for _, _, f, _ in sections)
-    t_deep = sum(len(d) for _, _, _, d in sections)
+    cr, cf, cd = community_buckets
+    sr = sum(len(r) for _, r, _, _ in squad_sections)
+    sf = sum(len(f) for _, _, f, _ in squad_sections)
+    sd = sum(len(d) for _, _, _, d in squad_sections)
+    t_ready = sr + len(cr)
+    t_fast = sf + len(cf)
+    t_deep = sd + len(cd)
 
     out: list[str] = [
         f"Upstream PR Digest — {now}",
@@ -60,7 +69,24 @@ def render(sections: list[tuple[str, list[dict], list[dict], list[dict]]]) -> st
         "",
     ]
 
-    for name, ready, fast, deep in sections:
+    # Community section first if non-empty.
+    community_total = len(cr) + len(cf) + len(cd)
+    if community_total:
+        out.append("=" * 78)
+        out.append(
+            f"COMMUNITY PRs we're helping land  "
+            f"({len(cr)} ready · {len(cf)} fast · {len(cd)} deep)"
+        )
+        out.append("  (team member assigned or reviewing, external author)")
+        out.append("=" * 78)
+        out.extend(_bucket_block("READY FOR APPROVER STAMP — LGTM'd, awaiting /approve", cr))
+        out.append("")
+        out.extend(_bucket_block("FAST LANE — Awaiting LGTM", cf))
+        out.append("")
+        out.extend(_bucket_block("DEEP REVIEW — Awaiting LGTM", cd))
+        out.append("")
+
+    for name, ready, fast, deep in squad_sections:
         n = len(ready) + len(fast) + len(deep)
         out.append("=" * 78)
         out.append(f"SQUAD: {name}  ({len(ready)} ready · {len(fast)} fast · {len(deep)} deep)")
@@ -124,20 +150,22 @@ def main() -> None:
             print(f"  enriching {i}/{len(items)}...", file=sys.stderr)
         enriched.append(enrich_pr(client, item, config["exclude_paths"], team_members))
 
-    sections = build_squad_sections(
+    community_buckets, squad_sections = build_digest_sections(
         enriched,
         config["squads"],
         config["thresholds"]["fast_lane_max_size"],
         config["thresholds"]["fast_lane_max_files"],
+        config["thresholds"]["community_idle_cap_days"],
     )
 
     with open(args.output, "w") as f:
-        f.write(render(sections))
+        f.write(render(community_buckets, squad_sections))
 
-    summary = ", ".join(
-        f"{name} {len(r)}/{len(f)}/{len(d)}" for name, r, f, d in sections
-    )
-    print(f"Wrote {args.output} — ready/fast/deep per squad: {summary}", file=sys.stderr)
+    cr, cf, cd = community_buckets
+    parts = [f"community {len(cr)}/{len(cf)}/{len(cd)}"] + [
+        f"{name} {len(r)}/{len(f)}/{len(d)}" for name, r, f, d in squad_sections
+    ]
+    print(f"Wrote {args.output} — ready/fast/deep: {', '.join(parts)}", file=sys.stderr)
 
 
 if __name__ == "__main__":

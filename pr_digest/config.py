@@ -38,5 +38,6 @@ def load_config(path: Path | None = None) -> dict:
     cfg["thresholds"].setdefault("fast_lane_max_size", 500)
     cfg["thresholds"].setdefault("fast_lane_max_files", 5)
     cfg["thresholds"].setdefault("stale_days", 7)
+    cfg["thresholds"].setdefault("community_idle_cap_days", 90)
 
     return cfg

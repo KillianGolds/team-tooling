@@ -95,6 +95,7 @@ def enrich_pr(
         "number": number,
         "repo": f"{owner}/{repo}",
         "author": pr_author,
+        "assignees": [a["login"] for a in (item.get("assignees") or [])],
         "size": size,
         "file_count": file_count,
         "raw_file_count": raw_file_count,
@@ -144,8 +145,13 @@ def squad_for_author(author: str, squads: dict[str, list[str]]) -> str | None:
 def partition_by_squad(
     enriched: list[dict], squads: dict[str, list[str]]
 ) -> list[tuple[str, list[dict]]]:
-    """Group enriched PRs by squad, preserving config order. PRs whose author
-    isn't in any squad land in a trailing '(unassigned)' group."""
+    """Group enriched PRs by squad based on author, preserving config order.
+    PRs whose author isn't in any squad land in a trailing '(unassigned)' group.
+
+    Low-level primitive. For digest output, use partition_for_digest instead,
+    which also pulls cross-team PRs (team-member assignee, external author)
+    into a separate Community list.
+    """
     groups: dict[str, list[dict]] = {name: [] for name in squads}
     unassigned: list[dict] = []
     for p in enriched:
@@ -157,15 +163,102 @@ def partition_by_squad(
     return sections
 
 
-def build_squad_sections(
-    enriched: list[dict], squads: dict[str, list[str]], max_size: int, max_files: int
-) -> list[tuple[str, list[dict], list[dict], list[dict]]]:
-    """For each squad, bucket its PRs. Returns (squad, ready, fast, deep) tuples."""
-    sections = []
-    for name, prs in partition_by_squad(enriched, squads):
+def partition_for_digest(
+    enriched: list[dict], squads: dict[str, list[str]]
+) -> tuple[list[dict], list[tuple[str, list[dict]]]]:
+    """Split enriched PRs into a community list + squad sections.
+
+    - Team-authored (author is on a squad): goes to that squad's list.
+    - External author: goes to the Community list. We know a team member is
+      engaged because the search uses `involves:` (author / assignee /
+      mentioned / commenter). If a team member is also a formal assignee,
+      set `pr["community_assignee"]` to their handle so the formatter can
+      show "📌 taken by". When no team member is explicitly assigned, we
+      just let the section header carry the framing.
+    - Anything else: should not happen since the search is scoped to team
+      handles, but we keep an "(unassigned)" safety net.
+
+    Author takes precedence over assignee: a PR Killian authored stays in
+    llm-d even if a kserve teammate is also assigned. When multiple team
+    members are assigned, the first one in `pr["assignees"]` order wins
+    (GitHub's order, not config order).
+
+    Returns (community_prs, squad_sections) where squad_sections matches
+    partition_by_squad's shape.
+    """
+    community: list[dict] = []
+    groups: dict[str, list[dict]] = {name: [] for name in squads}
+    unassigned: list[dict] = []
+    for p in enriched:
+        author_squad = squad_for_author(p["author"], squads)
+        if author_squad:
+            groups[author_squad].append(p)
+            continue
+        team_assignee = next(
+            (a for a in p.get("assignees", []) if squad_for_author(a, squads)),
+            None,
+        )
+        if team_assignee:
+            p["community_assignee"] = team_assignee
+        community.append(p)
+    sections = [(name, prs) for name, prs in groups.items()]
+    if unassigned:
+        sections.append(("(unassigned)", unassigned))
+    return community, sections
+
+
+def filter_community_by_idle(
+    community_prs: list[dict], idle_cap_days: int
+) -> list[dict]:
+    """Drop community PRs older than the cap (by age, not idleness).
+
+    Exception: PRs with `community_assignee` set (someone formally assigned
+    themselves) bypass the cap. Explicit shepherding intent is a stronger
+    signal than recency, so we keep those regardless of age.
+
+    Rationale: `involves:` search catches every PR where a team handle ever
+    appeared as author / assignee / commenter / mention. Without a cap, that
+    pulls in PRs from years ago where someone left a single comment. We use
+    `age_days` (not `idle_days`) because ancient PRs often still get bot
+    updates that mask their true staleness — age is the cleaner signal of
+    "this is not active shepherding material."
+
+    The parameter name kept the `_idle_` shape for back-compat with config;
+    semantics shifted to age. Worth renaming in config.yml when convenient.
+    """
+    return [
+        p for p in community_prs
+        if p.get("community_assignee") or p["age_days"] <= idle_cap_days
+    ]
+
+
+def build_digest_sections(
+    enriched: list[dict],
+    squads: dict[str, list[str]],
+    max_size: int,
+    max_files: int,
+    community_idle_cap_days: int = 90,
+) -> tuple[
+    tuple[list[dict], list[dict], list[dict]],
+    list[tuple[str, list[dict], list[dict], list[dict]]],
+]:
+    """Returns (community_buckets, squad_sections).
+
+    community_buckets = (ready, fast, deep) for the cross-team Community
+    section that renders at the top.
+    squad_sections is a list of (squad_name, ready, fast, deep) tuples.
+
+    `community_idle_cap_days` filters out community PRs idle longer than this,
+    unless they have an explicit team assignee.
+    """
+    community_prs, squad_partitions = partition_for_digest(enriched, squads)
+    community_prs = filter_community_by_idle(community_prs, community_idle_cap_days)
+    community_buckets = bucket_prs(community_prs, max_size, max_files)
+    squad_sections = []
+    for name, prs in squad_partitions:
         ready, fast, deep = bucket_prs(prs, max_size, max_files)
-        sections.append((name, ready, fast, deep))
-    return sections
+        squad_sections.append((name, ready, fast, deep))
+    return community_buckets, squad_sections
 
 
 def main() -> None:
@@ -181,19 +274,21 @@ def main() -> None:
         for item in items
     ]
 
-    sections = build_squad_sections(
+    community_buckets, squad_sections = build_digest_sections(
         enriched,
         config["squads"],
         config["thresholds"]["fast_lane_max_size"],
         config["thresholds"]["fast_lane_max_files"],
+        config["thresholds"]["community_idle_cap_days"],
     )
 
-    blocks = build_digest_blocks(sections)
+    blocks = build_digest_blocks(community_buckets, squad_sections)
     post_to_slack(webhook, blocks)
-    summary = ", ".join(
-        f"{name}: {len(r)}/{len(f)}/{len(d)}" for name, r, f, d in sections
-    )
-    print(f"Posted digest (ready/fast/deep per squad) — {summary}")
+    cr, cf, cd = community_buckets
+    parts = [f"community: {len(cr)}/{len(cf)}/{len(cd)}"] + [
+        f"{name}: {len(r)}/{len(f)}/{len(d)}" for name, r, f, d in squad_sections
+    ]
+    print(f"Posted digest (ready/fast/deep): {', '.join(parts)}")
 
 
 if __name__ == "__main__":

@@ -19,6 +19,8 @@ def _format_pr_line(pr: dict) -> str:
     elif pr.get("community_lgtm") and not pr["approved"]:
         badges.append("🟢 LGTM (comment)")
     badges.append(age_badge(pr["age_days"]))
+    if pr.get("community_assignee"):
+        badges.append(f"👀 reviewing: `{pr['community_assignee']}`")
 
     badge_str = " · ".join(badges)
     # Append `/files` to the PR URL: GitHub's cross-reference detector matches
@@ -62,10 +64,38 @@ def _squad_section(
     return lines
 
 
-def build_digest_markdown(sections: list[SquadSection]) -> str:
-    t_ready = sum(len(r) for _, r, _, _ in sections)
-    t_fast = sum(len(f) for _, _, f, _ in sections)
-    t_deep = sum(len(d) for _, _, _, d in sections)
+def _community_section(
+    ready: list[dict], fast: list[dict], deep: list[dict]
+) -> list[str]:
+    """Top-of-digest Community PRs section: cross-team PRs the team is engaged
+    in (external author, with at least one team participant). Same bucket
+    structure as a squad section so the mental model is parallel."""
+    lines = [
+        "",
+        "## 🤝 Community PRs we're helping land",
+        f"_{len(ready)} ready · {len(fast)} fast · {len(deep)} deep · "
+        "team member assigned or reviewing, external author_",
+    ]
+    lines.extend(_bucket_section(
+        "🟢 Ready for approver stamp _(LGTM'd, awaiting `/approve`, any size)_",
+        ready,
+    ))
+    lines.extend(_bucket_section("Fast lane _(small PRs awaiting LGTM)_", fast))
+    lines.extend(_bucket_section("Deep review _(larger PRs awaiting LGTM)_", deep))
+    return lines
+
+
+def build_digest_markdown(
+    community_buckets: tuple[list[dict], list[dict], list[dict]],
+    squad_sections: list[SquadSection],
+) -> str:
+    cr, cf, cd = community_buckets
+    sr = sum(len(r) for _, r, _, _ in squad_sections)
+    sf = sum(len(f) for _, _, f, _ in squad_sections)
+    sd = sum(len(d) for _, _, _, d in squad_sections)
+    t_ready = len(cr) + sr
+    t_fast = len(cf) + sf
+    t_deep = len(cd) + sd
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
     lines = [
@@ -82,7 +112,9 @@ def build_digest_markdown(sections: list[SquadSection]) -> str:
     if t_ready + t_fast + t_deep == 0:
         lines.extend(["", "🎉 No open upstream PRs from the team. Nice."])
     else:
-        for name, ready, fast, deep in sections:
+        if len(cr) + len(cf) + len(cd):
+            lines.extend(_community_section(cr, cf, cd))
+        for name, ready, fast, deep in squad_sections:
             lines.extend(_squad_section(name, ready, fast, deep))
 
     lines.extend([

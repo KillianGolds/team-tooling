@@ -36,19 +36,36 @@ class GitHubClient:
         return {}  # unreachable, satisfies type checker
 
     def search_open_prs(self, repos: list[str], authors: list[str]) -> list[dict]:
-        """Find open PRs by team across upstream repos.
+        """Find open PRs where any handle in `authors` is involved.
+
+        Uses GitHub's `involves:` qualifier, which matches PRs where the
+        handle is the author, an assignee, mentioned in title/body, or has
+        commented. Broader than `author:` or `assignee:` alone — catches
+        real review engagement even when nobody formally assigned themselves.
+
+        The parameter name `authors` is kept for back-compat with callers
+        despite the broader semantics; it represents the set of team handles
+        to scope the search to.
 
         Filters out drafts and PRs labeled do-not-merge / hold at query time.
+        When `authors` is empty, runs one unfiltered query (used by
+        `dump --all-authors`).
         """
         repo_q = " ".join(f"repo:{r}" for r in repos)
-        author_q = " ".join(f"author:{a}" for a in authors)
-        q = (
-            f"is:pr is:open draft:false {repo_q} {author_q} "
+        common = (
+            f"is:pr is:open draft:false {repo_q} "
             f"-label:do-not-merge -label:hold -label:\"do-not-merge/hold\""
         )
 
         items: list[dict] = []
         page = 1
+
+        if authors:
+            involves_q = " ".join(f"involves:{a}" for a in authors)
+            q = f"{common} {involves_q}"
+        else:
+            q = common
+
         while page <= 10:  # safety cap
             data = self._get(
                 f"{API_BASE}/search/issues",
