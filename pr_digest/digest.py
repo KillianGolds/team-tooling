@@ -21,6 +21,29 @@ def drop_wip(items: list[dict]) -> list[dict]:
     return [it for it in items if not _WIP_RE.search(it["title"])]
 
 
+def _first_team_commenter(
+    comments: list[dict], team_members: set[str], pr_author: str
+) -> str | None:
+    """First team member who commented on the PR (excluding the PR author).
+
+    Returns the commenter's canonical login (whatever case the API returned),
+    or None. Used to identify a team participant when no formal assignee
+    exists, so the digest can still show '👀 reviewing: handle' on community
+    PRs that the team is engaged in via comments rather than assignment.
+    """
+    members_lc = {m.lower() for m in team_members}
+    author_lc = pr_author.lower()
+    for c in sorted(comments, key=lambda c: c.get("created_at", "")):
+        login = c.get("user", {}).get("login")
+        if not login:
+            continue
+        login_lc = login.lower()
+        if login_lc not in members_lc or login_lc == author_lc:
+            continue
+        return login
+    return None
+
+
 def _has_community_lgtm(
     comments: list[dict], team_members: set[str], pr_author: str
 ) -> bool:
@@ -75,13 +98,18 @@ def enrich_pr(
     labels = {label["name"] for label in item.get("labels", [])}
     has_label_lgtm = "lgtm" in labels
     pr_author = item["user"]["login"]
+    author_is_team = pr_author.lower() in {m.lower() for m in team_members}
 
-    # Skip the extra comment fetch if the label is already present.
-    if has_label_lgtm:
+    # Fetch comments unless author is on team AND label is set: in that case
+    # the PR is going to a squad section with the lgtm label already shown,
+    # so neither community_lgtm nor team_participant changes anything.
+    team_participant: str | None = None
+    if has_label_lgtm and author_is_team:
         community_lgtm = False
     else:
         comments = client.get_pr_comments(owner, repo, number)
         community_lgtm = _has_community_lgtm(comments, team_members, pr_author)
+        team_participant = _first_team_commenter(comments, team_members, pr_author)
 
     now = datetime.now(timezone.utc)
     created = datetime.fromisoformat(item["created_at"].replace("Z", "+00:00"))
@@ -101,6 +129,7 @@ def enrich_pr(
         "raw_file_count": raw_file_count,
         "lgtm": has_label_lgtm,
         "community_lgtm": community_lgtm,
+        "team_participant": team_participant,
         "approved": "approved" in labels,
         "age_days": age,
         "idle_days": idle,
@@ -194,12 +223,17 @@ def partition_for_digest(
         if author_squad:
             groups[author_squad].append(p)
             continue
+        # External author. Set the marker handle from the formal assignee
+        # first; if none, fall back to the first team member who commented.
+        # Either way the marker shows up as "👀 reviewing: handle".
         team_assignee = next(
             (a for a in p.get("assignees", []) if squad_for_author(a, squads)),
             None,
         )
         if team_assignee:
             p["community_assignee"] = team_assignee
+        elif p.get("team_participant") and squad_for_author(p["team_participant"], squads):
+            p["community_assignee"] = p["team_participant"]
         community.append(p)
     sections = [(name, prs) for name, prs in groups.items()]
     if unassigned:
@@ -207,14 +241,23 @@ def partition_for_digest(
     return community, sections
 
 
+def _has_formal_team_assignee(p: dict) -> bool:
+    """True if the marker handle came from the formal `assignees` field
+    (someone clicked 'Assign yourself') rather than from comment-based
+    fallback. Formal assignment is a stronger shepherding signal."""
+    handle = p.get("community_assignee")
+    return bool(handle) and handle in p.get("assignees", [])
+
+
 def filter_community_by_idle(
     community_prs: list[dict], idle_cap_days: int
 ) -> list[dict]:
     """Drop community PRs older than the cap (by age, not idleness).
 
-    Exception: PRs with `community_assignee` set (someone formally assigned
-    themselves) bypass the cap. Explicit shepherding intent is a stronger
-    signal than recency, so we keep those regardless of age.
+    Exception: PRs with a *formal* team assignee (`community_assignee` came
+    from `pr['assignees']`, not from a comment) bypass the cap. Explicit
+    self-assignment is a stronger signal of active shepherding than a
+    comment from years ago.
 
     Rationale: `involves:` search catches every PR where a team handle ever
     appeared as author / assignee / commenter / mention. Without a cap, that
@@ -228,7 +271,7 @@ def filter_community_by_idle(
     """
     return [
         p for p in community_prs
-        if p.get("community_assignee") or p["age_days"] <= idle_cap_days
+        if _has_formal_team_assignee(p) or p["age_days"] <= idle_cap_days
     ]
 
 

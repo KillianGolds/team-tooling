@@ -1,5 +1,6 @@
 """Tests for bucketing + community-LGTM detection — the parts most likely to need tuning."""
 from pr_digest.digest import (
+    _first_team_commenter,
     _has_community_lgtm,
     bucket_prs,
     filter_community_by_idle,
@@ -15,13 +16,14 @@ from pr_digest.slack_formatter import age_badge, size_label
 def _pr(
     size=100, file_count=2, lgtm=False, community_lgtm=False,
     approved=False, age=1, idle=None, title="test", author="alice",
-    assignees=None,
+    assignees=None, team_participant=None,
 ):
     return {
         "title": title, "url": "http://x", "number": 1, "repo": "x/y",
         "author": author, "assignees": assignees or [],
         "size": size, "file_count": file_count,
-        "lgtm": lgtm, "community_lgtm": community_lgtm, "approved": approved,
+        "lgtm": lgtm, "community_lgtm": community_lgtm,
+        "team_participant": team_participant, "approved": approved,
         "age_days": age,
         "idle_days": age if idle is None else idle,
         "created_at": "2024-01-01T00:00:00Z",
@@ -144,6 +146,35 @@ def test_community_lgtm_lgtm_substring_in_text_doesnt_count():
     # /lgtm has to be at start of a line, not mid-sentence.
     comments = [_comment("alice", "I'd say /lgtm but I have concerns")]
     assert not _has_community_lgtm(comments, {"alice"}, pr_author="carol")
+
+
+# --- _first_team_commenter ---
+
+
+def test_first_team_commenter_returns_earliest_team_member():
+    comments = [
+        _comment("stranger", "hi", at="2024-01-01T00:00:00Z"),
+        _comment("bartoszmajsak", "lgtm-ish", at="2024-01-02T00:00:00Z"),
+        _comment("pierDipi", "also looks good", at="2024-01-03T00:00:00Z"),
+    ]
+    result = _first_team_commenter(comments, {"bartoszmajsak", "pierDipi"}, pr_author="external")
+    assert result == "bartoszmajsak"
+
+
+def test_first_team_commenter_ignores_pr_author():
+    comments = [_comment("carol", "thanks for the review", at="2024-01-01T00:00:00Z")]
+    assert _first_team_commenter(comments, {"carol"}, pr_author="carol") is None
+
+
+def test_first_team_commenter_returns_none_when_no_team_member_commented():
+    comments = [_comment("stranger", "hi")]
+    assert _first_team_commenter(comments, {"bartoszmajsak"}, pr_author="external") is None
+
+
+def test_first_team_commenter_case_insensitive():
+    comments = [_comment("BARTOSZMAJSAK", "comment", at="2024-01-01T00:00:00Z")]
+    result = _first_team_commenter(comments, {"bartoszmajsak"}, pr_author="external")
+    assert result == "BARTOSZMAJSAK"  # returns canonical case from API
 
 
 # --- squad partitioning ---
@@ -319,6 +350,33 @@ def test_partition_for_digest_first_team_assignee_wins():
     assert community[0]["community_assignee"] == "pierDipi"
 
 
+def test_partition_for_digest_falls_back_to_team_participant_when_no_assignee():
+    # External author, no formal assignee, but KillianGolds commented.
+    # The marker should still surface him as the team handle engaged.
+    pr = _pr(author="external", assignees=[], team_participant="KillianGolds")
+    community, sections = partition_for_digest([pr], SQUADS)
+    assert len(community) == 1
+    assert community[0]["community_assignee"] == "KillianGolds"
+
+
+def test_partition_for_digest_assignee_beats_participant():
+    # Both set: formal assignment is stronger signal, wins.
+    pr = _pr(
+        author="external",
+        assignees=["pierDipi"],
+        team_participant="spolti",
+    )
+    community, sections = partition_for_digest([pr], SQUADS)
+    assert community[0]["community_assignee"] == "pierDipi"
+
+
+def test_partition_for_digest_ignores_non_team_participant():
+    # team_participant set but isn't on any squad (defensive): no marker.
+    pr = _pr(author="external", team_participant="some-external-stranger")
+    community, sections = partition_for_digest([pr], SQUADS)
+    assert "community_assignee" not in community[0]
+
+
 # --- Community section rendering ---
 
 
@@ -370,11 +428,20 @@ def test_filter_community_keeps_recent_unassigned_prs():
     assert filter_community_by_idle([pr], idle_cap_days=90) == [pr]
 
 
-def test_filter_community_keeps_old_pr_with_explicit_assignee():
-    # Explicit shepherding intent (formal assignee) beats the age cap.
-    pr = _pr(author="external", age=400)
+def test_filter_community_keeps_old_pr_with_formal_assignee():
+    # Formal assignment (handle is in pr["assignees"]) beats the age cap.
+    pr = _pr(author="external", age=400, assignees=["KillianGolds"])
     pr["community_assignee"] = "KillianGolds"
     assert filter_community_by_idle([pr], idle_cap_days=90) == [pr]
+
+
+def test_filter_community_drops_old_pr_when_marker_is_from_commenter_only():
+    # community_assignee came from a comment (not formal assignment): the
+    # cap-bypass shouldn't apply. A comment from years ago is noise, not
+    # active shepherding.
+    pr = _pr(author="external", age=400, assignees=[])
+    pr["community_assignee"] = "KillianGolds"  # from team_participant
+    assert filter_community_by_idle([pr], idle_cap_days=90) == []
 
 
 def test_filter_community_boundary_at_cap_is_kept():
