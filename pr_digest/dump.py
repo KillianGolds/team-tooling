@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 
 from pr_digest.config import load_config
 from pr_digest.digest import build_digest_sections, drop_wip, enrich_pr
-from pr_digest.github_client import GitHubClient
+from common.github_client import GitHubClient
 from pr_digest.slack_formatter import age_badge, size_label
 
 

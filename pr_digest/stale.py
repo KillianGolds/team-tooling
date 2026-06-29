@@ -14,7 +14,7 @@ from pr_digest.digest import (
     filter_community_by_idle,
     partition_for_digest,
 )
-from pr_digest.github_client import GitHubClient
+from common.github_client import GitHubClient
 from pr_digest.slack_formatter import build_stale_blocks, post_to_slack
 
 

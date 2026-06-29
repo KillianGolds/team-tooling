@@ -4,7 +4,7 @@ import re
 from datetime import datetime, timezone
 
 from pr_digest.config import load_config
-from pr_digest.github_client import GitHubClient, filtered_size
+from common.github_client import GitHubClient, filtered_size
 from pr_digest.slack_formatter import build_digest_blocks, post_to_slack
 
 # Match `WIP` as a standalone word so titles like "fix swipe" aren't dropped.

@@ -8,7 +8,7 @@ from pr_digest.digest import (
     partition_for_digest,
     squad_for_author,
 )
-from pr_digest.github_client import filtered_size
+from common.github_client import filtered_size
 from pr_digest.markdown_formatter import build_digest_markdown
 from pr_digest.slack_formatter import age_badge, size_label
 
