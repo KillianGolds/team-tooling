@@ -1,17 +1,22 @@
-"""Load and validate team-tooling configuration."""
+"""Load and validate pr_digest configuration.
+
+Delegates the generic YAML+env work to common.config.load_yaml, then layers
+the pr_digest schema on top: squad -> team_members union, required keys,
+threshold defaults.
+"""
 from pathlib import Path
-import yaml
+
+from common.config import load_yaml
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
 def load_config(path: Path | None = None) -> dict:
-    """Load config.yml from repo root (or a custom path)."""
+    """Load pr_digest's config.yml and apply the pr-specific schema."""
     if path is None:
         path = REPO_ROOT / "config.yml"
-    with open(path) as f:
-        cfg = yaml.safe_load(f)
+    cfg = load_yaml(path)
 
     # Squads (preferred): dict of squad_name -> [handles]. We derive a flat
     # team_members union for the GitHub search query, and keep `squads` for
