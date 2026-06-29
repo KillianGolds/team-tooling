@@ -4,18 +4,23 @@ Delegates the generic YAML+env work to common.config.load_yaml, then layers
 the pr_digest schema on top: squad -> team_members union, required keys,
 threshold defaults.
 """
+import os
 from pathlib import Path
 
 from common.config import load_yaml
 
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+# Per-tool config lives alongside the package now. Tools no longer share a
+# root-level config.yml. Override via PR_DIGEST_CONFIG=/path/to/file or
+# by passing `path` explicitly to load_config().
+DEFAULT_CONFIG_PATH = Path(__file__).resolve().parent / "config.yml"
 
 
 def load_config(path: Path | None = None) -> dict:
     """Load pr_digest's config.yml and apply the pr-specific schema."""
     if path is None:
-        path = REPO_ROOT / "config.yml"
+        env_path = os.environ.get("PR_DIGEST_CONFIG")
+        path = Path(env_path) if env_path else DEFAULT_CONFIG_PATH
     cfg = load_yaml(path)
 
     # Squads (preferred): dict of squad_name -> [handles]. We derive a flat

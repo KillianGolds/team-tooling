@@ -54,7 +54,7 @@ Nothing in here is sensitive:
 - Secrets (`GH_TOKEN`, `SLACK_WEBHOOK`) live in repo Secrets, never
   committed.
 - `.env` is gitignored.
-- `config.yml` lists public GitHub handles.
+- `pr_digest/config.yml` lists public GitHub handles.
 - The issue body just shows PRs that are already public upstream in
   `kserve/kserve`.
 
@@ -87,9 +87,9 @@ In Settings → Secrets and variables → Actions:
 - `SLACK_WEBHOOK`: the webhook URL (only needed if you're running the
   Slack workflows).
 
-### `config.yml`
+### `pr_digest/config.yml`
 
-Single source of truth:
+Single source of truth for pr_digest (each tool owns its own config):
 
 - `squads`: GitHub handles grouped by squad.
 - `approvers`: maps a GitHub handle to a Slack member ID for the
@@ -142,14 +142,17 @@ pytest tests/
 ## Architecture
 
 ```
-config.yml                       ← single source of truth
+pyproject.toml                   ← shared deps + per-tool extras
+common/                          ← shared library (any tool imports from here)
+├── github_client.py             ← API wrapper + rate-limit handling
+└── config.py                    ← generic YAML + env-var loader, tool-agnostic
 .github/workflows/
 ├── pr-issue.yml                 ← refreshes the pinned GitHub issue
 ├── pr-digest.yml                ← Slack digest (cron is source of truth)
 └── stale-alert.yml              ← stale-alert schedule
 pr_digest/
-├── config.py                    ← loads config.yml (squads → flat team_members union)
-├── github_client.py             ← API wrapper + rate-limit handling
+├── config.yml                   ← single source of truth for pr_digest
+├── config.py                    ← pr_digest schema on top of common.config (squads → flat team_members union)
 ├── slack_formatter.py           ← Block Kit rendering, grouped by squad
 ├── markdown_formatter.py        ← GitHub Markdown rendering for the issue body
 ├── digest.py                    ← shared pipeline: search → enrich → bucket → partition
@@ -169,7 +172,7 @@ public-repo read.
 ## Common changes
 
 **Add a team member:** add their GitHub handle under the right squad in
-`squads` in `config.yml`.
+`squads` in `pr_digest/config.yml`.
 
 **Add a squad:** add a new key under `squads` with its members. The digest
 grows a new grouped section automatically.
@@ -178,7 +181,7 @@ grows a new grouped section automatically.
 Handle matching is case-insensitive.
 
 **Change the pinned issue:** edit `issue.repo` and `issue.number` in
-`config.yml`. The bot rewrites whatever issue you point it at.
+`pr_digest/config.yml`. The bot rewrites whatever issue you point it at.
 
 **Add a repo to watch:** add it to `repos`. Works fine for multiple
 upstream repos and any midstream or downstream you also care about.
