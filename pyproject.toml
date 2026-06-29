@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "team-tooling"
+version = "0.1.0"
+description = "Internal tooling for tracking upstream PRs across the team."
+requires-python = ">=3.10"
+# Shared runtime deps used by common/ and any tool: github_client.py uses
+# requests, config.py uses PyYAML, the formatters use requests for posting.
+dependencies = [
+    "requests>=2.31.0",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+# Per-tool extras: install only what a given tool needs.
+# Today pr_digest has no deps beyond the shared base. A future tool like
+# flake_digest would add its own (e.g. google-cloud-storage) here without
+# polluting pr_digest's environment.
+pr_digest = []
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["pr_digest*", "common*"]
+exclude = ["tests*"]
