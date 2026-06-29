@@ -16,10 +16,11 @@ dependencies = [
 
 [project.optional-dependencies]
 # Per-tool extras: install only what a given tool needs.
-# Today pr_digest has no deps beyond the shared base. A future tool like
-# flake_digest would add its own (e.g. google-cloud-storage) here without
-# polluting pr_digest's environment.
+# Today pr_digest has no deps beyond the shared base. flake_digest is
+# the upcoming second tool; its GCS dep lives here so it never lands in
+# pr_digest's environment when the workflow runs `pip install .[pr_digest]`.
 pr_digest = []
+flake_digest = ["google-cloud-storage"]
 dev = ["pytest"]
 
 [tool.setuptools.packages.find]

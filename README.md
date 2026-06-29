@@ -111,7 +111,7 @@ GitHub account so this doesn't ride on any one person.
 ## Running it locally
 
 ```bash
-pip install -r requirements.txt
+pip install '.[pr_digest]'
 export GH_TOKEN=github_pat_...
 
 # Preview the pinned-issue Markdown without writing to GitHub:
@@ -135,7 +135,7 @@ python -m pr_digest.dump --all-authors --limit 20  # quick sample
 Tests:
 
 ```bash
-pip install pytest
+pip install '.[dev]'
 pytest tests/
 ```
 
