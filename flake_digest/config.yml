@@ -4,6 +4,12 @@
 
 window_days: 30
 
+# where the pinned issue lives; number stays empty until go-live creates
+# the issue, and evidence links point at this repo's reports/ directory
+issue:
+  repo: KillianGolds/team-tooling
+  number: null
+
 # Midstream Prow sources. A list so a second repo (odh-model-controller,
 # same bucket and layout) is a config entry, not a code change; only
 # kserve is enabled for now.

@@ -26,6 +26,9 @@ def load_config(path: Path | None = None) -> dict:
         entry.setdefault("test_level_exclude", [])
 
     cfg.setdefault("window_days", 30)
+    cfg.setdefault("issue", {})
+    cfg["issue"].setdefault("repo", None)
+    cfg["issue"].setdefault("number", None)
     return cfg
 
 
