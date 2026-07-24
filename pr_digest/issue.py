@@ -16,6 +16,7 @@ import sys
 from pr_digest.config import load_config
 from pr_digest.digest import build_digest_sections, drop_wip, enrich_pr
 from common.github_client import GitHubClient
+from common.issue import resolve_write_token, rewrite_issue
 from pr_digest.markdown_formatter import build_digest_markdown
 
 
@@ -64,14 +65,8 @@ def main() -> None:
         print(body)
         return
 
-    # Issue updates use a separately-scoped token: in CI the Action's built-in
-    # GITHUB_TOKEN (issues:write on this repo), locally a PAT with the same
-    # scope. Falls back to GH_TOKEN if ISSUE_TOKEN isn't set.
-    write_token = os.environ.get("ISSUE_TOKEN") or read_token
-    write_client = GitHubClient(write_token)
-
-    owner, repo = issue_cfg["repo"].split("/", 1)
-    write_client.update_issue_body(owner, repo, issue_cfg["number"], body)
+    rewrite_issue(issue_cfg["repo"], issue_cfg["number"], body,
+                  resolve_write_token(read_token))
 
     cr, cf, cd = community_buckets
     parts = [f"community: {len(cr)}/{len(cf)}/{len(cd)}"] + [

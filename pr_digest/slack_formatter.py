@@ -1,5 +1,4 @@
 """Render PR lists as Slack Block Kit messages, grouped by squad."""
-import requests
 
 # Type alias for readability: (squad_name, ready, fast, deep)
 SquadSection = tuple[str, list[dict], list[dict], list[dict]]
@@ -199,9 +198,3 @@ def build_stale_blocks(
         blocks.extend(_chunked_sections([_format_pr_line(p) for p in prs]))
 
     return blocks
-
-
-def post_to_slack(webhook_url: str, blocks: list[dict], fallback: str = "Upstream PR digest") -> None:
-    payload = {"text": fallback, "blocks": blocks}
-    r = requests.post(webhook_url, json=payload, timeout=15)
-    r.raise_for_status()

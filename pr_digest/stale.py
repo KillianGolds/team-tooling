@@ -15,7 +15,8 @@ from pr_digest.digest import (
     partition_for_digest,
 )
 from common.github_client import GitHubClient
-from pr_digest.slack_formatter import build_stale_blocks, post_to_slack
+from common.slack import post_to_slack
+from pr_digest.slack_formatter import build_stale_blocks
 
 
 def main() -> None:

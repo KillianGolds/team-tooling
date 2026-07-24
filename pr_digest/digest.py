@@ -5,7 +5,8 @@ from datetime import datetime, timezone
 
 from pr_digest.config import load_config
 from common.github_client import GitHubClient, filtered_size
-from pr_digest.slack_formatter import build_digest_blocks, post_to_slack
+from common.slack import post_to_slack
+from pr_digest.slack_formatter import build_digest_blocks
 
 # Match `WIP` as a standalone word so titles like "fix swipe" aren't dropped.
 # Catches "[WIP]", "WIP:", "(wip)", " wip ", etc.
@@ -326,7 +327,7 @@ def main() -> None:
     )
 
     blocks = build_digest_blocks(community_buckets, squad_sections)
-    post_to_slack(webhook, blocks)
+    post_to_slack(webhook, blocks, fallback="Upstream PR digest")
     cr, cf, cd = community_buckets
     parts = [f"community: {len(cr)}/{len(cf)}/{len(cd)}"] + [
         f"{name}: {len(r)}/{len(f)}/{len(d)}" for name, r, f, d in squad_sections
