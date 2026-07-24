@@ -1,0 +1,72 @@
+{
+  "created": 1751382000.25,
+  "duration": 245.9,
+  "exitcode": 1,
+  "root": "/home/runner/work/kserve/kserve",
+  "environment": {},
+  "summary": {
+    "passed": 1,
+    "error": 1,
+    "total": 2,
+    "collected": 2
+  },
+  "tests": [
+    {
+      "nodeid": "test/e2e/graph/test_inference_graph.py::test_ig_sequence",
+      "lineno": 30,
+      "outcome": "passed",
+      "keywords": [
+        "test_ig_sequence",
+        "test_inference_graph.py",
+        "graph"
+      ],
+      "setup": {
+        "duration": 0.0024,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "call": {
+        "duration": 96.4,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "teardown": {
+        "duration": 0.001,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      }
+    },
+    {
+      "nodeid": "test/e2e/graph/test_inference_graph.py::test_ig_switch",
+      "lineno": 84,
+      "outcome": "error",
+      "keywords": [
+        "test_ig_switch",
+        "test_inference_graph.py",
+        "graph"
+      ],
+      "setup": {
+        "duration": 120.5,
+        "outcome": "failed",
+        "crash": {
+          "path": "/home/runner/work/kserve/kserve/test/e2e/graph/conftest.py",
+          "lineno": 55,
+          "message": "TimeoutError: namespace kserve-ci-e2e-test not ready after 120s"
+        },
+        "traceback": [
+          {
+            "path": "test/e2e/graph/conftest.py",
+            "lineno": 55,
+            "message": "TimeoutError"
+          }
+        ],
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3\n\n>       wait_for_namespace(ns)\nE       TimeoutError: namespace kserve-ci-e2e-test not ready after 120s"
+      },
+      "teardown": {
+        "duration": 0.0008,
+        "outcome": "passed",
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3"
+      }
+    }
+  ]
+}

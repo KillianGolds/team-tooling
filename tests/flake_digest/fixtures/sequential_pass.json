@@ -1,0 +1,86 @@
+{
+  "created": 1751374800.98765,
+  "duration": 912.3,
+  "exitcode": 0,
+  "root": "/home/runner/work/kserve/kserve",
+  "environment": {},
+  "summary": {
+    "passed": 2,
+    "total": 2,
+    "collected": 2
+  },
+  "tests": [
+    {
+      "nodeid": "test/e2e/llmisvc/test_llm_inference_service.py::test_basic_deployment",
+      "lineno": 42,
+      "outcome": "passed",
+      "keywords": [
+        "test_basic_deployment",
+        "test_llm_inference_service.py",
+        "llm_inference_service"
+      ],
+      "setup": {
+        "duration": 0.0031,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 421.5,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0012,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "test/e2e/llmisvc/test_llm_inference_service.py::test_completions_endpoint",
+      "lineno": 97,
+      "outcome": "passed",
+      "keywords": [
+        "test_completions_endpoint",
+        "test_llm_inference_service.py",
+        "llm_inference_service"
+      ],
+      "setup": {
+        "duration": 0.0028,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 388.1,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0009,
+        "outcome": "passed"
+      }
+    }
+  ],
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "test/e2e/llmisvc/test_llm_inference_service.py",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "nodeid": "test/e2e/llmisvc/test_llm_inference_service.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "test/e2e/llmisvc/test_llm_inference_service.py::test_basic_deployment",
+          "type": "Function",
+          "lineno": 42
+        },
+        {
+          "nodeid": "test/e2e/llmisvc/test_llm_inference_service.py::test_completions_endpoint",
+          "type": "Function",
+          "lineno": 97
+        }
+      ]
+    }
+  ]
+}

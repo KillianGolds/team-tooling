@@ -1,0 +1,80 @@
+{
+  "created": 1751378400.5,
+  "duration": 88.2,
+  "exitcode": 0,
+  "root": "/home/runner/work/kserve/kserve",
+  "environment": {},
+  "summary": {
+    "passed": 1,
+    "skipped": 2,
+    "total": 3,
+    "collected": 3
+  },
+  "tests": [
+    {
+      "nodeid": "test/e2e/predictor/test_sklearn.py::test_sklearn",
+      "lineno": 34,
+      "outcome": "passed",
+      "keywords": [
+        "test_sklearn",
+        "test_sklearn.py",
+        "predictor"
+      ],
+      "setup": {
+        "duration": 0.0021,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "call": {
+        "duration": 44.8,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "teardown": {
+        "duration": 0.0007,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      }
+    },
+    {
+      "nodeid": "test/e2e/predictor/test_grpc.py::test_sklearn_grpc",
+      "lineno": 21,
+      "outcome": "skipped",
+      "keywords": [
+        "test_sklearn_grpc",
+        "test_grpc.py",
+        "predictor"
+      ],
+      "setup": {
+        "duration": 0.0004,
+        "outcome": "skipped",
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3\n('/home/runner/work/kserve/kserve/test/e2e/predictor/test_grpc.py', 21, 'Skipped: gRPC tests disabled on this cluster')"
+      },
+      "teardown": {
+        "duration": 0.0002,
+        "outcome": "passed",
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3"
+      }
+    },
+    {
+      "nodeid": "test/e2e/predictor/test_grpc.py::test_xgboost_grpc",
+      "lineno": 55,
+      "outcome": "skipped",
+      "keywords": [
+        "test_xgboost_grpc",
+        "test_grpc.py",
+        "predictor"
+      ],
+      "setup": {
+        "duration": 0.0003,
+        "outcome": "skipped",
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3\n('/home/runner/work/kserve/kserve/test/e2e/predictor/test_grpc.py', 55, 'Skipped: gRPC tests disabled on this cluster')"
+      },
+      "teardown": {
+        "duration": 0.0002,
+        "outcome": "passed",
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3"
+      }
+    }
+  ]
+}

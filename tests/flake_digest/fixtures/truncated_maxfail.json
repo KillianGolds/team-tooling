@@ -1,0 +1,191 @@
+{
+  "created": 1751385600.75,
+  "duration": 1544.8,
+  "exitcode": 1,
+  "root": "/home/runner/work/kserve/kserve",
+  "environment": {},
+  "summary": {
+    "passed": 1,
+    "failed": 5,
+    "total": 6,
+    "collected": 20,
+    "deselected": 6
+  },
+  "tests": [
+    {
+      "nodeid": "test/e2e/predictor/test_sklearn.py::test_sklearn",
+      "lineno": 34,
+      "outcome": "passed",
+      "setup": {
+        "duration": 0.0021,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "call": {
+        "duration": 40.3,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "teardown": {
+        "duration": 0.0006,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "keywords": [
+        "test_sklearn",
+        "test_sklearn.py",
+        "predictor"
+      ]
+    },
+    {
+      "nodeid": "test/e2e/predictor/test_torchserve.py::test_torchserve",
+      "lineno": 44,
+      "outcome": "failed",
+      "setup": {
+        "duration": 0.002,
+        "outcome": "passed",
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "call": {
+        "duration": 612.0,
+        "outcome": "failed",
+        "crash": {
+          "path": "/home/runner/work/kserve/kserve/test/e2e/predictor/test_torchserve.py",
+          "lineno": 52,
+          "message": "AssertionError: isvc torchserve did not become Ready within 600s"
+        },
+        "longrepr": "[gw1] ...\nE       AssertionError: isvc torchserve did not become Ready within 600s"
+      },
+      "teardown": {
+        "duration": 0.0009,
+        "outcome": "passed",
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "keywords": [
+        "test_torchserve",
+        "test_torchserve.py",
+        "predictor"
+      ]
+    },
+    {
+      "nodeid": "test/e2e/predictor/test_torchserve.py::test_torchserve_v2",
+      "lineno": 88,
+      "outcome": "failed",
+      "setup": {
+        "duration": 0.0022,
+        "outcome": "passed",
+        "longrepr": "[gw2] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "call": {
+        "duration": 608.4,
+        "outcome": "failed",
+        "crash": {
+          "path": "/home/runner/work/kserve/kserve/test/e2e/predictor/test_torchserve.py",
+          "lineno": 96,
+          "message": "AssertionError: isvc torchserve-v2 did not become Ready within 600s"
+        },
+        "longrepr": "[gw2] ...\nE       AssertionError: isvc torchserve-v2 did not become Ready within 600s"
+      },
+      "teardown": {
+        "duration": 0.0008,
+        "outcome": "passed",
+        "longrepr": "[gw2] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "keywords": [
+        "test_torchserve_v2",
+        "test_torchserve.py",
+        "predictor"
+      ]
+    },
+    {
+      "nodeid": "test/e2e/predictor/test_tensorflow.py::test_tensorflow",
+      "lineno": 29,
+      "outcome": "failed",
+      "setup": {
+        "duration": 0.0018,
+        "outcome": "passed",
+        "longrepr": "[gw3] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "call": {
+        "duration": 601.7,
+        "outcome": "failed",
+        "crash": {
+          "path": "/home/runner/work/kserve/kserve/test/e2e/predictor/test_tensorflow.py",
+          "lineno": 37,
+          "message": "AssertionError: isvc tensorflow did not become Ready within 600s"
+        },
+        "longrepr": "[gw3] ...\nE       AssertionError: isvc tensorflow did not become Ready within 600s"
+      },
+      "teardown": {
+        "duration": 0.0007,
+        "outcome": "passed",
+        "longrepr": "[gw3] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "keywords": [
+        "test_tensorflow",
+        "test_tensorflow.py",
+        "predictor"
+      ]
+    },
+    {
+      "nodeid": "test/e2e/predictor/test_xgboost.py::test_xgboost",
+      "lineno": 31,
+      "outcome": "failed",
+      "setup": {
+        "duration": 0.0019,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "call": {
+        "duration": 604.2,
+        "outcome": "failed",
+        "crash": {
+          "path": "/home/runner/work/kserve/kserve/test/e2e/predictor/test_xgboost.py",
+          "lineno": 39,
+          "message": "AssertionError: isvc xgboost did not become Ready within 600s"
+        },
+        "longrepr": "[gw0] ...\nE       AssertionError: isvc xgboost did not become Ready within 600s"
+      },
+      "teardown": {
+        "duration": 0.0006,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "keywords": [
+        "test_xgboost",
+        "test_xgboost.py",
+        "predictor"
+      ]
+    },
+    {
+      "nodeid": "test/e2e/predictor/test_lightgbm.py::test_lightgbm",
+      "lineno": 27,
+      "outcome": "failed",
+      "setup": {
+        "duration": 0.0017,
+        "outcome": "passed",
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "call": {
+        "duration": 599.8,
+        "outcome": "failed",
+        "crash": {
+          "path": "/home/runner/work/kserve/kserve/test/e2e/predictor/test_lightgbm.py",
+          "lineno": 35,
+          "message": "AssertionError: isvc lightgbm did not become Ready within 600s"
+        },
+        "longrepr": "[gw1] ...\nE       AssertionError: isvc lightgbm did not become Ready within 600s"
+      },
+      "teardown": {
+        "duration": 0.0007,
+        "outcome": "passed",
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "keywords": [
+        "test_lightgbm",
+        "test_lightgbm.py",
+        "predictor"
+      ]
+    }
+  ]
+}

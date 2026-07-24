@@ -1,0 +1,21 @@
+# flake_digest configuration. Same layout convention as pr_digest:
+# per-tool config lives next to the package, override path via
+# FLAKE_DIGEST_CONFIG.
+
+window_days: 30
+
+# Midstream Prow sources. A list so a second repo (odh-model-controller,
+# same bucket and layout) is a config entry, not a code change; only
+# kserve is enabled for now.
+midstream:
+  - repo: opendatahub-io/kserve
+    # branch-agnostic on purpose: branch topology is changing (release-v*
+    # retirement), so any branch segment matches
+    job_pattern: "^pull-ci-opendatahub-io-kserve-.*-e2e-.*$"
+    # normalized targets whose test-level parsing is skipped: e2e-raw runs
+    # pytest twice into one artifact (last-writer-wins), so its per-test
+    # data only holds the last invocation; e2e-kserve-module emits no
+    # result files at all. Both still count job-level.
+    test_level_exclude:
+      - e2e-raw
+      - e2e-kserve-module

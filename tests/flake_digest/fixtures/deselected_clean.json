@@ -1,0 +1,65 @@
+{
+  "created": 1751389200.1,
+  "duration": 402.6,
+  "exitcode": 0,
+  "root": "/home/runner/work/kserve/kserve",
+  "environment": {},
+  "summary": {
+    "passed": 2,
+    "total": 2,
+    "collected": 30,
+    "deselected": 28
+  },
+  "tests": [
+    {
+      "nodeid": "test/e2e/helm/test_kserve_sklearn.py::test_sklearn_kserve",
+      "lineno": 25,
+      "outcome": "passed",
+      "setup": {
+        "duration": 0.0023,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "call": {
+        "duration": 51.9,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "teardown": {
+        "duration": 0.0008,
+        "outcome": "passed",
+        "longrepr": "[gw0] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "keywords": [
+        "test_sklearn_kserve",
+        "test_kserve_sklearn.py",
+        "helm"
+      ]
+    },
+    {
+      "nodeid": "test/e2e/helm/test_kserve_sklearn.py::test_sklearn_v2_kserve",
+      "lineno": 63,
+      "outcome": "passed",
+      "setup": {
+        "duration": 0.002,
+        "outcome": "passed",
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "call": {
+        "duration": 49.3,
+        "outcome": "passed",
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "teardown": {
+        "duration": 0.0007,
+        "outcome": "passed",
+        "longrepr": "[gw1] linux -- Python 3.11.9 /usr/bin/python3"
+      },
+      "keywords": [
+        "test_sklearn_v2_kserve",
+        "test_kserve_sklearn.py",
+        "helm"
+      ]
+    }
+  ]
+}
