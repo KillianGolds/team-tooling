@@ -10,43 +10,16 @@ Usage:
 """
 import argparse
 import sys
-import time
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
 from flake_digest import store
-from flake_digest.config import is_test_level, load_config
-from flake_digest.flakes import record_build
-from flake_digest.gcs_source import (
-    ProwBuild,
-    fetch_build,
-    list_build_ids,
-    list_job_dirs,
-    list_job_directories,
-    list_recent_builds,
-    min_build_id_for,
-)
+from flake_digest.config import load_config
+from flake_digest.gcs_source import fetch_build, list_build_ids, list_job_dirs
 from flake_digest.markdown_formatter import ensure_render_safe, render_issue_body
-from flake_digest.model import RunMeta
-from flake_digest.parser import parse_e2e_results
 from flake_digest.reports import build_pages, write_reports
-
-# the snowflake window floor is decoded from an inferred id scheme, so
-# over-include on the old side; a build fetched twice is idempotent, a
-# build silently missed is invisible
-WINDOW_PAD_DAYS = 2
-
-
-def _prepare(entry: dict, build: ProwBuild):
-    if (build.target and is_test_level(build.target, entry)
-            and build.results_raw and build.sha):
-        run = RunMeta(origin="midstream", repo=entry["repo"],
-                      job=build.target, sha=build.sha,
-                      build_id=build.build_id, url=build.url,
-                      timestamp=build.timestamp or "")
-        return parse_e2e_results(build.results_raw, run)
-    return []
+from flake_digest.runner import fold_build, fold_window, parse_build_results
 
 
 def fetch_pr_builds(entry: dict, pr: int, max_builds: int | None = None):
@@ -57,38 +30,7 @@ def fetch_pr_builds(entry: dict, pr: int, max_builds: int | None = None):
             build_ids = build_ids[-max_builds:]
         for build_id in build_ids:
             build = fetch_build(entry["repo"], pr, job, build_id)
-            yield build, _prepare(entry, build)
-
-
-def fetch_window_builds(entry: dict, window_days: int):
-    """(build, test_results) for every e2e build in the window, across
-    all PRs and branches, straight from the bucket's directory listing."""
-    floor = min_build_id_for(
-        int(time.time() * 1000) - (window_days + WINDOW_PAD_DAYS) * 86_400_000)
-    for job in list_job_directories(entry["repo"], entry["job_pattern"]):
-        recent = list_recent_builds(entry["repo"], job, floor)
-        print(f"{job}: {len(recent)} builds in window", file=sys.stderr)
-        for done, (pr, build_id) in enumerate(recent, 1):
-            build = fetch_build(entry["repo"], pr, job, build_id)
-            yield build, _prepare(entry, build)
-            if done % 25 == 0:
-                print(f"  {job}: {done}/{len(recent)}", file=sys.stderr)
-
-
-def fold_build(state: dict, build: ProwBuild, results) -> dict:
-    # unrecognizable job name or SHA conflict: source already logged it
-    job = build.target or build.job
-    return record_build(
-        state, origin="midstream", repo=build.repo, job=job,
-        build_key=f"midstream:{build.repo}:{job}:{build.build_id}",
-        sha=build.sha, base_sha=build.base_sha,
-        sha_verified=build.sha_verified,
-        discard=build.sha_conflict or build.target is None,
-        has_results=build.has_results_file,
-        no_results_reason=build.no_results_reason,
-        branch=build.branch, job_name=build.job,
-        timestamp=build.timestamp, url=build.url,
-        job_result=build.result, test_results=results)
+            yield build, parse_build_results(entry, build)
 
 
 def print_evidence(state: dict) -> None:
@@ -106,8 +48,10 @@ def print_evidence(state: dict) -> None:
                   f"sha {occ['sha'][:12]}")
             for side in ("fail", "pass"):
                 s = occ[side]
+                base = s.get("base_sha")
                 print(f"    {side.upper():4} {s['timestamp']}  build {s['build_id']}"
-                      f"  (branch {s['branch']})")
+                      f"  (branch {s['branch']}"
+                      + (f", base {base[:12]}" if base else "") + ")")
                 print(f"         {s['url']}")
             reason = occ["fail"].get("no_results_reason")
             if reason:
@@ -139,21 +83,21 @@ def main() -> int:
 
     cfg = load_config()
     state = store.empty_state()
-    for entry in cfg["midstream"]:
-        if args.window_days is not None:
-            builds = fetch_window_builds(entry, args.window_days)
-        else:
-            builds = (bl for pr in args.prs
-                      for bl in fetch_pr_builds(entry, pr, args.max_builds))
-        for build, results in builds:
-            out = fold_build(state, build, results)
-            if not (args.evidence or args.render):
-                sha = (build.sha or "?")[:12]
-                counts = dict(Counter(r.outcome for r in results))
-                print(f"{build.job} {build.build_id} result={build.result} "
-                      f"sha={sha} verified={build.sha_verified} "
-                      f"tests={counts or '-'} "
-                      f"new_pairs={len(out['new_occurrences'])}")
+    if args.window_days is not None:
+        cfg["window_days"] = args.window_days
+        fold_window(state, cfg, progress=lambda m: print(m, file=sys.stderr))
+    else:
+        for entry in cfg["midstream"]:
+            for pr in args.prs:
+                for build, results in fetch_pr_builds(entry, pr, args.max_builds):
+                    out = fold_build(state, build, results)
+                    if not (args.evidence or args.render):
+                        sha = (build.sha or "?")[:12]
+                        counts = dict(Counter(r.outcome for r in results))
+                        print(f"{build.job} {build.build_id} result={build.result} "
+                              f"sha={sha} verified={build.sha_verified} "
+                              f"tests={counts or '-'} "
+                              f"new_pairs={len(out['new_occurrences'])}")
 
     if args.evidence:
         print_evidence(state)

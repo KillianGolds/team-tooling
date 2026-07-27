@@ -102,12 +102,16 @@ def render_issue_body(state: dict, cfg: dict, now_iso: str) -> str:
         "**How to read this.** A row counts occurrences where the same test "
         "both failed and passed at the same PR head commit across rerun "
         "pairs. These are flakes observed among same-commit reruns, not "
-        "flake rates. Most pairs are **suspected**: reruns usually happen "
-        "hours apart and the target branch moves in between (tagged "
-        "`base_moved`), so a branch-side fix or break can't be ruled out. "
-        "**Confirmed** means the branch base matched too and both builds "
-        "carry full evidence; it's the gold standard, and rare on presubmit "
-        "data. The two counts are never summed.",
+        "flake rates. **Suspected** still means both outcomes happened on "
+        "identical PR code, which is most likely a flake; the caveat is "
+        "that reruns usually land hours apart and the branch the PR merges "
+        "onto moves underneath (tagged `base_moved`), so a branch-side fix "
+        "or break can't be fully ruled out. **Confirmed** means that branch "
+        "base matched as well and both builds carry full evidence: the gold "
+        "standard, and rarer on presubmit data. The two counts are never "
+        "summed. One more wrinkle for anyone checking evidence by hand: a "
+        "test can pass in a build whose job failed overall, so the green "
+        "side of a pair sometimes comes from a red job.",
         "",
         "### Flaky tests (ranked, suspected + confirmed shown separately)",
         "",
