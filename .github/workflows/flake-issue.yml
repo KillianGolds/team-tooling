@@ -1,0 +1,51 @@
+name: Flake Tracker Update
+
+on:
+  workflow_dispatch:
+  # The cron gets enabled after the bootstrap gate is signed off; until
+  # then this only runs when dispatched by hand.
+  # schedule:
+  #   - cron: '30 */6 * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # commits flakes_state.json + reports/
+      issues: write    # rewrites the pinned flake issue
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - run: pip install '.[flake_digest]'
+
+      # GCS is anonymous and enumeration comes from the bucket itself, so
+      # the built-in GITHUB_TOKEN is the only credential anywhere here.
+      - name: Fold new builds, rewrite reports, update the issue
+        run: python -m flake_digest.issue
+        env:
+          ISSUE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Most 6h runs find little or nothing new; without this guard the
+      # cron would commit a near-empty diff every time and bury the state
+      # history (the point of committing it) under noise. State and
+      # reports carry no volatile fields, so an empty staged diff really
+      # means nothing substantive changed.
+      - name: Commit state and reports only if something changed
+        run: |
+          git add flake_digest/state/flakes_state.json reports/
+          if git diff --cached --quiet; then
+            echo "no substantive change; skipping commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "flake state: scheduled update"
+          # the PR-digest workflows share this repo; rebase once if a
+          # push lands between our checkout and now
+          git push || (git pull --rebase && git push)
