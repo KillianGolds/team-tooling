@@ -342,6 +342,7 @@ def test_evidence_sides_carry_branch_and_full_job_name():
     for side in ("fail", "pass"):
         assert occ[side]["branch"] == "master"
         assert occ[side]["job_name"].endswith("-master-e2e-predictor")
+        assert occ[side]["base_sha"] == BASE_1  # audit needs both bases
 
 
 def test_no_results_reason_reaches_the_job_level_evidence():

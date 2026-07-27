@@ -69,9 +69,10 @@ def render_report_page(rec: dict, runs: int, discarded: int) -> str:
         lines.append(f"### {occ['classification']} ({occ['tag']}) at `{occ['sha'][:12]}`")
         for side in ("fail", "pass"):
             s = occ[side]
+            base = f" · base `{s['base_sha'][:12]}`" if s.get("base_sha") else ""
             lines.append(f"- **{side.upper()}** {s['timestamp']} · "
-                         f"build `{s['build_id']}` · branch `{s['branch']}` · "
-                         f"[prow]({s['url']})")
+                         f"build `{s['build_id']}` · branch `{s['branch']}`"
+                         f"{base} · [prow]({s['url']})")
             if side == "fail":
                 if s.get("no_results_reason"):
                     lines.append(f"  - no results file: {s['no_results_reason']}")
@@ -86,8 +87,9 @@ def render_issue_body(state: dict, cfg: dict, now_iso: str) -> str:
     reports_base = f"https://github.com/{cfg['issue']['repo']}/blob/main/reports/"
     flakes = list(state["flakes"].values())
     test_rows = [r for r in flakes if r["nodeid"] != JOB_LEVEL_NODEID]
-    test_rows.sort(key=lambda r: (-(r["suspected_count"] + r["confirmed_count"]),
-                                  -r["confirmed_count"]))
+    # confirmed leads the ranking; sorting by the sum would let the
+    # noisier suspected signal set the order over the gold standard
+    test_rows.sort(key=lambda r: (-r["confirmed_count"], -r["suspected_count"]))
     confirmed_rows = sorted((r for r in flakes if r["confirmed_count"]),
                             key=lambda r: -r["confirmed_count"])
 

@@ -148,6 +148,13 @@ def test_suspected_and_confirmed_are_separate_columns_never_summed():
     assert "| 3 | 2 |" in body  # suspected then confirmed, not 5 anywhere
 
 
+def test_ranking_puts_confirmed_above_noisier_suspected():
+    gold = _rec("gold.py::t", confirmed=5, suspected=0)
+    noisy = _rec("noisy.py::t", confirmed=0, suspected=12)
+    body = _body(noisy, gold)
+    assert body.index("gold.py::t") < body.index("noisy.py::t")
+
+
 def test_runs_denominator_joined_from_job_runs():
     body = _body(_rec("a.py::t"))
     assert "| 42 |" in body

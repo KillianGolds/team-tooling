@@ -148,10 +148,11 @@ def _record_outcome(state, origin, repo, job, nodeid, sha, *, passed,
         "tag": tag,
         "fail": {k: entry["fail"][k] for k in
                  ("build_id", "url", "timestamp", "outcome", "branch",
-                  "job_name", "no_results_reason", "failure_message")},
+                  "job_name", "base_sha", "no_results_reason",
+                  "failure_message")},
         "pass": {k: entry["pass"][k] for k in
                  ("build_id", "url", "timestamp", "outcome", "branch",
-                  "job_name")},
+                  "job_name", "base_sha")},
     })
     occurred = ts or entry["fail"]["timestamp"]
     if occurred:
