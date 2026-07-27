@@ -2,10 +2,8 @@ name: Flake Tracker Update
 
 on:
   workflow_dispatch:
-  # The cron gets enabled after the bootstrap gate is signed off; until
-  # then this only runs when dispatched by hand.
-  # schedule:
-  #   - cron: '30 */6 * * *'
+  schedule:
+    - cron: '30 */6 * * *'
 
 jobs:
   update:
