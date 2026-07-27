@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 1 · **Suspected:** 14 · **Runs seen:** 356
-**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-07-26T18:36:31+00:00
+**Confirmed:** 1 · **Suspected:** 15 · **Runs seen:** 359
+**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-07-27T16:41:01+00:00
 
 ### confirmed (same_base) at `bf5784c504ee`
 - **FAIL** 2026-07-19T06:34:51+00:00 · build `2078700793065639936` · branch `master` · base `0e1cac589c72` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1765/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078700793065639936)
@@ -73,3 +73,8 @@
 - **FAIL** 2026-07-26T08:08:15+00:00 · build `2081290438949474304` · branch `release-v0.17` · base `6f4cb367e951` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1810/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2081290438949474304)
   - no results file: setup_failure
 - **PASS** 2026-07-26T10:26:01+00:00 · build `2081293019654393856` · branch `release-v0.17` · base `6f4cb367e951` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1810/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2081293019654393856)
+
+### suspected (base_moved) at `c78d978f49c3`
+- **FAIL** 2026-07-24T23:47:00+00:00 · build `2080781928918683648` · branch `master` · base `a5a418ee5ab5` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1803/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2080781928918683648)
+  - no results file: setup_failure
+- **PASS** 2026-07-27T16:41:01+00:00 · build `2081750571475275776` · branch `master` · base `907d8544b555` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1803/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2081750571475275776)

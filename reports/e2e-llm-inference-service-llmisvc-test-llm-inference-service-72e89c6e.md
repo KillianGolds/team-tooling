@@ -1,7 +1,7 @@
 `llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-inline-config-workload-llmd-simulator]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 1 · **Suspected:** 0 · **Runs seen:** 356
+**Confirmed:** 1 · **Suspected:** 0 · **Runs seen:** 359
 **First seen:** 2026-07-24T00:58:13+00:00 · **Last seen:** 2026-07-24T00:58:13+00:00
 
 ### confirmed (same_base) at `b2d6323b6248`

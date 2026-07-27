@@ -1,7 +1,7 @@
 `predictor/test_sklearn.py::test_sklearn_runtime_kserve`
 
 **Job:** e2e-predictor · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 1 · **Suspected:** 3 · **Runs seen:** 332
+**Confirmed:** 1 · **Suspected:** 3 · **Runs seen:** 336
 **First seen:** 2026-06-27T01:43:05+00:00 · **Last seen:** 2026-07-23T15:49:33+00:00
 
 ### suspected (base_moved) at `8d0f4fa336d1`

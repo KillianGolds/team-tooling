@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-predictor · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 2 · **Suspected:** 13 · **Runs seen:** 332
-**First seen:** 2026-07-14T03:59:14+00:00 · **Last seen:** 2026-07-25T02:08:43+00:00
+**Confirmed:** 2 · **Suspected:** 14 · **Runs seen:** 336
+**First seen:** 2026-07-14T03:59:14+00:00 · **Last seen:** 2026-07-27T15:56:17+00:00
 
 ### suspected (same_base) at `506c7030f234`
 - **FAIL** 2026-07-13T21:47:19+00:00 · build `2076767012104704000` · branch `master` · base `7d77343dd7d1` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1710/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2076767012104704000)
@@ -72,3 +72,8 @@
 ### confirmed (same_base) at `392d2a984291`
 - **FAIL** 2026-07-17T22:53:53+00:00 · build `2078212106326380544` · branch `release-v0.17` · base `4e873979b7bb` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1761/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-predictor/2078212106326380544)
 - **PASS** 2026-07-18T00:56:46+00:00 · build `2078252497595535360` · branch `release-v0.17` · base `4e873979b7bb` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1761/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-predictor/2078252497595535360)
+
+### suspected (base_moved) at `c78d978f49c3`
+- **FAIL** 2026-07-24T23:47:00+00:00 · build `2080781928960626688` · branch `master` · base `a5a418ee5ab5` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1803/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2080781928960626688)
+  - no results file: setup_failure
+- **PASS** 2026-07-27T15:56:17+00:00 · build `2081750571504635904` · branch `master` · base `907d8544b555` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1803/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2081750571504635904)
