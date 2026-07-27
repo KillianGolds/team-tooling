@@ -23,11 +23,14 @@ things I confirmed against live builds (PRs 1505/1606/1613, 2026-07):
 import json
 import re
 import sys
+import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from urllib.parse import quote
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 BUCKET_API = "https://storage.googleapis.com/storage/v1/b/test-platform-results/o"
 PROW_VIEW = "https://prow.ci.openshift.org/view/gs/test-platform-results/"
@@ -37,7 +40,14 @@ RESULT_BASENAME = "e2e_results.json"
 # a full git SHA; anything else in a sha slot means the format changed
 _FULL_SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 
+# a backfill makes thousands of small requests over an hour, so a single
+# transient reset will happen (the first bootstrap run died to exactly
+# that); retry connect/read errors and the usual 429/5xx with backoff
 _session = requests.Session()
+_session.mount("https://", HTTPAdapter(max_retries=Retry(
+    total=5, connect=5, read=5, backoff_factor=1.0,
+    status_forcelist=(429, 500, 502, 503, 504),
+    allowed_methods=("GET",))))
 
 
 def pr_logs_prefix(repo: str) -> str:
@@ -261,8 +271,8 @@ def _fetch_build_log(prefix: str) -> str | None:
 
 
 def _object_size(name: str) -> int | None:
-    r = _session.get(f"{BUCKET_API}/{quote(name, safe='')}",
-                     params={"fields": "size"}, timeout=30)
+    r = _get(f"{BUCKET_API}/{quote(name, safe='')}", {"fields": "size"},
+             timeout=30)
     if r.status_code == 404:
         return None
     r.raise_for_status()
@@ -319,15 +329,25 @@ def _resolve_head(started_sha: str | None,
 
 # --- GCS JSON API plumbing ---
 
+def _get(url: str, params: dict, timeout: int) -> requests.Response:
+    # the adapter's Retry covers connect/read failures, but a reset that
+    # lands mid response body still escapes it; one more try is enough
+    try:
+        return _session.get(url, params=params, timeout=timeout)
+    except requests.ConnectionError:
+        time.sleep(2)
+        return _session.get(url, params=params, timeout=timeout)
+
+
 def _api(params: dict) -> dict:
-    r = _session.get(BUCKET_API, params=params, timeout=30)
+    r = _get(BUCKET_API, params, timeout=30)
     r.raise_for_status()
     return r.json()
 
 
 def _fetch(name: str) -> bytes | None:
-    r = _session.get(f"{BUCKET_API}/{quote(name, safe='')}",
-                     params={"alt": "media"}, timeout=60)
+    r = _get(f"{BUCKET_API}/{quote(name, safe='')}", {"alt": "media"},
+             timeout=60)
     if r.status_code == 404:
         return None
     r.raise_for_status()
