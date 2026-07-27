@@ -4,11 +4,11 @@
 
 window_days: 30
 
-# where the pinned issue lives; number stays empty until go-live creates
-# the issue, and evidence links point at this repo's reports/ directory
+# the pinned issue the cron rewrites; evidence links point at this
+# repo's reports/ directory
 issue:
   repo: KillianGolds/team-tooling
-  number: null
+  number: 2
 
 # Midstream Prow sources. A list so a second repo (odh-model-controller,
 # same bucket and layout) is a config entry, not a code change; only
