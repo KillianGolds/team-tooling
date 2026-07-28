@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-predictor · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 2 · **Suspected:** 14 · **Runs seen:** 336
-**First seen:** 2026-07-14T03:59:14+00:00 · **Last seen:** 2026-07-27T15:56:17+00:00
+**Confirmed:** 2 · **Suspected:** 15 · **Runs seen:** 339
+**First seen:** 2026-07-14T03:59:14+00:00 · **Last seen:** 2026-07-27T22:27:02+00:00
 
 ### suspected (same_base) at `506c7030f234`
 - **FAIL** 2026-07-13T21:47:19+00:00 · build `2076767012104704000` · branch `master` · base `7d77343dd7d1` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1710/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2076767012104704000)
@@ -77,3 +77,8 @@
 - **FAIL** 2026-07-24T23:47:00+00:00 · build `2080781928960626688` · branch `master` · base `a5a418ee5ab5` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1803/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2080781928960626688)
   - no results file: setup_failure
 - **PASS** 2026-07-27T15:56:17+00:00 · build `2081750571504635904` · branch `master` · base `907d8544b555` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1803/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2081750571504635904)
+
+### suspected (same_base) at `228e8fbfd6f6`
+- **FAIL** 2026-07-27T20:14:02+00:00 · build `2081823779054424064` · branch `release-v0.17` · base `01e23b511968` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1814/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-predictor/2081823779054424064)
+  - no results file: setup_failure
+- **PASS** 2026-07-27T22:27:02+00:00 · build `2081840595738824704` · branch `release-v0.17` · base `01e23b511968` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1814/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-predictor/2081840595738824704)
