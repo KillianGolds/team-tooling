@@ -1,7 +1,7 @@
 `batcher/test_batcher.py::test_batcher`
 
 **Job:** e2e-predictor · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 1 · **Suspected:** 0 · **Runs seen:** 339
+**Confirmed:** 1 · **Suspected:** 0 · **Runs seen:** 344
 **First seen:** 2026-07-18T00:56:46+00:00 · **Last seen:** 2026-07-18T00:56:46+00:00
 
 ### confirmed (same_base) at `392d2a984291`

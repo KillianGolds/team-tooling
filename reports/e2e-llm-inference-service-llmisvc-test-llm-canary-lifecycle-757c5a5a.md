@@ -1,7 +1,7 @@
 `llmisvc/test_llm_canary_lifecycle.py::TestCanaryLifecycle::test_three_member_group`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 1 · **Runs seen:** 362
+**Confirmed:** 0 · **Suspected:** 1 · **Runs seen:** 367
 **First seen:** 2026-07-21T08:33:50+00:00 · **Last seen:** 2026-07-21T08:33:50+00:00
 
 ### suspected (base_moved) at `d71d8d162079`
