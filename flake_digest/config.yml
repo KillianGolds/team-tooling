@@ -18,10 +18,17 @@ midstream:
     # branch-agnostic on purpose: branch topology is changing (release-v*
     # retirement), so any branch segment matches
     job_pattern: "^pull-ci-opendatahub-io-kserve-.*-e2e-.*$"
-    # normalized targets whose test-level parsing is skipped: e2e-raw runs
-    # pytest twice into one artifact (last-writer-wins), so its per-test
-    # data only holds the last invocation; e2e-kserve-module emits no
-    # result files at all. Both still count job-level.
-    test_level_exclude:
-      - e2e-raw
+    # Permanent, structural: e2e-kserve-module emits no result files at
+    # all (James confirmed it's a reporting oversight upstream). Job-level
+    # only until that changes.
+    job_level_only:
       - e2e-kserve-module
+    # Temporary transition artifact, NOT permanent config: e2e-raw's
+    # historical bare e2e_results.json files are clobbered (two pytest
+    # runs wrote the same file, only the last survived), so a bare file
+    # on this target can't be trusted. Suffixed per-invocation files
+    # (the post-2026-07 layout) parse normally. Deletable once no
+    # pre-migration raw builds remain in the window; the cron logs when
+    # this list stops matching anything as the signal it's safe to drop.
+    bare_untrusted_until_migrated:
+      - e2e-raw

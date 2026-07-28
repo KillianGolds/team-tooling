@@ -35,7 +35,24 @@ from urllib3.util.retry import Retry
 BUCKET_API = "https://storage.googleapis.com/storage/v1/b/test-platform-results/o"
 PROW_VIEW = "https://prow.ci.openshift.org/view/gs/test-platform-results/"
 
-RESULT_BASENAME = "e2e_results.json"
+# The producer writes per-invocation results files now: bare
+# e2e_results.json in historical builds, e2e_results-<suffix>.json since
+# the 2026-07 migration (seen live: e2e_results-raw.json,
+# e2e_results-rawcipn.json, e2e_results-predictor_or_kserve_on_openshift
+# .json; the suffix is arbitrary, don't parse meaning from it). The
+# rename turned out to cover every suite, not just multi-invocation ones.
+_RESULTS_RE = re.compile(r"^e2e_results(-.+)?\.json$")
+_BARE_RESULTS = "e2e_results.json"
+
+
+def select_results_paths(paths: list[str]) -> list[str]:
+    """Which results files to trust for one build. If any suffixed files
+    exist, use those and ignore a bare one: during the migration a build
+    could conceivably carry both, and counting both would double-count."""
+    matches = [p for p in paths if _RESULTS_RE.match(p.rsplit("/", 1)[-1])]
+    suffixed = [p for p in matches
+                if p.rsplit("/", 1)[-1] != _BARE_RESULTS]
+    return sorted(suffixed) if suffixed else matches
 
 # a full git SHA; anything else in a sha slot means the format changed
 _FULL_SHA_RE = re.compile(r"^[0-9a-f]{40}$")
@@ -74,7 +91,7 @@ class ProwBuild:
     timestamp: str | None = None       # ISO 8601 from finished.json
     has_results_file: bool = False
     no_results_reason: str | None = None   # timeout / setup_failure / unknown
-    results_raw: bytes | None = None
+    results_files: list[tuple[str, bytes]] = field(default_factory=list)
     result_paths: list[str] = field(default_factory=list)
 
 
@@ -247,13 +264,13 @@ def fetch_build(repo: str, pr_number: int, job: str, build_id: str) -> ProwBuild
     if started:
         build.base_sha = base_sha_from_started(started, pr_number)
 
-    build.result_paths = [
-        n for n in _list_names(prefix)
-        if n.rsplit("/", 1)[-1] == RESULT_BASENAME
-    ]
+    build.result_paths = select_results_paths(_list_names(prefix))
     if build.result_paths:
         build.has_results_file = True
-        build.results_raw = _fetch(build.result_paths[0])
+        build.results_files = [
+            (path, raw) for path in build.result_paths
+            if (raw := _fetch(path)) is not None
+        ]
     elif build.result == "FAILURE":
         # only the minority of builds lack results; the build log tells
         # timeout apart from setup death, which have different owners

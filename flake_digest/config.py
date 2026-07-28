@@ -23,7 +23,8 @@ def load_config(path: Path | None = None) -> dict:
         for key in ("repo", "job_pattern"):
             if not entry.get(key):
                 raise ValueError(f"config.yml: midstream entry missing `{key}`")
-        entry.setdefault("test_level_exclude", [])
+        entry.setdefault("job_level_only", [])
+        entry.setdefault("bare_untrusted_until_migrated", [])
 
     cfg.setdefault("window_days", 30)
     cfg.setdefault("issue", {})
@@ -32,6 +33,13 @@ def load_config(path: Path | None = None) -> dict:
     return cfg
 
 
-def is_test_level(target: str, entry: dict) -> bool:
-    """Whether a target's artifacts are trustworthy for per-test parsing."""
-    return target not in entry["test_level_exclude"]
+def is_job_level_only(target: str, entry: dict) -> bool:
+    """Targets that never get test-level parsing (structural: they emit
+    no usable per-test results at all)."""
+    return target in entry["job_level_only"]
+
+
+def bare_untrusted(target: str, entry: dict) -> bool:
+    """Targets whose bare e2e_results.json is a pre-migration clobbered
+    file. Transition-era config; see the comment in config.yml."""
+    return target in entry["bare_untrusted_until_migrated"]

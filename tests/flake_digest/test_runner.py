@@ -9,7 +9,8 @@ JOB = "pull-ci-opendatahub-io-kserve-master-e2e-predictor"
 CFG = {"window_days": 30,
        "midstream": [{"repo": REPO,
                       "job_pattern": r"^pull-ci-.*-e2e-.*$",
-                      "test_level_exclude": []}]}
+                      "job_level_only": [],
+                      "bare_untrusted_until_migrated": []}]}
 SHA = "a" * 40
 
 

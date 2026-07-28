@@ -10,9 +10,10 @@ import sys
 import time
 
 from flake_digest import store
-from flake_digest.config import is_test_level
+from flake_digest.config import bare_untrusted, is_job_level_only
 from flake_digest.flakes import record_build
 from flake_digest.gcs_source import (
+    _BARE_RESULTS,
     ProwBuild,
     fetch_build,
     list_job_directories,
@@ -29,15 +30,56 @@ from flake_digest.parser import parse_e2e_results
 WINDOW_PAD_DAYS = 2
 
 
+def file_disposition(entry: dict, build: ProwBuild) -> str:
+    """What to do with a build's results files:
+    parse / bare_untrusted / job_level_only / no_files.
+
+    bare_untrusted is per-build on purpose: a raw build with suffixed
+    per-invocation files parses normally, while a historical build whose
+    only file is the clobbered bare one stays job-level. Driving this off
+    what files the build actually has means no exclusion flip is ever
+    needed as the migration rolls through.
+    """
+    if not build.results_files:
+        return "no_files"
+    if build.target is None or is_job_level_only(build.target, entry):
+        return "job_level_only"
+    only_bare = all(path.rsplit("/", 1)[-1] == _BARE_RESULTS
+                    for path, _ in build.results_files)
+    if only_bare and bare_untrusted(build.target, entry):
+        return "bare_untrusted"
+    return "parse"
+
+
 def parse_build_results(entry: dict, build: ProwBuild):
-    if (build.target and is_test_level(build.target, entry)
-            and build.results_raw and build.sha):
-        run = RunMeta(origin="midstream", repo=entry["repo"],
-                      job=build.target, sha=build.sha,
-                      build_id=build.build_id, url=build.url,
-                      timestamp=build.timestamp or "")
-        return parse_e2e_results(build.results_raw, run)
-    return []
+    """Parse and merge every trusted results file of one build.
+
+    Multiple files mean multiple pytest invocations; detection has to see
+    the union, because picking one file would reintroduce exactly the
+    blindness the per-invocation split fixed. Invocations select disjoint
+    markers so a nodeid should appear in one file only; if it shows up in
+    two, the non-pass observation wins (that's the side flake pairing
+    cares about) and it gets logged, since it means markers overlap.
+    """
+    if file_disposition(entry, build) != "parse" or not build.sha:
+        return []
+    run = RunMeta(origin="midstream", repo=entry["repo"],
+                  job=build.target, sha=build.sha,
+                  build_id=build.build_id, url=build.url,
+                  timestamp=build.timestamp or "")
+    merged = {}
+    for path, raw in build.results_files:
+        for r in parse_e2e_results(raw, run):
+            prev = merged.get(r.nodeid)
+            if prev is None:
+                merged[r.nodeid] = r
+            else:
+                print(f"WARNING: {r.nodeid} appears in more than one "
+                      f"results file of {build.prefix} (marker overlap?); "
+                      f"keeping the non-pass observation", file=sys.stderr)
+                if not prev.is_non_pass and r.is_non_pass:
+                    merged[r.nodeid] = r
+    return list(merged.values())
 
 
 def build_key(repo: str, target: str, build_id: str) -> str:
@@ -63,11 +105,14 @@ def fold_build(state: dict, build: ProwBuild, results) -> dict:
 def fold_window(state: dict, cfg: dict, progress=lambda msg: None) -> dict:
     """Fold every unseen completed build in the window into state."""
     summary = {"listed": 0, "fetched": 0, "known": 0, "pending": 0,
-               "new_occurrences": []}
+               "bare_untrusted_skips": 0, "new_occurrences": []}
     floor = min_build_id_for(
         int(time.time() * 1000)
         - (cfg["window_days"] + WINDOW_PAD_DAYS) * 86_400_000)
+    transition_list_exists = False
     for entry in cfg["midstream"]:
+        if entry["bare_untrusted_until_migrated"]:
+            transition_list_exists = True
         for job in list_job_directories(entry["repo"], entry["job_pattern"]):
             normalized = normalize_job(job, entry["repo"])
             target = normalized[0] if normalized else job
@@ -82,9 +127,18 @@ def fold_window(state: dict, cfg: dict, progress=lambda msg: None) -> dict:
                 if build.result is None and not build.has_results_file:
                     summary["pending"] += 1
                     continue
+                if file_disposition(entry, build) == "bare_untrusted":
+                    summary["bare_untrusted_skips"] += 1
                 out = fold_build(state, build, parse_build_results(entry, build))
                 summary["fetched"] += 1
                 summary["new_occurrences"] += out["new_occurrences"]
                 if done % 25 == 0:
                     progress(f"  {job}: {done}/{len(recent)}")
+    # the transition list only exists to guard pre-migration bare files;
+    # once runs stop seeing any, it's guarding nothing and can go
+    if (transition_list_exists and summary["fetched"]
+            and not summary["bare_untrusted_skips"]):
+        progress("bare_untrusted_until_migrated matched nothing this run; "
+                 "once pre-migration builds have aged out of the window "
+                 "the list can be deleted from config.yml")
     return summary
