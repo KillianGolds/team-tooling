@@ -1,7 +1,7 @@
 `llmisvc/test_llm_canary_lifecycle.py::TestCanaryLifecycle::test_rollback`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 1 · **Runs seen:** 361
+**Confirmed:** 0 · **Suspected:** 1 · **Runs seen:** 362
 **First seen:** 2026-07-23T05:22:02+00:00 · **Last seen:** 2026-07-23T05:22:02+00:00
 
 ### suspected (base_moved) at `f1b7a0bc458c`
