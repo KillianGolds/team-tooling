@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 2 · **Suspected:** 15 · **Runs seen:** 370
-**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-07-28T17:43:08+00:00
+**Confirmed:** 2 · **Suspected:** 16 · **Runs seen:** 371
+**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-07-29T13:22:47+00:00
 
 ### confirmed (same_base) at `bf5784c504ee`
 - **FAIL** 2026-07-19T06:34:51+00:00 · build `2078700793065639936` · branch `master` · base `0e1cac589c72` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1765/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078700793065639936)
@@ -82,3 +82,7 @@
 ### confirmed (same_base) at `0b1a28ea4e47`
 - **FAIL** 2026-07-28T15:56:54+00:00 · build `2082110756941205504` · branch `release-v0.17` · base `01e23b511968` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1814/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2082110756941205504)
 - **PASS** 2026-07-28T17:43:08+00:00 · build `2082135667353063424` · branch `release-v0.17` · base `01e23b511968` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1814/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2082135667353063424)
+
+### suspected (base_moved) at `bb4b028f05cc`
+- **FAIL** 2026-07-29T04:14:23+00:00 · build `2082291563362258944` · branch `master` · base `a638c0dd552d` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1827/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2082291563362258944)
+- **PASS** 2026-07-29T13:22:47+00:00 · build `2082424973384749056` · branch `master` · base `1995336861fa` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1827/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2082424973384749056)
