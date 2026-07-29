@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-predictor · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 2 · **Suspected:** 15 · **Runs seen:** 346
-**First seen:** 2026-07-14T03:59:14+00:00 · **Last seen:** 2026-07-27T22:27:02+00:00
+**Confirmed:** 2 · **Suspected:** 16 · **Runs seen:** 349
+**First seen:** 2026-07-14T03:59:14+00:00 · **Last seen:** 2026-07-29T16:38:08+00:00
 
 ### suspected (same_base) at `506c7030f234`
 - **FAIL** 2026-07-13T21:47:19+00:00 · build `2076767012104704000` · branch `master` · base `7d77343dd7d1` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1710/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2076767012104704000)
@@ -82,3 +82,8 @@
 - **FAIL** 2026-07-27T20:14:02+00:00 · build `2081823779054424064` · branch `release-v0.17` · base `01e23b511968` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1814/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-predictor/2081823779054424064)
   - no results file: setup_failure
 - **PASS** 2026-07-27T22:27:02+00:00 · build `2081840595738824704` · branch `release-v0.17` · base `01e23b511968` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1814/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-predictor/2081840595738824704)
+
+### suspected (base_moved) at `bb4b028f05cc`
+- **FAIL** 2026-07-29T16:38:08+00:00 · build `2082500982071103488` · branch `master` · base `2b7846ab0fa4` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1827/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2082500982071103488)
+  - no results file: setup_failure
+- **PASS** 2026-07-29T03:36:09+00:00 · build `2082291563400007680` · branch `master` · base `a638c0dd552d` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1827/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2082291563400007680)

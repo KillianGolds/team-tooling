@@ -1,7 +1,7 @@
 `llmisvc/test_llm_canary_lifecycle.py::TestCanaryLifecycle::test_decommission`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 1 · **Runs seen:** 371
+**Confirmed:** 0 · **Suspected:** 1 · **Runs seen:** 374
 **First seen:** 2026-07-23T21:10:26+00:00 · **Last seen:** 2026-07-23T21:10:26+00:00
 
 ### suspected (base_moved) at `b2d6323b6248`

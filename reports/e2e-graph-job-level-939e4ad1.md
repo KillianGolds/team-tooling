@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-graph · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 13 · **Runs seen:** 294
-**First seen:** 2026-07-06T13:12:18+00:00 · **Last seen:** 2026-07-27T16:07:14+00:00
+**Confirmed:** 0 · **Suspected:** 14 · **Runs seen:** 297
+**First seen:** 2026-07-06T13:12:18+00:00 · **Last seen:** 2026-07-29T16:38:08+00:00
 
 ### suspected (same_base) at `b9384fa68364`
 - **FAIL** 2026-07-06T10:41:28+00:00 · build `2074066125942951936` · branch `master` · base `caebcfbeb438` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1694/pull-ci-opendatahub-io-kserve-master-e2e-graph/2074066125942951936)
@@ -68,3 +68,8 @@
 - **FAIL** 2026-07-24T23:47:00+00:00 · build `2080781928872546304` · branch `master` · base `a5a418ee5ab5` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1803/pull-ci-opendatahub-io-kserve-master-e2e-graph/2080781928872546304)
   - no results file: setup_failure
 - **PASS** 2026-07-27T16:07:14+00:00 · build `2081750571420749824` · branch `master` · base `907d8544b555` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1803/pull-ci-opendatahub-io-kserve-master-e2e-graph/2081750571420749824)
+
+### suspected (base_moved) at `bb4b028f05cc`
+- **FAIL** 2026-07-29T16:38:08+00:00 · build `2082500981978828800` · branch `master` · base `2b7846ab0fa4` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1827/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082500981978828800)
+  - no results file: setup_failure
+- **PASS** 2026-07-29T03:42:30+00:00 · build `2082291563320315904` · branch `master` · base `a638c0dd552d` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1827/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082291563320315904)
