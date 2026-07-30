@@ -2,13 +2,15 @@
   "_schema": {
     "classes": "confirmed = both sides of the same-head-SHA rerun pair carry full evidence under the origin's rule (results files present, head SHA verified by two sources, no environment drift such as a moved base); suspected = same head SHA but weaker evidence. Never summed.",
     "keys": {
+      "build_timings": "same key as processed_builds; one entry per results-bearing build since schema v2: tests_total_s (summed test durations across invocation files), test_count, wall_clock_s (finished minus started), result, truncated (pytest stopped early; total not comparable to complete runs), files_parsed/files_expected (partial fetch detection). Filters like successes-only are the reader's job; nothing is filtered at write.",
       "discarded": "origin|repo|job (unclassifiable builds)",
       "flakes": "origin|repo|job|nodeid; job is the normalized target (e.g. e2e-predictor), stable across branch renames",
       "job_runs": "origin|repo|job (completed-build denominator)",
       "sha_index": "origin|repo|job|nodeid|sha"
     },
-    "version": 1
+    "version": 2
   },
+  "build_timings": {},
   "discarded": {},
   "flakes": {
     "midstream|opendatahub-io/kserve|e2e-graph|<job-level>": {
