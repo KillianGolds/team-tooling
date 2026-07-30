@@ -1,7 +1,7 @@
 `<job-level>`
 
 **Job:** e2e-predictor · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 2 · **Suspected:** 16 · **Runs seen:** 350
+**Confirmed:** 2 · **Suspected:** 16 · **Runs seen:** 351
 **First seen:** 2026-07-14T03:59:14+00:00 · **Last seen:** 2026-07-29T16:38:08+00:00
 
 ### suspected (same_base) at `506c7030f234`

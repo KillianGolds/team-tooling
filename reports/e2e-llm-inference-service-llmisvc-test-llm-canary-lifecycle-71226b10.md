@@ -1,7 +1,7 @@
 `llmisvc/test_llm_canary_lifecycle.py::TestCanaryLifecycle::test_canary_service_backend[cluster_cpu-service]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 1 · **Suspected:** 2 · **Runs seen:** 376
+**Confirmed:** 1 · **Suspected:** 2 · **Runs seen:** 378
 **First seen:** 2026-07-23T10:45:30+00:00 · **Last seen:** 2026-07-29T13:22:47+00:00
 
 ### suspected (base_moved) at `8c8d651344da`

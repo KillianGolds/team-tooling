@@ -1,7 +1,7 @@
 `llmisvc/test_rolling_upgrade.py::test_rolling_upgrade_coordination[cluster_cpu-cluster_single_node-router-managed-workload-llmd-simulator-model-fb-opt-125m]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 1 · **Runs seen:** 376
+**Confirmed:** 0 · **Suspected:** 1 · **Runs seen:** 378
 **First seen:** 2026-07-21T18:44:27+00:00 · **Last seen:** 2026-07-21T18:44:27+00:00
 
 ### suspected (base_moved) at `c869a5ec8292`

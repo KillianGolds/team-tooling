@@ -1,7 +1,7 @@
 `llmisvc/test_llm_lora_adapters.py::test_llm_with_lora_adapters[cluster_cpu-multiple-lora-adapters]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 1 · **Runs seen:** 376
+**Confirmed:** 0 · **Suspected:** 1 · **Runs seen:** 378
 **First seen:** 2026-07-10T11:32:51+00:00 · **Last seen:** 2026-07-10T11:32:51+00:00
 
 ### suspected (base_moved) at `3f6dcd734dc6`
