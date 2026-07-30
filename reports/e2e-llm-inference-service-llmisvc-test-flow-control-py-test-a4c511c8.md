@@ -1,7 +1,7 @@
 `llmisvc/test_flow_control.py::test_flow_control_smoke[cluster_cpu-cluster_single_node-flow-control-utilization-detector]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 1 · **Suspected:** 4 · **Runs seen:** 379
+**Confirmed:** 1 · **Suspected:** 4
 **First seen:** 2026-07-18T12:41:26+00:00 · **Last seen:** 2026-07-22T09:31:44+00:00
 
 ### confirmed (same_base) at `35e70806618d`

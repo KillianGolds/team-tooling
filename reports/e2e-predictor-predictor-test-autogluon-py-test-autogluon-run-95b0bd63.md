@@ -1,7 +1,7 @@
 `predictor/test_autogluon.py::test_autogluon_runtime_kserve_v2_input_variants`
 
 **Job:** e2e-predictor · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 3 · **Runs seen:** 351
+**Confirmed:** 0 · **Suspected:** 3
 **First seen:** 2026-07-17T12:18:17+00:00 · **Last seen:** 2026-07-22T06:34:03+00:00
 
 ### suspected (base_moved) at `adea8f1a265f`

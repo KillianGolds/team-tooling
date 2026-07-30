@@ -1,7 +1,7 @@
 `llmisvc/test_llm_auth.py::test_llm_auth_disabled_no_token_required[cluster_cpu-cluster_single_node-auth-disabled]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 1 · **Runs seen:** 379
+**Confirmed:** 0 · **Suspected:** 1
 **First seen:** 2026-06-26T23:29:32+00:00 · **Last seen:** 2026-06-26T23:29:32+00:00
 
 ### suspected (base_moved) at `8d0f4fa336d1`

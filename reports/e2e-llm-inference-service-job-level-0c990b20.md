@@ -1,7 +1,7 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 2 · **Suspected:** 17 · **Runs seen:** 379
+**Confirmed:** 2 · **Suspected:** 17
 **First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-07-30T14:20:57+00:00
 
 ### confirmed (same_base) at `bf5784c504ee`

@@ -1,7 +1,7 @@
 `<job-level>`
 
 **Job:** e2e-raw · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 19 · **Runs seen:** 308
+**Confirmed:** 0 · **Suspected:** 19
 **First seen:** 2026-06-30T15:29:19+00:00 · **Last seen:** 2026-07-29T16:38:08+00:00
 
 ### suspected (same_base) at `b9384fa68364`
