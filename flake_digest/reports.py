@@ -18,11 +18,7 @@ def build_pages(state: dict) -> dict[str, str]:
     """Render every record's page and run ensure_render_safe on each."""
     pages = {}
     for rec in state["flakes"].values():
-        job_key = f"{rec['origin']}|{rec['repo']}|{rec['job']}"
-        page = render_report_page(
-            rec,
-            runs=state["job_runs"].get(job_key, 0),
-            discarded=state["discarded"].get(job_key, 0))
+        page = render_report_page(rec)
         name = report_filename(rec)
         ensure_render_safe(page, f"reports/{name}")
         pages[name] = page

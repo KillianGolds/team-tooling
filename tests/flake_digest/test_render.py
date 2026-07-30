@@ -74,12 +74,12 @@ def test_same_record_always_maps_to_the_same_filename():
 
 def test_full_nodeid_is_the_first_line_of_the_page():
     nodeid = "llmisvc/test_llm.py::test_svc[cpu-router-managed-workload-llmd-simulator1]"
-    page = render_report_page(_rec(nodeid), runs=42, discarded=1)
+    page = render_report_page(_rec(nodeid))
     assert page.splitlines()[0] == f"`{nodeid}`"
 
 
 def test_page_carries_both_sides_and_the_failure():
-    page = render_report_page(_rec("a.py::t"), runs=42, discarded=0)
+    page = render_report_page(_rec("a.py::t"))
     assert "https://prow.ci.openshift.org/view/gs/f" in page
     assert "https://prow.ci.openshift.org/view/gs/p" in page
     assert "AssertionError: boom" in page
@@ -187,6 +187,6 @@ def test_job_level_record_from_live_pipeline_renders(tmp_path):
     body = render_issue_body(state, CFG, "now")
     ensure_render_safe(body, "issue body")
     rec = state["flakes"][f"midstream|{REPO}|e2e-graph|{JOB_LEVEL_NODEID}"]
-    page = render_report_page(rec, runs=2, discarded=0)
+    page = render_report_page(rec)
     ensure_render_safe(page, "page")
     assert "timeout" in page
