@@ -10,7 +10,8 @@ outside readers, since the committed JSON is a public interface):
       "discarded": {"<origin>|<repo>|<job>": <int>, ...},
       "sha_index": {"<origin>|<repo>|<job>|<nodeid>|<sha>":
                         {pass: <obs|null>, fail: <obs|null>, counted}, ...},
-      "flakes": {"<origin>|<repo>|<job>|<nodeid>": <FlakeRecord dict>, ...}
+      "flakes": {"<origin>|<repo>|<job>|<nodeid>": <FlakeRecord dict>, ...},
+      "build_timings": {"<processed_builds key>": <timing dict>, ...}
     }
 
 `job` in every key is the normalized target (e2e-predictor), not the
@@ -32,7 +33,7 @@ from pathlib import Path
 
 DEFAULT_STATE_PATH = Path(__file__).resolve().parent / "state" / "flakes_state.json"
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 
 def _schema() -> dict:
@@ -44,6 +45,16 @@ def _schema() -> dict:
             "sha_index": "origin|repo|job|nodeid|sha",
             "job_runs": "origin|repo|job (completed-build denominator)",
             "discarded": "origin|repo|job (unclassifiable builds)",
+            "build_timings": "same key as processed_builds; one entry per"
+                             " results-bearing build since schema v2:"
+                             " tests_total_s (summed test durations across"
+                             " invocation files), test_count, wall_clock_s"
+                             " (finished minus started), result, truncated"
+                             " (pytest stopped early; total not comparable"
+                             " to complete runs), files_parsed/"
+                             "files_expected (partial fetch detection)."
+                             " Filters like successes-only are the"
+                             " reader's job; nothing is filtered at write.",
         },
         "classes": "confirmed = both sides of the same-head-SHA rerun pair"
                    " carry full evidence under the origin's rule (results"
@@ -55,7 +66,8 @@ def _schema() -> dict:
 
 def empty_state() -> dict:
     return {"_schema": _schema(), "processed_builds": {}, "job_runs": {},
-            "discarded": {}, "sha_index": {}, "flakes": {}}
+            "discarded": {}, "sha_index": {}, "flakes": {},
+            "build_timings": {}}
 
 
 def load_state(path: Path | None = None) -> dict:

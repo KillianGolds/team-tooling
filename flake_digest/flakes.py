@@ -42,6 +42,7 @@ def record_build(
     url: str,
     job_result: str | None = None,
     test_results: list[TestResult] = (),
+    timing: dict | None = None,
 ) -> dict:
     """Fold one build into state. Returns
     {"skipped": bool, "run_counted": bool, "discarded": bool,
@@ -57,6 +58,8 @@ def record_build(
         return {"skipped": True, "run_counted": False, "discarded": False,
                 "new_occurrences": []}
     store.mark_processed(state, build_key)
+    if timing is not None:
+        state["build_timings"][build_key] = timing
 
     job_key = f"{origin}|{repo}|{job}"
     completed = job_result in ("SUCCESS", "FAILURE") or bool(test_results)

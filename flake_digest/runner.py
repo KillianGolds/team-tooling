@@ -86,12 +86,39 @@ def build_key(repo: str, target: str, build_id: str) -> str:
     return f"midstream:{repo}:{target}:{build_id}"
 
 
+def build_timing(build: ProwBuild, results) -> dict | None:
+    """Per-build timing aggregate for results-bearing builds; None
+    otherwise. Aggregate on purpose: the headroom feature needs per-job
+    trailing averages, and per-test durations for every build would blow
+    up the state file for nothing it uses. Reader-side concerns stay
+    reader-side: outcome and truncation ride along untouched, and
+    files_parsed vs files_expected exposes a listed-but-unfetchable
+    invocation file, so a partial total can't silently read as the build
+    getting faster."""
+    if not results:
+        return None
+    durations = [r.duration for r in results if r.duration is not None]
+    wall = None
+    if build.started_unix and build.finished_unix:
+        wall = build.finished_unix - build.started_unix
+    return {
+        "tests_total_s": round(sum(durations), 3),
+        "test_count": len(results),
+        "wall_clock_s": wall,
+        "result": build.result,
+        "truncated": any(r.truncated for r in results),
+        "files_parsed": len(build.results_files),
+        "files_expected": len(build.result_paths),
+    }
+
+
 def fold_build(state: dict, build: ProwBuild, results) -> dict:
     # unrecognizable job name or SHA conflict: source already logged it
     job = build.target or build.job
     return record_build(
         state, origin="midstream", repo=build.repo, job=job,
         build_key=build_key(build.repo, job, build.build_id),
+        timing=build_timing(build, results),
         sha=build.sha, base_sha=build.base_sha,
         sha_verified=build.sha_verified,
         discard=build.sha_conflict or build.target is None,

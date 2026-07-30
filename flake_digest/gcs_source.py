@@ -89,6 +89,8 @@ class ProwBuild:
     base_sha: str | None = None
     result: str | None = None          # finished.json: SUCCESS/FAILURE/ABORTED
     timestamp: str | None = None       # ISO 8601 from finished.json
+    started_unix: int | None = None    # started.json timestamp, for wall clock
+    finished_unix: int | None = None
     has_results_file: bool = False
     no_results_reason: str | None = None   # timeout / setup_failure / unknown
     results_files: list[tuple[str, bytes]] = field(default_factory=list)
@@ -244,8 +246,11 @@ def fetch_build(repo: str, pr_number: int, job: str, build_id: str) -> ProwBuild
         ts = finished.get("timestamp")
         if ts:
             build.timestamp = datetime.fromtimestamp(ts, tz=timezone.utc).isoformat()
+            build.finished_unix = int(ts)
 
     started = _fetch_json(prefix + "started.json")
+    if started and isinstance(started.get("timestamp"), int):
+        build.started_unix = started["timestamp"]
     started_sha = head_sha_from_started(started, pr_number) if started else None
     finished_sha = None
     if finished:
