@@ -1,8 +1,8 @@
 `llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-llmd-simulator2]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 4 · **Runs seen:** 378
-**First seen:** 2026-07-20T15:54:50+00:00 · **Last seen:** 2026-07-22T09:31:44+00:00
+**Confirmed:** 0 · **Suspected:** 5 · **Runs seen:** 379
+**First seen:** 2026-07-20T15:54:50+00:00 · **Last seen:** 2026-07-30T14:20:57+00:00
 
 ### suspected (base_moved) at `54f1a2337f66`
 - **FAIL** 2026-07-19T21:54:33+00:00 · build `2078924338689478656` · branch `master` · base `0e1cac589c72` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1770/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078924338689478656)
@@ -23,3 +23,8 @@
 - **FAIL** 2026-07-18T13:57:09+00:00 · build `2078441177786355712` · branch `master` · base `afbee690bd11` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1766/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078441177786355712)
   - `AssertionError: Missing true conditions: {'Ready', 'RouterReady'}, expected {'Ready', 'RouterReady', 'WorkloadsReady'}, got [{'lastTransitionTime': '2026-07-18T13:16:31Z', 'message': 'Managed HTTPRout`
 - **PASS** 2026-07-22T09:31:44+00:00 · build `2079837164643815424` · branch `master` · base `5daeea6f120a` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1766/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2079837164643815424)
+
+### suspected (base_moved) at `a7f604c6b6fa`
+- **FAIL** 2026-07-09T15:11:05+00:00 · build `2075199676763607040` · branch `master` · base `2fdc97517179` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1688/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2075199676763607040)
+  - `AssertionError: Service returned 502:`
+- **PASS** 2026-07-30T14:20:57+00:00 · build `2082805819832799232` · branch `master` · base `76da12e77e42` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1688/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2082805819832799232)

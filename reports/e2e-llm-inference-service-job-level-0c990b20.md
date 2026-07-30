@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 2 · **Suspected:** 16 · **Runs seen:** 378
-**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-07-29T13:22:47+00:00
+**Confirmed:** 2 · **Suspected:** 17 · **Runs seen:** 379
+**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-07-30T14:20:57+00:00
 
 ### confirmed (same_base) at `bf5784c504ee`
 - **FAIL** 2026-07-19T06:34:51+00:00 · build `2078700793065639936` · branch `master` · base `0e1cac589c72` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1765/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078700793065639936)
@@ -86,3 +86,7 @@
 ### suspected (base_moved) at `bb4b028f05cc`
 - **FAIL** 2026-07-29T04:14:23+00:00 · build `2082291563362258944` · branch `master` · base `a638c0dd552d` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1827/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2082291563362258944)
 - **PASS** 2026-07-29T13:22:47+00:00 · build `2082424973384749056` · branch `master` · base `1995336861fa` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1827/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2082424973384749056)
+
+### suspected (base_moved) at `a7f604c6b6fa`
+- **FAIL** 2026-07-09T15:11:05+00:00 · build `2075199676763607040` · branch `master` · base `2fdc97517179` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1688/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2075199676763607040)
+- **PASS** 2026-07-30T14:20:57+00:00 · build `2082805819832799232` · branch `master` · base `76da12e77e42` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1688/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2082805819832799232)

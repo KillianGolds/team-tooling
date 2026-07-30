@@ -1,7 +1,7 @@
 `llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-with-refs-scheduler-managed-workload-single-cpu-model-fb-opt-125m]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 1 · **Suspected:** 5 · **Runs seen:** 378
+**Confirmed:** 1 · **Suspected:** 5 · **Runs seen:** 379
 **First seen:** 2026-07-01T23:46:23+00:00 · **Last seen:** 2026-07-24T00:58:13+00:00
 
 ### suspected (base_moved) at `800f29c3088b`
