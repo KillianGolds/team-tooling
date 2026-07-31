@@ -5868,7 +5868,7 @@
   },
   "job_runs": {
     "midstream|opendatahub-io/kserve|e2e-graph": 301,
-    "midstream|opendatahub-io/kserve|e2e-kserve-module": 167,
+    "midstream|opendatahub-io/kserve|e2e-kserve-module": 168,
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service": 381,
     "midstream|opendatahub-io/kserve|e2e-predictor": 354,
     "midstream|opendatahub-io/kserve|e2e-raw": 310
@@ -6528,6 +6528,7 @@
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2082481202593271808": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2082558373559013376": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2082891959864659968": true,
+    "midstream:opendatahub-io/kserve:e2e-kserve-module:2083180980633341952": true,
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2070162211392720896": true,
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2070193379701952512": true,
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2070194846089351168": true,
@@ -42374,6 +42375,23 @@
         "outcome": "fail",
         "timestamp": "2026-07-08T09:48:06+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1648/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-kserve-module/2074792602862882816"
+      },
+      "pass": null
+    },
+    "midstream|opendatahub-io/kserve|e2e-kserve-module|<job-level>|4814c885ad9c652ac40a2d2fba933641240c14f6": {
+      "counted": false,
+      "fail": {
+        "base_sha": "76da12e77e42af9c46d347a0a3b6eaba7afc8546",
+        "branch": "master",
+        "build_id": "2083180980633341952",
+        "failure_message": null,
+        "has_results": false,
+        "head_verified": true,
+        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-kserve-module",
+        "no_results_reason": "setup_failure",
+        "outcome": "fail",
+        "timestamp": "2026-07-31T14:16:28+00:00",
+        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1833/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2083180980633341952"
       },
       "pass": null
     },
