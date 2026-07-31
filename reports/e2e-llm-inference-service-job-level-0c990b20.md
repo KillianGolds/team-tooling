@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 2 · **Suspected:** 17
-**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-07-30T14:20:57+00:00
+**Confirmed:** 2 · **Suspected:** 18
+**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-07-31T18:24:22+00:00
 
 ### confirmed (same_base) at `bf5784c504ee`
 - **FAIL** 2026-07-19T06:34:51+00:00 · build `2078700793065639936` · branch `master` · base `0e1cac589c72` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1765/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078700793065639936)
@@ -90,3 +90,8 @@
 ### suspected (base_moved) at `a7f604c6b6fa`
 - **FAIL** 2026-07-09T15:11:05+00:00 · build `2075199676763607040` · branch `master` · base `2fdc97517179` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1688/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2075199676763607040)
 - **PASS** 2026-07-30T14:20:57+00:00 · build `2082805819832799232` · branch `master` · base `76da12e77e42` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1688/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2082805819832799232)
+
+### suspected (base_moved) at `63ebc7712302`
+- **FAIL** 2026-07-29T20:02:18+00:00 · build `2082509116047101952` · branch `master` · base `2b7846ab0fa4` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1520/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2082509116047101952)
+  - no results file: setup_failure
+- **PASS** 2026-07-31T18:24:22+00:00 · build `2083227490913882112` · branch `master` · base `5591157480dd` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1520/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2083227490913882112)
