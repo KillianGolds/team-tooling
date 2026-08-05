@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 3 · **Suspected:** 18
-**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-08-04T14:25:11+00:00
+**Confirmed:** 3 · **Suspected:** 19
+**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-08-05T19:11:38+00:00
 
 ### confirmed (same_base) at `bf5784c504ee`
 - **FAIL** 2026-07-19T06:34:51+00:00 · build `2078700793065639936` · branch `master` · base `0e1cac589c72` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1765/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078700793065639936)
@@ -99,3 +99,8 @@
 ### confirmed (same_base) at `ec49130ad1db`
 - **FAIL** 2026-08-03T21:56:30+00:00 · build `2084367423049306112` · branch `master` · base `174dfeabf6eb` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1732/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2084367423049306112)
 - **PASS** 2026-08-04T14:25:11+00:00 · build `2084619880589430784` · branch `master` · base `174dfeabf6eb` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1732/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2084619880589430784)
+
+### suspected (base_moved) at `3459cd74ec85`
+- **FAIL** 2026-08-05T19:11:38+00:00 · build `2085076545096912896` · branch `master` · base `f0719f1de573` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1545/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2085076545096912896)
+  - no results file: setup_failure
+- **PASS** 2026-08-04T21:43:13+00:00 · build `2084716224532451328` · branch `master` · base `8fa3fd57839a` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1545/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2084716224532451328)
