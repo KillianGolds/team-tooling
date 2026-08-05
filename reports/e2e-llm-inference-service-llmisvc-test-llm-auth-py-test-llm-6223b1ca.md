@@ -1,8 +1,8 @@
 `llmisvc/test_llm_auth.py::test_llm_auth_enabled_requires_token[cluster_cpu-cluster_single_node-auth-enabled-default]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 3
-**First seen:** 2026-07-18T09:30:01+00:00 · **Last seen:** 2026-07-22T09:31:44+00:00
+**Confirmed:** 0 · **Suspected:** 4
+**First seen:** 2026-07-18T09:30:01+00:00 · **Last seen:** 2026-08-04T23:07:42+00:00
 
 ### suspected (base_moved) at `3f6dcd734dc6`
 - **FAIL** 2026-07-18T09:30:01+00:00 · build `2078380559326777344` · branch `master` · base `afbee690bd11` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1684/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078380559326777344)
@@ -18,3 +18,8 @@
 - **FAIL** 2026-07-18T13:57:09+00:00 · build `2078441177786355712` · branch `master` · base `afbee690bd11` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1766/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078441177786355712)
   - `AssertionError: Missing true conditions: {'RouterReady', 'Ready'}, expected {'RouterReady', 'WorkloadsReady', 'Ready'}, got [{'lastTransitionTime': '2026-07-18T13:05:29Z', 'message': 'AuthPolicy CRD i`
 - **PASS** 2026-07-22T09:31:44+00:00 · build `2079837164643815424` · branch `master` · base `5daeea6f120a` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1766/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2079837164643815424)
+
+### suspected (base_moved) at `2b114933df26`
+- **FAIL** 2026-08-04T23:07:42+00:00 · build `2084748516256649216` · branch `master` · base `8fa3fd57839a` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1848/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2084748516256649216)
+  - `AssertionError: Expected 401/403 without token, got 503: inference error: ServiceUnavailable - failed to find endpoint candidates for serving the request`
+- **PASS** 2026-08-04T19:33:49+00:00 · build `2084691745219547136` · branch `master` · base `5f836b5928bc` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1848/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2084691745219547136)
