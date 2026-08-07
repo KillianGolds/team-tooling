@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 3 · **Suspected:** 19
-**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-08-05T19:11:38+00:00
+**Confirmed:** 3 · **Suspected:** 20
+**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-08-06T19:19:35+00:00
 
 ### confirmed (same_base) at `bf5784c504ee`
 - **FAIL** 2026-07-19T06:34:51+00:00 · build `2078700793065639936` · branch `master` · base `0e1cac589c72` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1765/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078700793065639936)
@@ -104,3 +104,8 @@
 - **FAIL** 2026-08-05T19:11:38+00:00 · build `2085076545096912896` · branch `master` · base `f0719f1de573` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1545/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2085076545096912896)
   - no results file: setup_failure
 - **PASS** 2026-08-04T21:43:13+00:00 · build `2084716224532451328` · branch `master` · base `8fa3fd57839a` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1545/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2084716224532451328)
+
+### suspected (same_base) at `7ef867050b83`
+- **FAIL** 2026-08-05T21:57:34+00:00 · build `2085116248575709184` · branch `master` · base `f0719f1de573` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1846/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2085116248575709184)
+  - no results file: setup_failure
+- **PASS** 2026-08-06T19:19:35+00:00 · build `2085415357194964992` · branch `master` · base `f0719f1de573` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1846/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2085415357194964992)
