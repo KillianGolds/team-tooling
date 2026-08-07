@@ -6862,7 +6862,7 @@
   },
   "job_runs": {
     "midstream|opendatahub-io/kserve|e2e-graph": 329,
-    "midstream|opendatahub-io/kserve|e2e-kserve-module": 197,
+    "midstream|opendatahub-io/kserve|e2e-kserve-module": 198,
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service": 414,
     "midstream|opendatahub-io/kserve|e2e-predictor": 381,
     "midstream|opendatahub-io/kserve|e2e-raw": 337
@@ -7595,6 +7595,7 @@
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2085458706111139840": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2085499532027629568": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2085513998148571136": true,
+    "midstream:opendatahub-io/kserve:e2e-kserve-module:2085607333026598912": true,
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2070162211392720896": true,
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2070193379701952512": true,
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2070194846089351168": true,
@@ -48184,6 +48185,22 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1648/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-kserve-module/2075260328647593984"
       },
       "pass": null
+    },
+    "midstream|opendatahub-io/kserve|e2e-kserve-module|<job-level>|b944c732bcaba87f3c6617eb1bba6245e1ff94cb": {
+      "counted": false,
+      "fail": null,
+      "pass": {
+        "base_sha": "198febcb7b9efd062fa886165680aa9112e8ad93",
+        "branch": "master",
+        "build_id": "2085607333026598912",
+        "has_results": false,
+        "head_verified": true,
+        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-kserve-module",
+        "no_results_reason": null,
+        "outcome": "pass",
+        "timestamp": "2026-08-07T07:14:12+00:00",
+        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1858/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2085607333026598912"
+      }
     },
     "midstream|opendatahub-io/kserve|e2e-kserve-module|<job-level>|bacd0f0b0f25f8ea9f550c365c1b663e3e51399d": {
       "counted": false,
