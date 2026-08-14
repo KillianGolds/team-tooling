@@ -8501,6 +8501,7 @@
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2088004349467824128": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2088016219184566272": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2088016227573174272": true,
+    "midstream:opendatahub-io/kserve:e2e-kserve-module:2088244841690435584": true,
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2070162211392720896": true,
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2070193379701952512": true,
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2070194846089351168": true,
