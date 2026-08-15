@@ -7653,7 +7653,7 @@
   },
   "job_runs": {
     "midstream|opendatahub-io/kserve|e2e-graph": 371,
-    "midstream|opendatahub-io/kserve|e2e-kserve-module": 245,
+    "midstream|opendatahub-io/kserve|e2e-kserve-module": 246,
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service": 453,
     "midstream|opendatahub-io/kserve|e2e-predictor": 421,
     "midstream|opendatahub-io/kserve|e2e-raw": 378
@@ -8526,6 +8526,7 @@
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2088468777095139328": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2088472968580567040": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2088473773203263488": true,
+    "midstream:opendatahub-io/kserve:e2e-kserve-module:2088628253018296320": true,
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2070162211392720896": true,
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2070193379701952512": true,
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2070194846089351168": true,
@@ -50876,17 +50877,17 @@
     "midstream|opendatahub-io/kserve|e2e-kserve-module|<job-level>|3319cbf901a5fe25a2cd74661f3b2795bd01a8ec": {
       "counted": true,
       "fail": {
-        "base_sha": "11e8b1666c1a72cb4e9f589be44fbe38a744b7bf",
+        "base_sha": "b76aac5b2fbc20616615f2772169bf849184521b",
         "branch": "master",
-        "build_id": "2088016227573174272",
+        "build_id": "2088628253018296320",
         "failure_message": null,
         "has_results": false,
         "head_verified": true,
         "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-kserve-module",
         "no_results_reason": "setup_failure",
         "outcome": "fail",
-        "timestamp": "2026-08-13T21:44:31+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1798/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2088016227573174272"
+        "timestamp": "2026-08-15T15:34:44+00:00",
+        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1798/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2088628253018296320"
       },
       "pass": {
         "base_sha": "b0bd7ebbf75ab0357ca205e987220eec9e1252bd",
