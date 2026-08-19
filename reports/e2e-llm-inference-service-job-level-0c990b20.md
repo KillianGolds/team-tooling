@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 4 · **Suspected:** 22
-**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-08-13T22:09:10+00:00
+**Confirmed:** 4 · **Suspected:** 23
+**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-08-19T02:52:17+00:00
 
 ### confirmed (same_base) at `bf5784c504ee`
 - **FAIL** 2026-07-19T06:34:51+00:00 · build `2078700793065639936` · branch `master` · base `0e1cac589c72` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1765/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078700793065639936)
@@ -123,3 +123,8 @@
 - **FAIL** 2026-08-13T20:05:25+00:00 · build `2087982825545404416` · branch `master` · base `f5b2ae6d5c60` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1871/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2087982825545404416)
   - no results file: setup_failure
 - **PASS** 2026-08-13T22:09:10+00:00 · build `2087994801105408000` · branch `master` · base `f5b2ae6d5c60` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1871/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2087994801105408000)
+
+### suspected (base_moved) at `b82421008262`
+- **FAIL** 2026-08-18T23:00:24+00:00 · build `2089827331198685184` · branch `master` · base `7401732726c7` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1896/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2089827331198685184)
+  - no results file: setup_failure
+- **PASS** 2026-08-19T02:52:17+00:00 · build `2089880503283879936` · branch `master` · base `43d02a851cf1` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1896/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2089880503283879936)
