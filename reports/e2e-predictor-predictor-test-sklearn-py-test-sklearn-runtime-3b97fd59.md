@@ -1,8 +1,8 @@
 `predictor/test_sklearn.py::test_sklearn_runtime_kserve`
 
 **Job:** e2e-predictor · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 1 · **Suspected:** 3
-**First seen:** 2026-06-27T01:43:05+00:00 · **Last seen:** 2026-07-23T15:49:33+00:00
+**Confirmed:** 2 · **Suspected:** 3
+**First seen:** 2026-06-27T01:43:05+00:00 · **Last seen:** 2026-08-21T05:23:20+00:00
 
 ### suspected (base_moved) at `8d0f4fa336d1`
 - **FAIL** 2026-06-27T01:43:05+00:00 · build `2070670134548107264` · branch `master` · base `b1a9e1942245` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1671/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2070670134548107264)
@@ -23,3 +23,8 @@
 - **FAIL** 2026-07-23T15:49:33+00:00 · build `2080299686660411392` · branch `master` · base `b8bba71fe280` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1708/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2080299686660411392)
   - `assert 1 == 2`
 - **PASS** 2026-07-22T10:13:51+00:00 · build `2079851190669021184` · branch `master` · base `5daeea6f120a` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1708/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2079851190669021184)
+
+### confirmed (same_base) at `25570f3b9981`
+- **FAIL** 2026-08-21T04:22:59+00:00 · build `2090617650039230464` · branch `release-v0.17` · base `147768f4c932` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-predictor/2090617650039230464)
+  - `RuntimeError: Timeout to start the InferenceService isvc-sklearn-runtime.                                The InferenceService is as following: {'apiVersion': 'serving.kserve.io/v1beta1', 'kind': 'Infe`
+- **PASS** 2026-08-21T05:23:20+00:00 · build `2090656127074177024` · branch `release-v0.17` · base `147768f4c932` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-predictor/2090656127074177024)
