@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 4 · **Suspected:** 24
-**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-08-20T18:23:04+00:00
+**Confirmed:** 5 · **Suspected:** 24
+**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-08-21T17:39:53+00:00
 
 ### confirmed (same_base) at `bf5784c504ee`
 - **FAIL** 2026-07-19T06:34:51+00:00 · build `2078700793065639936` · branch `master` · base `0e1cac589c72` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1765/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078700793065639936)
@@ -133,3 +133,7 @@
 - **FAIL** 2026-08-20T16:18:59+00:00 · build `2090470166264549376` · branch `release-v0.17` · base `147768f4c932` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2090470166264549376)
   - no results file: setup_failure
 - **PASS** 2026-08-20T18:23:04+00:00 · build `2090483028374589440` · branch `release-v0.17` · base `147768f4c932` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2090483028374589440)
+
+### confirmed (same_base) at `af44e8071612`
+- **FAIL** 2026-08-21T15:08:51+00:00 · build `2090793497480138752` · branch `release-v0.17` · base `147768f4c932` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2090793497480138752)
+- **PASS** 2026-08-21T17:39:53+00:00 · build `2090819137134661632` · branch `release-v0.17` · base `147768f4c932` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2090819137134661632)
