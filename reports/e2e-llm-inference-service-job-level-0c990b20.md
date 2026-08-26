@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 7 · **Suspected:** 25
-**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-08-25T08:19:41+00:00
+**Confirmed:** 7 · **Suspected:** 26
+**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-08-25T19:26:18+00:00
 
 ### confirmed (same_base) at `bf5784c504ee`
 - **FAIL** 2026-07-19T06:34:51+00:00 · build `2078700793065639936` · branch `master` · base `0e1cac589c72` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1765/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078700793065639936)
@@ -150,3 +150,8 @@
 ### confirmed (same_base) at `3b04662cef69`
 - **FAIL** 2026-08-25T06:25:17+00:00 · build `2092109408556290048` · branch `release-v0.17` · base `97dac48d95ad` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2092109408556290048)
 - **PASS** 2026-08-25T08:19:41+00:00 · build `2092142627129397248` · branch `release-v0.17` · base `97dac48d95ad` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2092142627129397248)
+
+### suspected (base_moved) at `2f97f1940132`
+- **FAIL** 2026-08-25T17:37:25+00:00 · build `2092302267498631168` · branch `master` · base `3ca067e0098d` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1893/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2092302267498631168)
+  - no results file: setup_failure
+- **PASS** 2026-08-25T19:26:18+00:00 · build `2092302223361970176` · branch `release-v0.17` · base `97dac48d95ad` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1893/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2092302223361970176)
