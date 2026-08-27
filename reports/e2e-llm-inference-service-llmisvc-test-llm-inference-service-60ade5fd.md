@@ -1,8 +1,8 @@
 `llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-pd-cpu-model-fb-opt-125m]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 2 · **Suspected:** 0
-**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-07-24T00:58:13+00:00
+**Confirmed:** 3 · **Suspected:** 0
+**First seen:** 2026-07-19T09:42:38+00:00 · **Last seen:** 2026-08-26T20:48:41+00:00
 
 ### confirmed (same_base) at `bf5784c504ee`
 - **FAIL** 2026-07-19T06:34:51+00:00 · build `2078700793065639936` · branch `master` · base `0e1cac589c72` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1765/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2078700793065639936)
@@ -13,3 +13,8 @@
 - **FAIL** 2026-07-24T00:58:13+00:00 · build `2080431257170219008` · branch `master` · base `ff189f41ff17` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1730/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2080431257170219008)
   - `kubernetes.client.exceptions.ApiException: (500)`
 - **PASS** 2026-07-23T21:10:26+00:00 · build `2080366412781588480` · branch `master` · base `ff189f41ff17` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1730/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2080366412781588480)
+
+### confirmed (same_base) at `30c2946f5be3`
+- **FAIL** 2026-08-26T17:13:58+00:00 · build `2092634091923968000` · branch `release-v0.17` · base `97dac48d95ad` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2092634091923968000)
+  - `RuntimeError: ❌ Exception when calling CustomObjectsApi->get_namespaced_custom_object for LLMInferenceService: (500)`
+- **PASS** 2026-08-26T20:48:41+00:00 · build `2092680786200236032` · branch `release-v0.17` · base `97dac48d95ad` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2092680786200236032)

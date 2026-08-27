@@ -1,8 +1,8 @@
 `llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-with-refs-pd-scheduler-managed-workload-pd-cpu-model-fb-opt-125m]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 6
-**First seen:** 2026-07-01T23:46:23+00:00 · **Last seen:** 2026-07-08T08:45:24+00:00
+**Confirmed:** 1 · **Suspected:** 6
+**First seen:** 2026-07-01T23:46:23+00:00 · **Last seen:** 2026-08-26T20:48:41+00:00
 
 ### suspected (base_moved) at `800f29c3088b`
 - **FAIL** 2026-07-01T23:46:23+00:00 · build `2072430800640413696` · branch `master` · base `d672737a5d55` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1692/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2072430800640413696)
@@ -33,3 +33,8 @@
 - **FAIL** 2026-07-06T13:59:27+00:00 · build `2074083352842866688` · branch `master` · base `caebcfbeb438` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1684/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2074083352842866688)
   - `AssertionError: Missing true conditions: {'Ready', 'RouterReady'}, expected {'Ready', 'RouterReady', 'WorkloadsReady'}, got [{'lastTransitionTime': '2026-07-06T12:47:45Z', 'severity': 'Info', 'status'`
 - **PASS** 2026-07-08T08:45:24+00:00 · build `2074742584659415040` · branch `master` · base `8365299e74df` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1684/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2074742584659415040)
+
+### confirmed (same_base) at `30c2946f5be3`
+- **FAIL** 2026-08-26T17:13:58+00:00 · build `2092634091923968000` · branch `release-v0.17` · base `97dac48d95ad` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2092634091923968000)
+  - `kubernetes.client.exceptions.ApiException: (500)`
+- **PASS** 2026-08-26T20:48:41+00:00 · build `2092680786200236032` · branch `release-v0.17` · base `97dac48d95ad` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2092680786200236032)
