@@ -1,8 +1,8 @@
 `llmisvc/test_llm_canary_lifecycle.py::TestCanaryLifecycle::test_rollback`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 4 · **Suspected:** 2
-**First seen:** 2026-07-23T05:22:02+00:00 · **Last seen:** 2026-08-25T16:47:09+00:00
+**Confirmed:** 4 · **Suspected:** 3
+**First seen:** 2026-07-23T05:22:02+00:00 · **Last seen:** 2026-08-31T13:40:12+00:00
 
 ### suspected (base_moved) at `f1b7a0bc458c`
 - **FAIL** 2026-07-23T02:57:06+00:00 · build `2080097507211218944` · branch `master` · base `ef08a0e7ae61` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1757/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2080097507211218944)
@@ -33,3 +33,8 @@
 - **FAIL** 2026-08-25T16:47:09+00:00 · build `2092261395939725312` · branch `release-v0.17` · base `97dac48d95ad` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2092261395939725312)
   - `AssertionError: rollback: stable phase promoted: error rate 3.2% exceeds 0.0%`
 - **PASS** 2026-08-25T13:09:35+00:00 · build `2092210654617276416` · branch `release-v0.17` · base `97dac48d95ad` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2092210654617276416)
+
+### suspected (base_moved) at `419a52e4ab43`
+- **FAIL** 2026-08-31T13:40:12+00:00 · build `2094389340732919808` · branch `master` · base `843270d4005f` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1923/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2094389340732919808)
+  - `TimeoutError: roll-v2 weight=9, expected 0 (from roll-v1)`
+- **PASS** None · build `2093074056118013952` · branch `master` · base `68aeded1b0d8` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1923/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2093074056118013952)
