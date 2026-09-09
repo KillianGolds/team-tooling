@@ -42,6 +42,20 @@ def test_processed_builds_are_skipped_without_a_fetch(monkeypatch):
     assert summary["known"] == 1 and summary["fetched"] == 1
 
 
+def test_running_build_with_results_already_uploaded_stays_unmarked(monkeypatch):
+    # results files upload per step while the build runs; folding on
+    # their presence froze a running build with a null job result
+    fetched = []
+    running = _build("100", result=None)
+    running.has_results_file = True
+    running.results_files = [("p/e2e_results-x.json", b"{}")]
+    _wire(monkeypatch, {"100": running}, fetched)
+    state = store.empty_state()
+    summary = runner.fold_window(state, CFG)
+    assert summary["pending"] == 1 and summary["fetched"] == 0
+    assert not store.is_processed(state, runner.build_key(REPO, "e2e-predictor", "100"))
+
+
 def test_freshly_finished_build_waits_a_cycle(monkeypatch):
     # finished.json lands before the artifact tree finishes uploading; a
     # build folded in that window loses its data forever

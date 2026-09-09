@@ -29,12 +29,11 @@ from flake_digest.parser import parse_e2e_results
 # processed, a build silently missed is invisible
 WINDOW_PAD_DAYS = 2
 
-# finished.json is small and lands at completion, but the artifact tree
-# (results files, junit_operator.xml) can still be uploading for a while
-# after it appears. Seen live 2026-09-09: two builds folded minutes after
-# completing came up empty, and refetching them later returned full
-# artifacts. A build folded that early loses its data forever, since
-# idempotency never looks again, so anything this fresh waits a cycle.
+# belt on top of the finished.json rule: give a just-finished build a
+# few minutes for any final artifact sync before folding it for good.
+# The ordering we actually observed (2026-09-09) is artifacts DURING the
+# run and finished.json last, so this should rarely matter; it costs at
+# most one cycle of delay and protects against upload stragglers.
 FRESHNESS_GRACE_S = 600
 
 
@@ -170,7 +169,13 @@ def fold_window(state: dict, cfg: dict, progress=lambda msg: None) -> dict:
                     summary["known"] += 1
                     continue
                 build = fetch_build(entry["repo"], pr, job, bid)
-                if build.result is None and not build.has_results_file:
+                # finished.json is the only completion evidence. Results
+                # files upload per step WHILE the build runs, so their
+                # presence proves nothing (a running build folded early
+                # freezes forever with a null job result); an orphan that
+                # never gets finished.json just refetches each cycle
+                # until it leaves the window.
+                if build.result is None:
                     summary["pending"] += 1
                     continue
                 if (build.finished_unix
