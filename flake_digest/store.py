@@ -33,7 +33,7 @@ from pathlib import Path
 
 DEFAULT_STATE_PATH = Path(__file__).resolve().parent / "state" / "flakes_state.json"
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 
 def _schema() -> dict:
@@ -46,13 +46,21 @@ def _schema() -> dict:
             "job_runs": "origin|repo|job (completed-build denominator)",
             "discarded": "origin|repo|job (unclassifiable builds)",
             "build_timings": "same key as processed_builds; one entry per"
-                             " results-bearing build since schema v2:"
-                             " tests_total_s (summed test durations across"
-                             " invocation files), test_count, wall_clock_s"
-                             " (finished minus started), result, truncated"
-                             " (pytest stopped early; total not comparable"
-                             " to complete runs), files_parsed/"
-                             "files_expected (partial fetch detection)."
+                             " completed build that had parsed results or"
+                             " a measured test phase (results-bearing only"
+                             " before schema v3): tests_total_s (summed"
+                             " test durations across invocation files),"
+                             " test_count, wall_clock_s (finished minus"
+                             " started), result, truncated (pytest stopped"
+                             " early; total not comparable to complete"
+                             " runs), files_parsed/files_expected (partial"
+                             " fetch detection), test_phase_s (ci-operator"
+                             " test-phase elapsed from junit_operator.xml,"
+                             " the number the 2h step timeout applies to;"
+                             " since v3). Phase-only entries exist for"
+                             " builds without result files (kserve-module,"
+                             " timeout-killed builds); their pytest fields"
+                             " are null, meaning no data, not zero."
                              " Filters like successes-only are the"
                              " reader's job; nothing is filtered at write.",
         },

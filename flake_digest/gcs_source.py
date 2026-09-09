@@ -91,6 +91,7 @@ class ProwBuild:
     timestamp: str | None = None       # ISO 8601 from finished.json
     started_unix: int | None = None    # started.json timestamp, for wall clock
     finished_unix: int | None = None
+    test_phase_s: float | None = None  # ci-operator test-phase elapsed
     has_results_file: bool = False
     no_results_reason: str | None = None   # timeout / setup_failure / unknown
     results_files: list[tuple[str, bytes]] = field(default_factory=list)
@@ -281,7 +282,41 @@ def fetch_build(repo: str, pr_number: int, job: str, build_id: str) -> ProwBuild
         # timeout apart from setup death, which have different owners
         build.no_results_reason = classify_no_results(
             _fetch_build_log(prefix))
+
+    if build.result in ("SUCCESS", "FAILURE"):
+        # aborted builds' phase times are partial by definition; only
+        # completed ones are trend data
+        build.test_phase_s = parse_test_phase(
+            _fetch(prefix + "artifacts/junit_operator.xml"))
     return build
+
+
+_TEST_PHASE_NAME = 'name="Run multi-stage test test phase"'
+
+
+def parse_test_phase(raw: bytes | None) -> float | None:
+    """Elapsed seconds of the ci-operator test phase, from the build's
+    junit_operator.xml. This is the number the 2h step timeout actually
+    applies to; wall clock also contains image builds and cluster
+    provisioning, whose ceiling (4h) nothing approaches.
+
+    Tolerant on purpose, and that's an asymmetry worth knowing: a corrupt
+    results file fails the run loudly because results are the core
+    signal, while this is telemetry, so anything odd here just means no
+    phase time for that build. Plain string scanning rather than an XML
+    parser: one attribute of one element from an external file.
+    """
+    if raw is None:
+        return None
+    for tag in re.findall(r"<testcase\b[^>]*>", raw.decode("utf-8", "replace")):
+        if _TEST_PHASE_NAME in tag:
+            m = re.search(r'time="([0-9.]+)"', tag)
+            if m:
+                try:
+                    return float(m.group(1))
+                except ValueError:
+                    return None
+    return None
 
 
 def _fetch_build_log(prefix: str) -> str | None:

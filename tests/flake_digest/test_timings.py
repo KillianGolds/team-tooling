@@ -7,7 +7,7 @@ import pytest
 
 from flake_digest import store
 from flake_digest.flakes import record_build
-from flake_digest.gcs_source import ProwBuild
+from flake_digest.gcs_source import ProwBuild, parse_test_phase
 # model imported as a module: a top-level name starting with "Test" would
 # trip pytest's collector
 from flake_digest import model
@@ -21,7 +21,7 @@ ENTRY = {"repo": REPO, "job_pattern": r".*",
 P = "pr-logs/pull/opendatahub-io_kserve/1/job/100/artifacts/x/x/artifacts/"
 
 
-def _build(files=(), paths=None, result="SUCCESS",
+def _build(files=(), paths=None, result="SUCCESS", phase=None,
            started=1_784_000_000, finished=1_784_005_820):
     return ProwBuild(repo=REPO, job="pull-ci-x-master-e2e-predictor",
                      build_id="100", prefix=P, url="u",
@@ -29,6 +29,7 @@ def _build(files=(), paths=None, result="SUCCESS",
                      sha_verified=True, result=result,
                      timestamp="2026-07-30T00:00:00+00:00",
                      started_unix=started, finished_unix=finished,
+                     test_phase_s=phase,
                      has_results_file=bool(files),
                      results_files=list(files),
                      result_paths=list(paths if paths is not None
@@ -108,8 +109,58 @@ def test_timing_lands_in_state_and_refold_changes_nothing():
     assert json.dumps(state, sort_keys=True) == before
 
 
-def test_schema_v2_documents_build_timings():
+def test_schema_v3_documents_build_timings():
     schema = store.empty_state()["_schema"]
-    assert schema["version"] == 2
-    for field in ("tests_total_s", "wall_clock_s", "files_parsed", "truncated"):
+    assert schema["version"] == 3
+    for field in ("tests_total_s", "wall_clock_s", "files_parsed",
+                  "truncated", "test_phase_s"):
         assert field in schema["keys"]["build_timings"]
+    assert "null" in schema["keys"]["build_timings"]  # phase-only semantics
+
+
+# --- test-phase telemetry (schema v3) ---
+
+JUNIT = b"""<?xml version="1.0"?><testsuite name="operator" tests="3">
+<testcase name="Build image kserve-controller from the repository" time="463.5"/>
+<testcase name="Run multi-stage test test phase" time="4122.5"/>
+<testcase name="Run multi-stage test post phase" time="696.1"/>
+</testsuite>"""
+
+
+def test_phase_parses_from_junit_operator():
+    assert parse_test_phase(JUNIT) == 4122.5
+
+
+def test_phase_parse_survives_attribute_order():
+    xml = b'<testsuite><testcase time="99.5" name="Run multi-stage test test phase"/></testsuite>'
+    assert parse_test_phase(xml) == 99.5
+
+
+def test_phase_parse_is_tolerant_not_loud():
+    # telemetry degrades quietly; only the results parser fails a run
+    assert parse_test_phase(None) is None
+    assert parse_test_phase(b"<testsuite><testcase name=\"other\" time=\"1\"/>") is None
+    assert parse_test_phase(b"\xff\xfenot xml at all") is None
+
+
+def test_phase_rides_on_results_entries():
+    b = _build(files=[(P + "e2e_results.json", b"{}")], phase=4122.5)
+    t = build_timing(b, [_result("a::t1", 40.0)])
+    assert t["test_phase_s"] == 4122.5
+    assert t["test_count"] == 1
+
+
+def test_phase_only_entry_for_build_without_results():
+    # kserve-module always; timeout-killed builds, whose ~2h phase is the
+    # ceiling hit itself
+    b = _build(result="FAILURE", phase=7199.0)
+    t = build_timing(b, [])
+    assert t["test_phase_s"] == 7199.0
+    assert t["tests_total_s"] is None and t["test_count"] is None
+    assert t["truncated"] is None  # no pytest data, not zero
+    assert t["files_parsed"] == 0 and t["files_expected"] == 0
+    assert t["result"] == "FAILURE" and t["wall_clock_s"] == 5820
+
+
+def test_completed_build_with_neither_results_nor_phase_gets_no_entry():
+    assert build_timing(_build(result="FAILURE"), []) is None

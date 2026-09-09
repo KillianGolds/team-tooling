@@ -87,29 +87,40 @@ def build_key(repo: str, target: str, build_id: str) -> str:
 
 
 def build_timing(build: ProwBuild, results) -> dict | None:
-    """Per-build timing aggregate for results-bearing builds; None
-    otherwise. Aggregate on purpose: the headroom feature needs per-job
+    """Per-build timing aggregate. An entry exists when the build has
+    parsed results or a measured test phase; wall clock alone isn't worth
+    retaining. Aggregate on purpose: the headroom feature needs per-job
     trailing averages, and per-test durations for every build would blow
-    up the state file for nothing it uses. Reader-side concerns stay
-    reader-side: outcome and truncation ride along untouched, and
-    files_parsed vs files_expected exposes a listed-but-unfetchable
-    invocation file, so a partial total can't silently read as the build
-    getting faster."""
-    if not results:
+    up the state file for nothing it uses.
+
+    Phase-only entries (kserve-module, which writes no result files, and
+    timeout-killed builds, whose ~2h phase IS the ceiling hit) carry None
+    for the pytest fields: no data, deliberately distinct from zero.
+    Reader-side concerns stay reader-side: outcome and truncation ride
+    along untouched, and files_parsed vs files_expected exposes a
+    listed-but-unfetchable invocation file, so a partial total can't
+    silently read as the build getting faster."""
+    if not results and build.test_phase_s is None:
         return None
-    durations = [r.duration for r in results if r.duration is not None]
     wall = None
     if build.started_unix and build.finished_unix:
         wall = build.finished_unix - build.started_unix
-    return {
-        "tests_total_s": round(sum(durations), 3),
-        "test_count": len(results),
+    timing = {
+        "tests_total_s": None,
+        "test_count": None,
         "wall_clock_s": wall,
         "result": build.result,
-        "truncated": any(r.truncated for r in results),
+        "truncated": None,
         "files_parsed": len(build.results_files),
         "files_expected": len(build.result_paths),
+        "test_phase_s": build.test_phase_s,
     }
+    if results:
+        durations = [r.duration for r in results if r.duration is not None]
+        timing["tests_total_s"] = round(sum(durations), 3)
+        timing["test_count"] = len(results)
+        timing["truncated"] = any(r.truncated for r in results)
+    return timing
 
 
 def fold_build(state: dict, build: ProwBuild, results) -> dict:
