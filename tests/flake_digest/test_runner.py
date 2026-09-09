@@ -42,6 +42,23 @@ def test_processed_builds_are_skipped_without_a_fetch(monkeypatch):
     assert summary["known"] == 1 and summary["fetched"] == 1
 
 
+def test_freshly_finished_build_waits_a_cycle(monkeypatch):
+    # finished.json lands before the artifact tree finishes uploading; a
+    # build folded in that window loses its data forever
+    import time
+    fetched = []
+    fresh = _build("100")
+    fresh.finished_unix = int(time.time()) - 60
+    settled = _build("101")
+    settled.finished_unix = int(time.time()) - 3600
+    _wire(monkeypatch, {"100": fresh, "101": settled}, fetched)
+    state = store.empty_state()
+    summary = runner.fold_window(state, CFG)
+    assert summary["pending"] == 1 and summary["fetched"] == 1
+    assert not store.is_processed(state, runner.build_key(REPO, "e2e-predictor", "100"))
+    assert store.is_processed(state, runner.build_key(REPO, "e2e-predictor", "101"))
+
+
 def test_still_running_build_stays_unmarked_for_the_next_run(monkeypatch):
     fetched = []
     running = _build("100", result=None)
