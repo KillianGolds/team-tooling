@@ -155,9 +155,17 @@ def test_ranking_puts_confirmed_above_noisier_suspected():
     assert body.index("gold.py::t") < body.index("noisy.py::t")
 
 
-def test_runs_denominator_joined_from_job_runs():
-    body = _body(_rec("a.py::t"))
-    assert "| 42 |" in body
+def test_runs_denominator_derived_from_ledger():
+    from flake_digest.gcs_source import min_build_id_for
+    import time
+    state = _state(_rec("a.py::t"))
+    now_ms = int(time.time() * 1000)
+    for i in range(5):
+        bid = min_build_id_for(now_ms - 3 * 86_400_000) + i
+        state["processed_builds"][f"midstream:{REPO}:e2e-predictor:{bid}"] = {
+            "run": True, "discarded": False, "result": "SUCCESS"}
+    body = render_issue_body(state, CFG, "now")
+    assert "| 5 |" in body
 
 
 def test_confirmed_section_honest_when_empty():
@@ -169,7 +177,9 @@ def test_job_level_rows_render_for_every_job_seen():
     state["job_runs"][f"midstream|{REPO}|e2e-raw"] = 7
     state["discarded"][f"midstream|{REPO}|e2e-raw"] = 1
     body = render_issue_body(state, CFG, "now")
-    assert "| e2e-raw | 0 | 0 | 7 | 1 |" in body
+    # legacy counters are out-of-window history now; the row survives via
+    # the key union with windowed (zero) denominators
+    assert "| e2e-raw | 0 | 0 | 0 | 0 |" in body
 
 
 def test_job_level_record_from_live_pipeline_renders(tmp_path):

@@ -12,6 +12,7 @@ anything is written. PR numbers live in internal state only.
 """
 import hashlib
 import re
+import time
 
 from flake_digest.model import JOB_LEVEL_NODEID
 
@@ -67,7 +68,10 @@ def render_report_page(rec: dict) -> str:
         f"**Job:** {rec['job']} · **Repo:** {rec['repo']} ({rec['origin']})",
         f"**Confirmed:** {rec['confirmed_count']} · "
         f"**Suspected:** {rec['suspected_count']}",
-        f"**First seen:** {rec['first_seen']} · **Last seen:** {rec['last_seen']}",
+        f"**First seen:** {rec['first_seen']} · **Last seen:** {rec['last_seen']}"
+        + (f" · **Tracking since:** {ever}"
+           if (ever := rec.get("first_seen_ever"))
+           and ever != rec["first_seen"] else ""),
         "",
     ]
     for occ in rec["occurrences"]:
@@ -88,11 +92,18 @@ def render_report_page(rec: dict) -> str:
     return "\n".join(lines)
 
 
-def render_issue_body(state: dict, cfg: dict, now_iso: str) -> str:
+def render_issue_body(state: dict, cfg: dict, now_iso: str,
+                      now_ms: int | None = None) -> str:
     # imported here: grouping imports gcs_source, and this module is
     # imported early enough that a top-level import would be circular the
     # day grouping ever needs a formatter helper
     from flake_digest.grouping import compute_incidents
+    from flake_digest.aging import window_runs
+
+    if now_ms is None:
+        now_ms = int(time.time() * 1000)
+    window_days = cfg.get("window_days", 30)
+    runs_map, discarded_map, derived = window_runs(state, now_ms, window_days)
 
     reports_base = f"https://github.com/{cfg['issue']['repo']}/blob/main/reports/"
     flakes = list(state["flakes"].values())
@@ -114,7 +125,9 @@ def render_issue_body(state: dict, cfg: dict, now_iso: str) -> str:
         "## KServe e2e flake tracker (midstream)",
         "",
         f"_Last updated {now_iso}. All data is presubmit; there is no clean "
-        "scheduled baseline._",
+        f"scheduled baseline. Counts cover a rolling {window_days}-day "
+        "window; anything older has aged out (full history stays in this "
+        "repo's commits)._",
         "",
         "**How to read this.** A row counts occurrences where the same test "
         "both failed and passed at the same PR head commit across rerun "
@@ -136,7 +149,7 @@ def render_issue_body(state: dict, cfg: dict, now_iso: str) -> str:
         "|---|---|---|---|---|---|---|",
     ]
     for rec in test_rows[:TOP_TEST_ROWS]:
-        runs = state["job_runs"].get(
+        runs = runs_map.get(
             f"{rec['origin']}|{rec['repo']}|{rec['job']}", 0)
         out.append(
             f"| `{_display_nodeid(rec['nodeid'])}` | {rec['job']} "
@@ -211,7 +224,8 @@ def render_issue_body(state: dict, cfg: dict, now_iso: str) -> str:
         "| Job | Suspected | Confirmed | Runs seen | Discarded builds |",
         "|---|---|---|---|---|",
     ]
-    for job_key in sorted(state["job_runs"]):
+    # union so a job quiet for a whole window still gets its row
+    for job_key in sorted(set(state["job_runs"]) | set(runs_map)):
         origin, repo, job = job_key.split("|", 2)
         rec = state["flakes"].get(f"{job_key}|{JOB_LEVEL_NODEID}")
         s = rec["suspected_count"] if rec else 0
@@ -219,8 +233,12 @@ def render_issue_body(state: dict, cfg: dict, now_iso: str) -> str:
         link = (f" ([evidence]({reports_base}{report_filename(rec)}))"
                 if rec else "")
         out.append(f"| {job}{link} | {s} | {c} "
-                   f"| {state['job_runs'][job_key]} "
-                   f"| {state['discarded'].get(job_key, 0)} |")
+                   f"| {runs_map.get(job_key, 0)} "
+                   f"| {discarded_map.get(job_key, 0)} |")
+    if not derived:
+        out += ["", "_Run denominators still include pre-ledger history;"
+                " exact windowed counts take over automatically once the"
+                " older entries age out._"]
 
     return "\n".join(out) + "\n"
 

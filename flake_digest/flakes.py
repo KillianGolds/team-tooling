@@ -57,12 +57,16 @@ def record_build(
     if store.is_processed(state, build_key):
         return {"skipped": True, "run_counted": False, "discarded": False,
                 "new_occurrences": []}
-    store.mark_processed(state, build_key)
+    completed = job_result in ("SUCCESS", "FAILURE") or bool(test_results)
+    store.mark_processed(state, build_key, run=completed,
+                         discarded=discard, result=job_result)
     if timing is not None:
         state["build_timings"][build_key] = timing
 
+    # legacy since-bootstrap counters, kept incrementing only until no
+    # pre-v4 ledger entries remain in the window; rendering already
+    # prefers the ledger where it can
     job_key = f"{origin}|{repo}|{job}"
-    completed = job_result in ("SUCCESS", "FAILURE") or bool(test_results)
     if completed:
         state["job_runs"][job_key] = state["job_runs"].get(job_key, 0) + 1
 
@@ -164,6 +168,9 @@ def _record_outcome(state, origin, repo, job, nodeid, sha, *, passed,
             rec["first_seen"] = occurred
         if rec["last_seen"] is None or occurred > rec["last_seen"]:
             rec["last_seen"] = occurred
+        # .get: records written before v4 lack the field
+        ever = rec.get("first_seen_ever") or rec["first_seen"]
+        rec["first_seen_ever"] = min(ever, occurred)
     rec["last_failure_url"] = entry["fail"]["url"]
     return key
 

@@ -3,6 +3,10 @@
 # FLAKE_DIGEST_CONFIG.
 
 window_days: 30
+# runtime trend history outlives flake counts on purpose; keep this at
+# least as long as any headroom trailing window (James may want
+# release-cycle scale, pending his answer)
+timings_retention_days: 56
 
 # the pinned issue the cron rewrites; evidence links point at this
 # repo's reports/ directory

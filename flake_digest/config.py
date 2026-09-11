@@ -27,6 +27,7 @@ def load_config(path: Path | None = None) -> dict:
         entry.setdefault("bare_untrusted_until_migrated", [])
 
     cfg.setdefault("window_days", 30)
+    cfg.setdefault("timings_retention_days", 56)
     cfg.setdefault("issue", {})
     cfg["issue"].setdefault("repo", None)
     cfg["issue"].setdefault("number", None)

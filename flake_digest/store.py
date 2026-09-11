@@ -33,18 +33,30 @@ from pathlib import Path
 
 DEFAULT_STATE_PATH = Path(__file__).resolve().parent / "state" / "flakes_state.json"
 
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
 
 
 def _schema() -> dict:
     return {
         "version": SCHEMA_VERSION,
+        "window": "state is a rolling window since v4: occurrences,"
+                  " sha_index entries and processed builds older than the"
+                  " window are pruned each run (git history of this file"
+                  " keeps every prior snapshot). FlakeRecord counts cover"
+                  " the window; first_seen_ever survives pruning.",
         "keys": {
             "flakes": "origin|repo|job|nodeid; job is the normalized target"
                       " (e.g. e2e-predictor), stable across branch renames",
             "sha_index": "origin|repo|job|nodeid|sha",
-            "job_runs": "origin|repo|job (completed-build denominator)",
-            "discarded": "origin|repo|job (unclassifiable builds)",
+            "processed_builds": "idempotency ledger; values since v4 are"
+                                " {run, discarded, result} so windowed"
+                                " per-job denominators derive from it"
+                                " (pre-v4 values are bare true: unknown)",
+            "job_runs": "origin|repo|job; legacy since-bootstrap counters,"
+                        " read only while pre-v4 ledger entries remain in"
+                        " the window, then removable",
+            "discarded": "origin|repo|job (unclassifiable builds; same"
+                         " legacy status as job_runs)",
             "build_timings": "same key as processed_builds; one entry per"
                              " completed build that had parsed results or"
                              " a measured test phase (results-bearing only"
@@ -100,5 +112,13 @@ def is_processed(state: dict, build_key: str) -> bool:
     return build_key in state["processed_builds"]
 
 
-def mark_processed(state: dict, build_key: str) -> None:
-    state["processed_builds"][build_key] = True
+def mark_processed(state: dict, build_key: str, *, run: bool = False,
+                   discarded: bool = False, result: str | None = None) -> None:
+    """Since schema v4 the ledger value records what each build was, so
+    per-job denominators can be recomputed for any window instead of
+    living in irreversible counters. Pre-v4 entries are a bare `true`:
+    membership still answers idempotency, but their run-ness is unknown,
+    which is why the windowed denominators fall back to the legacy
+    counters until every in-window entry carries the new shape."""
+    state["processed_builds"][build_key] = {
+        "run": run, "discarded": discarded, "result": result}

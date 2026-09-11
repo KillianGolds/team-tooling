@@ -95,6 +95,9 @@ class FlakeRecord:
     runs: int = 0
     shas_flaked: list[str] = field(default_factory=list)
     first_seen: str | None = None
+    # survives window pruning: "flaking since June" stays diagnostic even
+    # after the June occurrences age out of the rolling window
+    first_seen_ever: str | None = None
     last_seen: str | None = None
     last_failure_url: str | None = None
     occurrences: list[dict] = field(default_factory=list)
@@ -118,6 +121,7 @@ class FlakeRecord:
             "runs": self.runs,
             "shas_flaked": self.shas_flaked,
             "first_seen": self.first_seen,
+            "first_seen_ever": self.first_seen_ever,
             "last_seen": self.last_seen,
             "last_failure_url": self.last_failure_url,
             "occurrences": self.occurrences,
@@ -135,6 +139,9 @@ class FlakeRecord:
             runs=d.get("runs", 0),
             shas_flaked=list(d.get("shas_flaked", [])),
             first_seen=d.get("first_seen"),
+            # pre-v4 records had no ever field; their first_seen is the
+            # best available value for it
+            first_seen_ever=d.get("first_seen_ever") or d.get("first_seen"),
             last_seen=d.get("last_seen"),
             last_failure_url=d.get("last_failure_url"),
             occurrences=list(d.get("occurrences", [])),

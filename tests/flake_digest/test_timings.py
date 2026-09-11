@@ -109,9 +109,10 @@ def test_timing_lands_in_state_and_refold_changes_nothing():
     assert json.dumps(state, sort_keys=True) == before
 
 
-def test_schema_v3_documents_build_timings():
+def test_schema_v4_documents_build_timings():
     schema = store.empty_state()["_schema"]
-    assert schema["version"] == 3
+    assert schema["version"] == 4
+    assert "rolling window" in schema["window"]
     for field in ("tests_total_s", "wall_clock_s", "files_parsed",
                   "truncated", "test_phase_s"):
         assert field in schema["keys"]["build_timings"]

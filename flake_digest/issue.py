@@ -9,11 +9,13 @@ Usage:
 import argparse
 import os
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
 from common.issue import resolve_write_token, rewrite_issue
 from flake_digest import store
+from flake_digest.aging import prune
 from flake_digest.config import load_config
 from flake_digest.markdown_formatter import ensure_render_safe, render_issue_body
 from flake_digest.reports import write_reports
@@ -38,6 +40,13 @@ def main() -> int:
           f"known, {summary['pending']} still running, "
           f"{len(summary['new_occurrences'])} new occurrences",
           file=sys.stderr)
+    aged = prune(state, int(time.time() * 1000), cfg["window_days"],
+                 cfg["timings_retention_days"])
+    if any(aged.values()):
+        print(f"aged out: {aged['occurrences']} occurrences "
+              f"({aged['records']} records emptied), {aged['builds']} ledger "
+              f"entries, {aged['sha_entries']} sha entries, "
+              f"{aged['timings']} timings", file=sys.stderr)
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     body = render_issue_body(state, cfg, now)
