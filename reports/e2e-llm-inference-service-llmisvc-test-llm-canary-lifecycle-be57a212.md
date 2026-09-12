@@ -1,13 +1,8 @@
 `llmisvc/test_llm_canary_lifecycle.py::TestCanaryLifecycle::test_late_join`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 6 · **Suspected:** 0
-**First seen:** 2026-08-13T18:42:02+00:00 · **Last seen:** 2026-09-11T21:39:25+00:00 · **Tracking since:** 2026-07-23T10:45:30+00:00
-
-### confirmed (same_base) at `3f67f660b9c6`
-- **FAIL** 2026-08-13T17:09:12+00:00 · build `2087921808643723264` · branch `master` · base `11e8b1666c1a` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1873/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2087921808643723264)
-  - `AssertionError: late-join: error rate 0.8% exceeds 0.0%`
-- **PASS** 2026-08-13T18:42:02+00:00 · build `2087950233714561024` · branch `master` · base `11e8b1666c1a` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1873/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2087950233714561024)
+**Confirmed:** 5 · **Suspected:** 0
+**First seen:** 2026-08-20T18:23:04+00:00 · **Last seen:** 2026-09-11T21:39:25+00:00 · **Tracking since:** 2026-07-23T10:45:30+00:00
 
 ### confirmed (same_base) at `a44277a09bee`
 - **FAIL** 2026-08-20T15:01:21+00:00 · build `2090424567238496256` · branch `release-v0.17` · base `147768f4c932` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2090424567238496256)
