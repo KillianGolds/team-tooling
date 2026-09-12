@@ -1,8 +1,8 @@
 `llmisvc/test_llm_canary_lifecycle.py::TestCanaryLifecycle::test_late_join`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 5 · **Suspected:** 0
-**First seen:** 2026-08-13T18:42:02+00:00 · **Last seen:** 2026-09-02T00:45:32+00:00 · **Tracking since:** 2026-07-23T10:45:30+00:00
+**Confirmed:** 6 · **Suspected:** 0
+**First seen:** 2026-08-13T18:42:02+00:00 · **Last seen:** 2026-09-11T21:39:25+00:00 · **Tracking since:** 2026-07-23T10:45:30+00:00
 
 ### confirmed (same_base) at `3f67f660b9c6`
 - **FAIL** 2026-08-13T17:09:12+00:00 · build `2087921808643723264` · branch `master` · base `11e8b1666c1a` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1873/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2087921808643723264)
@@ -28,3 +28,8 @@
 - **FAIL** 2026-09-01T22:29:00+00:00 · build `2094885324776804352` · branch `master` · base `606d130e70ad` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1904/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2094885324776804352)
   - `AssertionError: v2 received no traffic after join (40 total)`
 - **PASS** 2026-09-02T00:45:32+00:00 · build `2094922054145937408` · branch `master` · base `606d130e70ad` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1904/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2094922054145937408)
+
+### confirmed (same_base) at `9447f454698d`
+- **FAIL** 2026-09-11T19:32:49+00:00 · build `2098467276784144384` · branch `master` · base `b2435fe1ae99` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1869/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2098467276784144384)
+  - `AssertionError: v2 received no traffic after join (40 total)`
+- **PASS** 2026-09-11T21:39:25+00:00 · build `2098495862442299392` · branch `master` · base `b2435fe1ae99` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1869/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2098495862442299392)
