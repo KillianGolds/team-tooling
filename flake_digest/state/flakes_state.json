@@ -11704,8 +11704,6 @@
       "result": "SUCCESS",
       "run": true
     },
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2086754725667016704": true,
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2086755710158245888": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2086871709889073152": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2086940174855442432": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2086940219688357888": true,
