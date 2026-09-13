@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 4 · **Suspected:** 8
-**First seen:** 2026-08-19T02:52:17+00:00 · **Last seen:** 2026-09-11T13:53:17+00:00 · **Tracking since:** 2026-07-19T09:42:38+00:00
+**Confirmed:** 5 · **Suspected:** 8
+**First seen:** 2026-08-19T02:52:17+00:00 · **Last seen:** 2026-09-13T17:20:12+00:00 · **Tracking since:** 2026-07-19T09:42:38+00:00
 
 ### suspected (base_moved) at `b82421008262`
 - **FAIL** 2026-08-18T23:00:24+00:00 · build `2089827331198685184` · branch `master` · base `7401732726c7` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1896/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2089827331198685184)
@@ -59,3 +59,7 @@
 - **FAIL** 2026-09-10T17:33:31+00:00 · build `2098089612067999744` · branch `master` · base `48637f2611fb` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1869/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2098089612067999744)
   - no results file: setup_failure
 - **PASS** 2026-09-11T13:53:17+00:00 · build `2098377668582969344` · branch `master` · base `b2435fe1ae99` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1869/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2098377668582969344)
+
+### confirmed (same_base) at `9447f454698d`
+- **FAIL** 2026-09-12T00:16:56+00:00 · build `2098534481253109760` · branch `master` · base `b2435fe1ae99` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1869/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2098534481253109760)
+- **PASS** 2026-09-13T17:20:12+00:00 · build `2099159493022584832` · branch `master` · base `b2435fe1ae99` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1869/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2099159493022584832)
