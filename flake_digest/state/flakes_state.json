@@ -11736,15 +11736,6 @@
       "result": "SUCCESS",
       "run": true
     },
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2086940174855442432": true,
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2086940219688357888": true,
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2086940249048485888": true,
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2086942339976138752": true,
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2086942537842429952": true,
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2086943819621732352": true,
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2086943838760341504": true,
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2086943852307943424": true,
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2086967861921714176": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2087206067086823424": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2087281423416299520": true,
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2087281507021361152": true,
@@ -35344,22 +35335,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1924/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2093031385857003520"
       },
       "pass": null
-    },
-    "midstream|opendatahub-io/kserve|e2e-kserve-module|<job-level>|5d33476eb7cc756662fdacd18941d59d8c6788a7": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "a0ecb0d58041c8c9a1ad1aa344fb420f59c0f0e7",
-        "branch": "release-v0.17",
-        "build_id": "2088473773203263488",
-        "has_results": false,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-release-v0.17-e2e-kserve-module",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-08-15T05:00:45+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1885/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-kserve-module/2088473773203263488"
-      }
     },
     "midstream|opendatahub-io/kserve|e2e-kserve-module|<job-level>|5d7986a45f80367ba57f92242206ccf9ec6233a5": {
       "counted": false,
