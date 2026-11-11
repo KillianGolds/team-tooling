@@ -1,4 +1,13 @@
-"""Fetch midstream Prow results from the public test-platform-results bucket.
+"""Fetch midstream Prow results from the public test-platform-results-public
+bucket.
+
+Bucket history: anonymous access to the original test-platform-results
+bucket was removed in September 2026 for security reasons, and a fresh
+public bucket was started alongside it with the same layout; nothing was
+copied, and the old bucket became an authenticated archive on a limited
+lifecycle. Everything this tool reads is post-cutover, so the public
+bucket covers the whole listing window, and anonymous access to it is a
+property the CI platform preserves on purpose, not an oversight.
 
 Anonymous GCS JSON API via requests; no credentials or gsutil needed. A few
 things I confirmed against live builds (PRs 1505/1606/1613, 2026-07):
@@ -32,7 +41,10 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-BUCKET_API = "https://storage.googleapis.com/storage/v1/b/test-platform-results/o"
+BUCKET_API = "https://storage.googleapis.com/storage/v1/b/test-platform-results-public/o"
+# Deck presents the pre- and post-cutover buckets as one timeline under
+# the old name, and these links render for current runs, so view URLs
+# keep the name Deck itself emits
 PROW_VIEW = "https://prow.ci.openshift.org/view/gs/test-platform-results/"
 
 # The producer writes per-invocation results files now: bare

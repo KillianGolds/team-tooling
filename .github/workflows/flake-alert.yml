@@ -1,0 +1,43 @@
+name: Flake Tracker Alert
+
+# Two silent outages taught this lesson: a 3-day PAT expiry and a 58-day
+# bucket-access loss, both found by a human happening to look. One red
+# run can be a blip the fetch retries didn't cover; two in a row is an
+# outage, and an assigned issue is a notification someone actually gets.
+
+on:
+  workflow_run:
+    workflows: ["Flake Tracker Update"]
+    types: [completed]
+
+jobs:
+  alert:
+    if: github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      issues: write
+    timeout-minutes: 5
+    steps:
+      - name: Open an alert issue after two consecutive failures
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          last_two=$(gh run list --repo "$GITHUB_REPOSITORY" \
+            --workflow flake-issue.yml --limit 2 \
+            --json conclusion --jq '[.[].conclusion] | join(",")')
+          if [ "$last_two" != "failure,failure" ]; then
+            echo "not two consecutive failures ($last_two); no alert"
+            exit 0
+          fi
+          title="flake tracker: scheduled runs are failing"
+          existing=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open \
+            --search "\"$title\" in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            echo "alert issue already open; not duplicating"
+            exit 0
+          fi
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "$title" \
+            --assignee KillianGolds \
+            --body "Two consecutive scheduled runs of the flake tracker failed, so the pinned issue and state have stopped updating. Check the latest runs of the Flake Tracker Update workflow for the error. This issue was opened automatically; close it once runs are green again."

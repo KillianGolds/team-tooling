@@ -11,7 +11,9 @@ jobs:
     permissions:
       contents: write  # commits flakes_state.json + reports/
       issues: write    # rewrites the pinned flake issue
-    timeout-minutes: 45
+    # generous because the first run after a long outage backfills the
+    # whole listing window in one go; steady-state runs take minutes
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
 
