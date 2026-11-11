@@ -1,10 +1,10 @@
 `predictor/test_lightgbm.py::test_lightgbm_runtime_kserve`
 
 **Job:** e2e-predictor · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 1 · **Suspected:** 0
-**First seen:** 2026-08-21T05:23:20+00:00 · **Last seen:** 2026-08-21T05:23:20+00:00
+**Confirmed:** 0 · **Suspected:** 1
+**First seen:** 2026-10-30T21:38:45+00:00 · **Last seen:** 2026-10-30T21:38:45+00:00 · **Tracking since:** 2026-08-21T05:23:20+00:00
 
-### confirmed (same_base) at `25570f3b9981`
-- **FAIL** 2026-08-21T04:22:59+00:00 · build `2090617650039230464` · branch `release-v0.17` · base `147768f4c932` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-predictor/2090617650039230464)
+### suspected (base_moved) at `642956109907`
+- **FAIL** 2026-10-30T21:38:45+00:00 · build `2116252518072717312` · branch `master` · base `dbd2476df3bb` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2144/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2116252518072717312)
   - `RuntimeError: Timeout to start the InferenceService isvc-lightgbm-runtime.                                The InferenceService is as following: {'apiVersion': 'serving.kserve.io/v1beta1', 'kind': 'Inf`
-- **PASS** 2026-08-21T05:23:20+00:00 · build `2090656127074177024` · branch `release-v0.17` · base `147768f4c932` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-predictor/2090656127074177024)
+- **PASS** 2026-10-30T16:02:53+00:00 · build `2116180223027318784` · branch `master` · base `277d961b85da` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2144/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2116180223027318784)

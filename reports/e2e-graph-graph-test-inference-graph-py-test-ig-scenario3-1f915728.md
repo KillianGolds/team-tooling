@@ -1,10 +1,10 @@
 `graph/test_inference_graph.py::test_ig_scenario3`
 
 **Job:** e2e-graph · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 1
-**First seen:** 2026-09-04T03:45:48+00:00 · **Last seen:** 2026-09-04T03:45:48+00:00
+**Confirmed:** 1 · **Suspected:** 0
+**First seen:** 2026-11-06T21:57:11+00:00 · **Last seen:** 2026-11-06T21:57:11+00:00 · **Tracking since:** 2026-09-04T03:45:48+00:00
 
-### suspected (base_moved) at `8030d8e9f191`
-- **FAIL** 2026-09-04T03:45:48+00:00 · build `2095702794227945472` · branch `master` · base `bfa71926e2c0` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1904/pull-ci-opendatahub-io-kserve-master-e2e-graph/2095702794227945472)
-  - `RuntimeError: Timeout to start the InferenceService success-200-isvc-8600c.                                The InferenceService is as following: {'apiVersion': 'serving.kserve.io/v1beta1', 'kind': 'In`
-- **PASS** 2026-09-03T19:22:55+00:00 · build `2095574793024704512` · branch `master` · base `891090a15e48` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1904/pull-ci-opendatahub-io-kserve-master-e2e-graph/2095574793024704512)
+### confirmed (same_base) at `dce5f750e540`
+- **FAIL** 2026-11-06T18:08:03+00:00 · build `2118747697891512320` · branch `master` · base `a16b6ca93e10` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2172/pull-ci-opendatahub-io-kserve-master-e2e-graph/2118747697891512320)
+  - `kubernetes.client.exceptions.ServiceException: (500)`
+- **PASS** 2026-11-06T21:57:11+00:00 · build `2118803598254018560` · branch `master` · base `a16b6ca93e10` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2172/pull-ci-opendatahub-io-kserve-master-e2e-graph/2118803598254018560)

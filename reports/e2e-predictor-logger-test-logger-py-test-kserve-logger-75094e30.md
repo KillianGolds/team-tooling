@@ -1,15 +1,10 @@
 `logger/test_logger.py::test_kserve_logger`
 
 **Job:** e2e-predictor · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 2 · **Suspected:** 0
-**First seen:** 2026-08-21T05:23:20+00:00 · **Last seen:** 2026-08-23T11:36:37+00:00 · **Tracking since:** 2026-07-18T00:56:46+00:00
+**Confirmed:** 0 · **Suspected:** 1
+**First seen:** 2026-11-05T23:10:05+00:00 · **Last seen:** 2026-11-05T23:10:05+00:00 · **Tracking since:** 2026-07-18T00:56:46+00:00
 
-### confirmed (same_base) at `25570f3b9981`
-- **FAIL** 2026-08-21T04:22:59+00:00 · build `2090617650039230464` · branch `release-v0.17` · base `147768f4c932` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-predictor/2090617650039230464)
-  - `httpx.HTTPStatusError: , '503 Service Unavailable' for url 'https://isvc-logger-kserve-ci-e2e-test.apps.d920ebddc03a81611971.openshift-ci-aws.rhaiseng.com/v1/models/isvc-logger:predict'`
-- **PASS** 2026-08-21T05:23:20+00:00 · build `2090656127074177024` · branch `release-v0.17` · base `147768f4c932` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1905/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-predictor/2090656127074177024)
-
-### confirmed (same_base) at `8665cd94c538`
-- **FAIL** 2026-08-23T09:49:39+00:00 · build `2091424294952243200` · branch `master` · base `3cf0a0416662` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1910/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2091424294952243200)
-  - `httpx.HTTPStatusError: , '503 Service Unavailable' for url 'https://isvc-logger-kserve-ci-e2e-test.apps.10f01472e96fe2cbfdd4.openshift-ci-aws.rhaiseng.com/v1/models/isvc-logger:predict'`
-- **PASS** 2026-08-23T11:36:37+00:00 · build `2091475409517416448` · branch `master` · base `3cf0a0416662` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1910/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2091475409517416448)
+### suspected (base_moved) at `9428f159de71`
+- **FAIL** 2026-11-05T20:53:29+00:00 · build `2118429650471358464` · branch `master` · base `77be385bdaa4` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2118429650471358464)
+  - `assert 'org.kubeflow.serving.inference.request' in "b''"`
+- **PASS** 2026-11-05T23:10:05+00:00 · build `2118460200007503872` · branch `master` · base `ff80abbf7ac0` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2118460200007503872)
