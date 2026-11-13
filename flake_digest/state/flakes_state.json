@@ -41905,22 +41905,6 @@
       },
       "pass": null
     },
-    "midstream|opendatahub-io/kserve|e2e-kserve-module|<job-level>|be24a50b3f5e82cbb5d905358513dc06ea35361b": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "6c40cbaaef6cbce699b5c6bc193092fe39968367",
-        "branch": "master",
-        "build_id": "2110114769460531200",
-        "has_results": false,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-kserve-module",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-13T22:45:19+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2082/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2110114769460531200"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-kserve-module|<job-level>|bee2bffe4586cb315d719a79c3833f6e9d347215": {
       "counted": true,
       "fail": {
