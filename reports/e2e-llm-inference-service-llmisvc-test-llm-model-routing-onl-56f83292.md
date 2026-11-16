@@ -1,13 +1,8 @@
 `llmisvc/test_llm_model_routing_only.py::test_model_based_routing_only[cluster_single_node-cluster_cpu-gateway]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 5 · **Suspected:** 2
-**First seen:** 2026-10-16T22:17:51+00:00 · **Last seen:** 2026-11-06T22:27:58+00:00 · **Tracking since:** 2026-10-13T14:19:46+00:00
-
-### suspected (base_moved) at `cd2abe40b624`
-- **FAIL** 2026-10-16T22:17:51+00:00 · build `2111187724009476096` · branch `master` · base `7adbdd5a6f85` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2100/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2111187724009476096)
-  - `requests.exceptions.ConnectionError: HTTPConnectionPool(host='a51a6fcb702b2441195ed65232bd16d8-1908148969.us-east-1.elb.amazonaws.com', port=80): Max retries exceeded with url: /e2e-test-model-based-r`
-- **PASS** 2026-10-16T19:05:36+00:00 · build `2111137293799526400` · branch `master` · base `5ca606c3ad88` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2100/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2111137293799526400)
+**Confirmed:** 5 · **Suspected:** 1
+**First seen:** 2026-10-27T23:41:32+00:00 · **Last seen:** 2026-11-06T22:27:58+00:00 · **Tracking since:** 2026-10-13T14:19:46+00:00
 
 ### confirmed (same_base) at `6488274b8c5d`
 - **FAIL** 2026-10-27T19:48:16+00:00 · build `2115140882217832448` · branch `master` · base `fd466456c6e2` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2125/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115140882217832448)
