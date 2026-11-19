@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 6 · **Suspected:** 8
-**First seen:** 2026-10-23T13:40:34+00:00 · **Last seen:** 2026-11-10T22:15:14+00:00 · **Tracking since:** 2026-07-19T09:42:38+00:00
+**Confirmed:** 6 · **Suspected:** 9
+**First seen:** 2026-10-23T13:40:34+00:00 · **Last seen:** 2026-11-19T02:02:11+00:00 · **Tracking since:** 2026-07-19T09:42:38+00:00
 
 ### suspected (same_base) at `59ba2608a114`
 - **FAIL** 2026-10-22T21:26:16+00:00 · build `2113362414241058816` · branch `master` · base `2bda9e88c583` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2125/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113362414241058816)
@@ -64,3 +64,8 @@
 ### confirmed (same_base) at `076a091bea8e`
 - **FAIL** 2026-10-31T17:06:26+00:00 · build `2116551593359839232` · branch `release-v0.17` · base `aaefcec9cd60` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2155/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2116551593359839232)
 - **PASS** 2026-10-31T18:50:35+00:00 · build `2116580282340478976` · branch `release-v0.17` · base `aaefcec9cd60` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2155/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2116580282340478976)
+
+### suspected (same_base) at `b1ad82800506`
+- **FAIL** 2026-11-17T21:24:39+00:00 · build `2122778358965080064` · branch `master` · base `68c4696cf142` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2164/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2122778358965080064)
+  - no results file: timeout
+- **PASS** 2026-11-19T02:02:11+00:00 · build `2123202945481707520` · branch `master` · base `68c4696cf142` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2164/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2123202945481707520)

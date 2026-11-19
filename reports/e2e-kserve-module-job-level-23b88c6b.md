@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-kserve-module · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 10
-**First seen:** 2026-10-20T17:44:16+00:00 · **Last seen:** 2026-11-10T17:58:55+00:00 · **Tracking since:** 2026-07-07T15:21:10+00:00
+**Confirmed:** 0 · **Suspected:** 11
+**First seen:** 2026-10-20T17:44:16+00:00 · **Last seen:** 2026-11-19T02:00:40+00:00 · **Tracking since:** 2026-07-07T15:21:10+00:00
 
 ### suspected (base_moved) at `f4849b84da8d`
 - **FAIL** 2026-10-20T17:44:16+00:00 · build `2112596682771271680` · branch `master` · base `e3b46b4b4e65` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2115/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2112596682771271680)
@@ -53,3 +53,8 @@
 - **FAIL** 2026-11-10T14:51:14+00:00 · build `2120158028303962112` · branch `master` · base `a16b6ca93e10` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2175/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2120158028303962112)
   - no results file: setup_failure
 - **PASS** 2026-11-10T17:58:55+00:00 · build `2120183444985090048` · branch `master` · base `a16b6ca93e10` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2175/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2120183444985090048)
+
+### suspected (same_base) at `b1ad82800506`
+- **FAIL** 2026-11-17T21:27:28+00:00 · build `2122778358927331328` · branch `master` · base `68c4696cf142` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2164/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2122778358927331328)
+  - no results file: timeout
+- **PASS** 2026-11-19T02:00:40+00:00 · build `2123202945460736000` · branch `master` · base `68c4696cf142` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2164/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2123202945460736000)
