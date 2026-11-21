@@ -1,18 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-kserve-module · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 11
-**First seen:** 2026-10-22T12:57:29+00:00 · **Last seen:** 2026-11-20T19:25:11+00:00 · **Tracking since:** 2026-07-07T15:21:10+00:00
-
-### suspected (same_base) at `1f69392bdc2e`
-- **FAIL** 2026-10-22T10:57:10+00:00 · build `2113219372985094144` · branch `master` · base `476ebe782635` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2127/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2113219372985094144)
-  - no results file: setup_failure
-- **PASS** 2026-10-22T12:57:29+00:00 · build `2113232471007956992` · branch `master` · base `476ebe782635` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2127/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2113232471007956992)
-
-### suspected (same_base) at `5cc49461bb9b`
-- **FAIL** 2026-10-21T20:45:34+00:00 · build `2112981715289903104` · branch `master` · base `476ebe782635` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2126/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2112981715289903104)
-  - no results file: setup_failure
-- **PASS** 2026-10-22T16:25:00+00:00 · build `2113278779861241856` · branch `master` · base `476ebe782635` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2126/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2113278779861241856)
+**Confirmed:** 0 · **Suspected:** 9
+**First seen:** 2026-10-23T17:24:24+00:00 · **Last seen:** 2026-11-20T19:25:11+00:00 · **Tracking since:** 2026-07-07T15:21:10+00:00
 
 ### suspected (base_moved) at `56a0fbcd32b5`
 - **FAIL** 2026-10-22T23:28:53+00:00 · build `2113386240425332736` · branch `master` · base `2bda9e88c583` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2122/pull-ci-opendatahub-io-kserve-master-e2e-kserve-module/2113386240425332736)
