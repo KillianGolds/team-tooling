@@ -11580,11 +11580,6 @@
     "midstream|opendatahub-io/kserve|e2e-tls-scanner": 23
   },
   "processed_builds": {
-    "midstream:opendatahub-io/kserve:e2e-graph:2112336272927232000": {
-      "discarded": false,
-      "result": "FAILURE",
-      "run": true
-    },
     "midstream:opendatahub-io/kserve:e2e-graph:2112455808305336320": {
       "discarded": false,
       "result": "SUCCESS",
@@ -12625,16 +12620,6 @@
       "result": "SUCCESS",
       "run": true
     },
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2112285625720770560": {
-      "discarded": false,
-      "result": "SUCCESS",
-      "run": true
-    },
-    "midstream:opendatahub-io/kserve:e2e-kserve-module:2112336272977563648": {
-      "discarded": false,
-      "result": "FAILURE",
-      "run": true
-    },
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2112455808376639488": {
       "discarded": false,
       "result": "SUCCESS",
@@ -13313,16 +13298,6 @@
     "midstream:opendatahub-io/kserve:e2e-kserve-module:2123836971708059648": {
       "discarded": false,
       "result": "SUCCESS",
-      "run": true
-    },
-    "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2112285625766907904": {
-      "discarded": false,
-      "result": "FAILURE",
-      "run": true
-    },
-    "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2112336273015312384": {
-      "discarded": false,
-      "result": "FAILURE",
       "run": true
     },
     "midstream:opendatahub-io/kserve:e2e-llm-inference-service:2112455808422776832": {
@@ -14455,11 +14430,6 @@
       "result": "SUCCESS",
       "run": true
     },
-    "midstream:opendatahub-io/kserve:e2e-predictor:2112336273061449728": {
-      "discarded": false,
-      "result": "FAILURE",
-      "run": true
-    },
     "midstream:opendatahub-io/kserve:e2e-predictor:2112455808481497088": {
       "discarded": false,
       "result": "SUCCESS",
@@ -15493,11 +15463,6 @@
     "midstream:opendatahub-io/kserve:e2e-predictor:2124520403345870848": {
       "discarded": false,
       "result": "SUCCESS",
-      "run": true
-    },
-    "midstream:opendatahub-io/kserve:e2e-raw:2112336273095004160": {
-      "discarded": false,
-      "result": "FAILURE",
       "run": true
     },
     "midstream:opendatahub-io/kserve:e2e-raw:2112455808544411648": {
@@ -17628,22 +17593,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-graph/2117290665665630208"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-graph|<job-level>|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735664297054208",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-graph",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:46:58+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-graph/2113735664297054208"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-graph|<job-level>|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -18855,22 +18804,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1831/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082897818690785280"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario10|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735664297054208",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-graph",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:46:58+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-graph/2113735664297054208"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario10|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -19980,22 +19913,6 @@
         "outcome": "pass",
         "timestamp": null,
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1831/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082897818690785280"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario1|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735664297054208",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-graph",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:46:58+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-graph/2113735664297054208"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario1|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -21122,22 +21039,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1831/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082897818690785280"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario2|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735664297054208",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-graph",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:46:58+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-graph/2113735664297054208"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario2|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -22247,22 +22148,6 @@
         "outcome": "pass",
         "timestamp": null,
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1831/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082897818690785280"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario3|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735664297054208",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-graph",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:46:58+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-graph/2113735664297054208"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario3|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -23389,22 +23274,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1831/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082897818690785280"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario4|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735664297054208",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-graph",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:46:58+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-graph/2113735664297054208"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario4|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -24528,22 +24397,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1831/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082897818690785280"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario5|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735664297054208",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-graph",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:46:58+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-graph/2113735664297054208"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario5|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -25653,22 +25506,6 @@
         "outcome": "pass",
         "timestamp": null,
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1831/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082897818690785280"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario6|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735664297054208",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-graph",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:46:58+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-graph/2113735664297054208"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario6|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -26794,22 +26631,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1831/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082897818690785280"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario7|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735664297054208",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-graph",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:46:58+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-graph/2113735664297054208"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario7|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -27920,22 +27741,6 @@
         "outcome": "pass",
         "timestamp": null,
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1831/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082897818690785280"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario8|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735664297054208",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-graph",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:46:58+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-graph/2113735664297054208"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario8|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -29060,22 +28865,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1831/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082897818690785280"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario9|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735664297054208",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-graph",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:46:58+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-graph/2113735664297054208"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_ig_scenario9|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -30185,22 +29974,6 @@
         "outcome": "pass",
         "timestamp": null,
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1831/pull-ci-opendatahub-io-kserve-master-e2e-graph/2082897818690785280"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_inference_graph|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735664297054208",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-graph",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:46:58+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-graph/2113735664297054208"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-graph|graph/test_inference_graph.py::test_inference_graph|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -31807,22 +31580,6 @@
       },
       "pass": null
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|<job-level>|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|<job-level>|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -33411,22 +33168,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_accelerator_config.py::test_cpu_accelerator_preset_applies_to_workload|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_accelerator_config.py::test_cpu_accelerator_preset_applies_to_workload|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -34628,22 +34369,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_accelerator_config.py::test_cpu_accelerator_preset_serves_inference[cluster_cpu-cluster_single_node-router-managed-model-fb-opt-125m-workload-non-root]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_accelerator_config.py::test_cpu_accelerator_preset_serves_inference[cluster_cpu-cluster_single_node-router-managed-model-fb-opt-125m-workload-non-root]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -35843,22 +35568,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_accelerator_config.py::test_cpu_accelerator_preset_user_image_wins|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_accelerator_config.py::test_cpu_accelerator_preset_user_image_wins|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -37076,22 +36785,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_flow_control.py::test_flow_control_smoke[cluster_cpu-cluster_single_node-flow-control-concurrency-detector]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_flow_control.py::test_flow_control_smoke[cluster_cpu-cluster_single_node-flow-control-concurrency-detector]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -38375,22 +38068,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_flow_control.py::test_flow_control_smoke[cluster_cpu-cluster_single_node-flow-control-utilization-detector]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_flow_control.py::test_flow_control_smoke[cluster_cpu-cluster_single_node-flow-control-utilization-detector]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -39670,22 +39347,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_gateway_section_name.py::test_gateway_section_name_propagation[cluster_single_node-cluster_cpu-with-section-name]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_gateway_section_name.py::test_gateway_section_name_propagation[cluster_single_node-cluster_cpu-with-section-name]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -40968,22 +40629,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_gateway_section_name.py::test_gateway_section_name_propagation[cluster_single_node-cluster_cpu-without-section-name]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_gateway_section_name.py::test_gateway_section_name_propagation[cluster_single_node-cluster_cpu-without-section-name]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -42246,22 +41891,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_auth.py::test_llm_auth_disabled_no_token_required[cluster_cpu-cluster_single_node-auth-disabled]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_auth.py::test_llm_auth_disabled_no_token_required[cluster_cpu-cluster_single_node-auth-disabled]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -43546,22 +43175,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_auth.py::test_llm_auth_enabled_requires_token[cluster_cpu-cluster_single_node-auth-enabled-default]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_auth.py::test_llm_auth_enabled_requires_token[cluster_cpu-cluster_single_node-auth-enabled-default]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -44842,22 +44455,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_auth.py::test_llm_auth_invalid_token_rejected[cluster_cpu-cluster_single_node-auth-invalid-token]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_auth.py::test_llm_auth_invalid_token_rejected[cluster_cpu-cluster_single_node-auth-invalid-token]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -47071,22 +46668,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_multi_node-router-managed-workload-simulated-dp-ep-cpu-model-fb-opt-125m]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_multi_node-router-managed-workload-simulated-dp-ep-cpu-model-fb-opt-125m]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -48333,22 +47914,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-custom-route-timeout-pd-scheduler-managed-workload-pd-cpu-model-fb-opt-125m]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-custom-route-timeout-pd-scheduler-managed-workload-pd-cpu-model-fb-opt-125m]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -49599,22 +49164,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-custom-route-timeout-scheduler-managed-workload-single-cpu-model-fb-opt-125m]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-custom-route-timeout-scheduler-managed-workload-single-cpu-model-fb-opt-125m]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -50863,22 +50412,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-v06-nonzero-threshold-migration-workload-llmd-simulator-pd]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-v06-nonzero-threshold-migration-workload-llmd-simulator-pd]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -52125,22 +51658,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-v06-pd-config-migration-workload-llmd-simulator-pd]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-v06-pd-config-migration-workload-llmd-simulator-pd]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -53406,22 +52923,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-configmap-ref-workload-llmd-simulator]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-configmap-ref-workload-llmd-simulator]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -54706,22 +54207,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-custom-template-workload-llmd-simulator]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-custom-template-workload-llmd-simulator]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -56004,22 +55489,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-inline-config-workload-llmd-simulator]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-inline-config-workload-llmd-simulator]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -57285,22 +56754,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-precise-prefix-cache-inline-config-workload-llmd-simulator-kvcache]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-precise-prefix-cache-inline-config-workload-llmd-simulator-kvcache]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -58547,22 +58000,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-precise-prefix-cache-template-args-config-workload-llmd-simulator-kvcache]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-precise-prefix-cache-template-args-config-workload-llmd-simulator-kvcache]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -59812,22 +59249,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-replicas-workload-llmd-simulator]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-replicas-workload-llmd-simulator]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -61095,22 +60516,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-tokenizer-kvcache-workload-llmd-simulator-kvcache]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-scheduler-with-tokenizer-kvcache-workload-llmd-simulator-kvcache]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -62374,22 +61779,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-llmd-simulator-model-qwen2.5-0.5b]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-llmd-simulator-model-qwen2.5-0.5b]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -63657,22 +63046,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-llmd-simulator0]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-llmd-simulator0]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -64919,22 +64292,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-llmd-simulator1]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-llmd-simulator1]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -66185,22 +65542,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-llmd-simulator2]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-llmd-simulator2]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -67447,22 +66788,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-pd-cpu-model-fb-opt-125m]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-pd-cpu-model-fb-opt-125m]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -68713,22 +68038,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m-oci]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m-oci]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -69927,22 +69236,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m-with-lora-hf0]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m-with-lora-hf0]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -71193,22 +70486,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m-with-lora-hf1]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m-with-lora-hf1]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -72455,22 +71732,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -73721,22 +72982,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-no-scheduler-workload-single-cpu-model-fb-opt-125m]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-no-scheduler-workload-single-cpu-model-fb-opt-125m]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -74983,22 +74228,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-with-gateway-ref-router-with-managed-route-model-fb-opt-125m-workload-llmd-simulator]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-with-gateway-ref-router-with-managed-route-model-fb-opt-125m-workload-llmd-simulator]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -76249,22 +75478,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-with-refs-pd-scheduler-managed-workload-pd-cpu-model-fb-opt-125m]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-with-refs-pd-scheduler-managed-workload-pd-cpu-model-fb-opt-125m]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -77511,22 +76724,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-with-refs-scheduler-managed-workload-single-cpu-model-fb-opt-125m]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service.py::test_llm_inference_service[cluster_cpu-cluster_single_node-router-with-refs-scheduler-managed-workload-single-cpu-model-fb-opt-125m]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -79257,22 +78454,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service_stop.py::test_llm_stop_feature[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_inference_service_stop.py::test_llm_stop_feature[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -80505,22 +79686,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_lora_adapters.py::test_llm_with_lora_adapters[cluster_cpu-multiple-lora-adapters-one-pvc]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_lora_adapters.py::test_llm_with_lora_adapters[cluster_cpu-multiple-lora-adapters-one-pvc]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -81703,22 +80868,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_lora_adapters.py::test_llm_with_lora_adapters[cluster_cpu-multiple-lora-adapters]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_lora_adapters.py::test_llm_with_lora_adapters[cluster_cpu-multiple-lora-adapters]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -82969,22 +82118,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_lora_adapters.py::test_llm_with_lora_adapters[cluster_cpu-single-lora-adapter-hf]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_lora_adapters.py::test_llm_with_lora_adapters[cluster_cpu-single-lora-adapter-hf]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -84217,22 +83350,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_lora_adapters.py::test_llm_with_lora_adapters[cluster_cpu-single-lora-adapter-pvc]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_lora_adapters.py::test_llm_with_lora_adapters[cluster_cpu-single-lora-adapter-pvc]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
       "fail": null,
@@ -85425,22 +84542,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
       },
       "pass": null
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_model_routing_only.py::test_model_based_routing_only[cluster_single_node-cluster_cpu-gateway]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_model_routing_only.py::test_model_based_routing_only[cluster_single_node-cluster_cpu-gateway]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
       "counted": false,
@@ -86670,22 +85771,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_model_routing_only.py::test_model_based_routing_only[cluster_single_node-cluster_cpu-service]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_model_routing_only.py::test_model_based_routing_only[cluster_single_node-cluster_cpu-service]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -88759,22 +87844,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/1955/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2097407809367838720"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_tls.py::test_llm_tls_resources[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_llm_tls.py::test_llm_tls_resources[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m]|3cc5f7251245299398ccf19dc0a3104d1836a7ef": {
       "counted": false,
       "fail": null,
@@ -89189,22 +88258,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_prestop_hook.py::test_prestop_hook[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_prestop_hook.py::test_prestop_hook[cluster_cpu-cluster_single_node-router-managed-workload-single-cpu-model-fb-opt-125m]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -90453,22 +89506,6 @@
         "outcome": "pass",
         "timestamp": "2026-10-30T04:00:54+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115988913767059456"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_rolling_upgrade.py::test_rolling_upgrade_coordination[cluster_cpu-cluster_single_node-router-managed-workload-llmd-simulator-model-fb-opt-125m]|360e4c8a263f81bb1ecfef9b718ce2c27160d384": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113696485387276288",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T20:21:56+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2052/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2113696485387276288"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-llm-inference-service|llmisvc/test_rolling_upgrade.py::test_rolling_upgrade_coordination[cluster_cpu-cluster_single_node-router-managed-workload-llmd-simulator-model-fb-opt-125m]|365aebf8035d179e75f679c405d9bd3f248cdbef": {
@@ -92556,22 +91593,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|<job-level>|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|<job-level>|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -93792,22 +92813,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|batcher/test_batcher.py::test_batcher|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|batcher/test_batcher.py::test_batcher|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -94970,22 +93975,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|batcher/test_batcher_custom_port.py::test_batcher_custom_port|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|batcher/test_batcher_custom_port.py::test_batcher_custom_port|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -102022,22 +101011,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|logger/test_logger.py::test_kserve_logger|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|logger/test_logger.py::test_kserve_logger|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -103173,22 +102146,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_autogluon.py::test_autogluon_runtime_kserve_v1|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_autogluon.py::test_autogluon_runtime_kserve_v1|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -104343,22 +103300,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_autogluon.py::test_autogluon_runtime_kserve_v2_input_variants|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_autogluon.py::test_autogluon_runtime_kserve_v2_input_variants|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -105509,22 +104450,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_autogluon.py::test_autogluon_runtime_kserve_v2_storage_uri_without_trailing_slash|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_autogluon.py::test_autogluon_runtime_kserve_v2_storage_uri_without_trailing_slash|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -106679,22 +105604,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_autogluon.py::test_autogluon_runtime_kserve_v2|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_autogluon.py::test_autogluon_runtime_kserve_v2|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -107847,22 +106756,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_autogluon_timeseries.py::test_autogluon_timeseries_runtime_kserve_v1_storage_uri_without_trailing_slash|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_autogluon_timeseries.py::test_autogluon_timeseries_runtime_kserve_v1_storage_uri_without_trailing_slash|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -109013,22 +107906,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_autogluon_timeseries.py::test_autogluon_timeseries_runtime_kserve_v1|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_autogluon_timeseries.py::test_autogluon_timeseries_runtime_kserve_v1|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -110195,22 +109072,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_canary_raw_deployment.py::test_canary_create|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_canary_raw_deployment.py::test_canary_create|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -111373,22 +110234,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_canary_raw_deployment.py::test_canary_force_stop|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_canary_raw_deployment.py::test_canary_force_stop|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -112556,22 +111401,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_canary_raw_deployment.py::test_canary_promote|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_canary_raw_deployment.py::test_canary_promote|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -113734,22 +112563,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_canary_raw_deployment.py::test_canary_rollback|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_canary_raw_deployment.py::test_canary_rollback|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -114916,22 +113729,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_lightgbm.py::test_lightgbm_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_lightgbm.py::test_lightgbm_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -116096,22 +114893,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_lightgbm.py::test_lightgbm_runtime_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_lightgbm.py::test_lightgbm_runtime_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -117262,22 +116043,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_lightgbm.py::test_lightgbm_v2_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_lightgbm.py::test_lightgbm_v2_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -118444,22 +117209,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_lightgbm.py::test_lightgbm_v2_runtime_mlserver|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_lightgbm.py::test_lightgbm_v2_runtime_mlserver|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -119610,22 +118359,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_mlflow.py::test_mlflow_v2_runtime_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_mlflow.py::test_mlflow_v2_runtime_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -120792,22 +119525,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_multi_container_probing.py::test_multi_container_probing|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_multi_container_probing.py::test_multi_container_probing|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -121961,22 +120678,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_paddle.py::test_paddle_runtime|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_paddle.py::test_paddle_runtime|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -123128,22 +121829,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_paddle.py::test_paddle_v2_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_paddle.py::test_paddle_v2_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -124311,22 +122996,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_paddle.py::test_paddle|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_paddle.py::test_paddle|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -125480,22 +124149,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_pmml.py::test_pmml_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_pmml.py::test_pmml_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -126647,22 +125300,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_pmml.py::test_pmml_runtime_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_pmml.py::test_pmml_runtime_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -127827,22 +126464,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_pmml.py::test_pmml_v2_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_pmml.py::test_pmml_v2_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -129010,22 +127631,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_pod_watch.py::test_event_storm_prevention_init_container_isolation|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_pod_watch.py::test_event_storm_prevention_init_container_isolation|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -130188,22 +128793,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_pod_watch.py::test_quick_reconciliation_on_init_container_failure|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_pod_watch.py::test_quick_reconciliation_on_init_container_failure|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -131370,22 +129959,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_predictive.py::test_predictive_lightgbm_v1|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_predictive.py::test_predictive_lightgbm_v1|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -132539,22 +131112,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_predictive.py::test_predictive_lightgbm_v2|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_predictive.py::test_predictive_lightgbm_v2|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -133705,22 +132262,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_predictive.py::test_predictive_sklearn_v1|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_predictive.py::test_predictive_sklearn_v1|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -134887,22 +133428,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_predictive.py::test_predictive_sklearn_v2|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_predictive.py::test_predictive_sklearn_v2|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -136055,22 +134580,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_predictive.py::test_predictive_xgboost_v1|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_predictive.py::test_predictive_xgboost_v1|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -137221,22 +135730,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_predictive.py::test_predictive_xgboost_v2|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_predictive.py::test_predictive_xgboost_v2|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -138392,22 +136885,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_scheduler_name.py::test_scheduler_name|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_scheduler_name.py::test_scheduler_name|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -139544,22 +138021,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_secure_metrics.py::TestSecureMetrics::test_accepts_authenticated|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_secure_metrics.py::TestSecureMetrics::test_accepts_authenticated|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -140678,22 +139139,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_secure_metrics.py::TestSecureMetrics::test_kserve_controller_args|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_secure_metrics.py::TestSecureMetrics::test_kserve_controller_args|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -141816,22 +140261,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_secure_metrics.py::TestSecureMetrics::test_llmisvc_controller_args|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_secure_metrics.py::TestSecureMetrics::test_llmisvc_controller_args|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -142950,22 +141379,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_secure_metrics.py::TestSecureMetrics::test_rejects_unauthenticated|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_secure_metrics.py::TestSecureMetrics::test_rejects_unauthenticated|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -144114,22 +142527,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_sklearn.py::test_sklearn_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_sklearn.py::test_sklearn_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -145294,22 +143691,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_sklearn.py::test_sklearn_runtime_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_sklearn.py::test_sklearn_runtime_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -146477,22 +144858,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_sklearn.py::test_sklearn_v2_mixed|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_sklearn.py::test_sklearn_v2_mixed|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -147657,22 +146022,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_sklearn.py::test_sklearn_v2_mlserver|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_sklearn.py::test_sklearn_v2_mlserver|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -148823,22 +147172,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_sklearn.py::test_sklearn_v2_runtime_mlserver|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_sklearn.py::test_sklearn_v2_runtime_mlserver|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -150005,22 +148338,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_sklearn.py::test_sklearn_v2|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_sklearn.py::test_sklearn_v2|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -151172,22 +149489,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_tensorflow.py::test_tensorflow_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_tensorflow.py::test_tensorflow_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -152343,22 +150644,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_tensorflow.py::test_tensorflow_runtime_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_tensorflow.py::test_tensorflow_runtime_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -153509,22 +151794,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_triton.py::test_triton|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_triton.py::test_triton|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -154691,22 +152960,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_xgboost.py::test_xgboost_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_xgboost.py::test_xgboost_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -155859,22 +154112,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_xgboost.py::test_xgboost_runtime_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_xgboost.py::test_xgboost_runtime_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -157025,22 +155262,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_xgboost.py::test_xgboost_single_model_file|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_xgboost.py::test_xgboost_single_model_file|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -158207,22 +156428,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_xgboost.py::test_xgboost_v2_mlserver|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_xgboost.py::test_xgboost_v2_mlserver|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -159374,22 +157579,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_xgboost.py::test_xgboost_v2_runtime_mlserver|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_xgboost.py::test_xgboost_v2_runtime_mlserver|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -160557,22 +158746,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_xgboost.py::test_xgboost_v2|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|predictor/test_xgboost.py::test_xgboost_v2|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -161738,22 +159911,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|storagespec/test_s3_storagespec.py::test_sklearn_s3_storagespec_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|storagespec/test_s3_storagespec.py::test_sklearn_s3_storagespec_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -162905,22 +161062,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|storagespec/test_s3_tls_storagespec.py::test_s3_tls_custom_cert_storagespec_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|storagespec/test_s3_tls_storagespec.py::test_s3_tls_custom_cert_storagespec_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -164088,22 +162229,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-predictor|storagespec/test_s3_tls_storagespec.py::test_s3_tls_global_custom_cert_storagespec_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-predictor|storagespec/test_s3_tls_storagespec.py::test_s3_tls_global_custom_cert_storagespec_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -165238,22 +163363,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:39:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2117290679091597312"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-predictor|storagespec/test_s3_tls_storagespec.py::test_s3_tls_serving_cert_storagespec_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735667669274624",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-predictor",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:24:59+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2113735667669274624"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-predictor|storagespec/test_s3_tls_storagespec.py::test_s3_tls_serving_cert_storagespec_kserve|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
@@ -166707,22 +164816,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-raw|<job-level>|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-raw|<job-level>|9b42d04657c732c4ba01d48d0724e0842085e3ee": {
       "counted": false,
       "fail": null,
@@ -168004,22 +166097,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-raw|batcher/test_raw_batcher.py::test_batcher_raw|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-raw|batcher/test_raw_batcher.py::test_batcher_raw|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
       "counted": false,
       "fail": null,
@@ -169212,22 +167289,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-raw|graph/test_inference_graph.py::test_inference_graph_raw_mode_with_hpa|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-raw|graph/test_inference_graph.py::test_inference_graph_raw_mode_with_hpa|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
       "counted": false,
       "fail": null,
@@ -170408,22 +168469,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-raw|graph/test_inference_graph.py::test_inference_graph_raw_mode|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-raw|graph/test_inference_graph.py::test_inference_graph_raw_mode|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
       "counted": false,
       "fail": null,
@@ -171542,22 +169587,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:37:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-raw|logger/test_raw_logger.py::test_kserve_logger_cipn|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-raw|logger/test_raw_logger.py::test_kserve_logger_cipn|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
@@ -172749,22 +170778,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-raw|logger/test_raw_logger.py::test_kserve_logger|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-raw|logger/test_raw_logger.py::test_kserve_logger|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
       "counted": false,
       "fail": null,
@@ -173945,22 +171958,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:37:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_autoscaling.py::test_sklearn_scale_raw|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_autoscaling.py::test_sklearn_scale_raw|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
@@ -175153,22 +173150,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:37:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_canary_raw_deployment.py::test_canary_create|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_canary_raw_deployment.py::test_canary_create|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
@@ -176364,22 +174345,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_canary_raw_deployment.py::test_canary_force_stop|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_canary_raw_deployment.py::test_canary_force_stop|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
       "counted": false,
       "fail": null,
@@ -177558,22 +175523,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:37:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_canary_raw_deployment.py::test_canary_promote|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_canary_raw_deployment.py::test_canary_promote|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
@@ -178780,22 +176729,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_canary_raw_deployment.py::test_canary_rollback|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_canary_raw_deployment.py::test_canary_rollback|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
       "counted": false,
       "fail": null,
@@ -179975,22 +177908,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:37:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_pod_watch.py::test_event_storm_prevention_init_container_isolation|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_pod_watch.py::test_event_storm_prevention_init_container_isolation|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
@@ -181173,22 +179090,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_pod_watch.py::test_quick_reconciliation_on_init_container_failure|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_pod_watch.py::test_quick_reconciliation_on_init_container_failure|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
       "counted": false,
       "fail": null,
@@ -182369,22 +180270,6 @@
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
       }
     },
-    "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_raw_deployment.py::test_raw_deployment_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
-      }
-    },
     "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_raw_deployment.py::test_raw_deployment_kserve|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
       "counted": false,
       "fail": null,
@@ -183563,22 +181448,6 @@
         "outcome": "pass",
         "timestamp": "2026-11-02T17:37:27+00:00",
         "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2117290682442846208"
-      }
-    },
-    "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_raw_deployment.py::test_raw_deployment_runtime_kserve|96de6b5059af92b87ae2ec96e1c7950fc92509e0": {
-      "counted": false,
-      "fail": null,
-      "pass": {
-        "base_sha": "5aabec9b8c19ed7055aec3b947f41335fee3e3d4",
-        "branch": "master",
-        "build_id": "2113735670173274112",
-        "has_results": true,
-        "head_verified": true,
-        "job_name": "pull-ci-opendatahub-io-kserve-master-e2e-raw",
-        "no_results_reason": null,
-        "outcome": "pass",
-        "timestamp": "2026-10-23T22:21:08+00:00",
-        "url": "https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2129/pull-ci-opendatahub-io-kserve-master-e2e-raw/2113735670173274112"
       }
     },
     "midstream|opendatahub-io/kserve|e2e-raw|predictor/test_raw_deployment.py::test_raw_deployment_runtime_kserve|9a7c0fbdc40bb6924a435daba9da1fa02619b5da": {
