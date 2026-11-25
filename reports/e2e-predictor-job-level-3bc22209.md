@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-predictor · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 10
-**First seen:** 2026-10-27T03:27:41+00:00 · **Last seen:** 2026-11-19T18:35:37+00:00 · **Tracking since:** 2026-07-14T03:59:14+00:00
+**Confirmed:** 0 · **Suspected:** 11
+**First seen:** 2026-10-27T03:27:41+00:00 · **Last seen:** 2026-11-25T17:34:37+00:00 · **Tracking since:** 2026-07-14T03:59:14+00:00
 
 ### suspected (same_base) at `33a0df575200`
 - **FAIL** 2026-10-28T11:32:49+00:00 · build `2115384979885133824` · branch `master` · base `958de5310307` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2125/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2115384979885133824)
@@ -51,3 +51,8 @@
 - **FAIL** 2026-11-18T19:16:41+00:00 · build `2123130450103767040` · branch `stable-2.x` · base `938d98ba5f04` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2190/pull-ci-opendatahub-io-kserve-stable-2.x-e2e-predictor/2123130450103767040)
   - no results file: setup_failure
 - **PASS** 2026-11-19T18:35:37+00:00 · build `2123445340106395648` · branch `stable-2.x` · base `938d98ba5f04` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2190/pull-ci-opendatahub-io-kserve-stable-2.x-e2e-predictor/2123445340106395648)
+
+### suspected (same_base) at `30d43077b3c5`
+- **FAIL** 2026-11-25T16:14:31+00:00 · build `2125618474460909568` · branch `master` · base `ddb1c88a6828` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2206/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2125618474460909568)
+  - no results file: setup_failure
+- **PASS** 2026-11-25T17:34:37+00:00 · build `2125628673104023552` · branch `master` · base `ddb1c88a6828` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2206/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2125628673104023552)
