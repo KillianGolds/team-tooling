@@ -103,7 +103,7 @@ def render_issue_body(state: dict, cfg: dict, now_iso: str,
     if now_ms is None:
         now_ms = int(time.time() * 1000)
     window_days = cfg.get("window_days", 30)
-    runs_map, discarded_map, derived = window_runs(state, now_ms, window_days)
+    runs_map, discarded_map = window_runs(state, now_ms, window_days)
 
     reports_base = f"https://github.com/{cfg['issue']['repo']}/blob/main/reports/"
     flakes = list(state["flakes"].values())
@@ -224,8 +224,10 @@ def render_issue_body(state: dict, cfg: dict, now_iso: str,
         "| Job | Suspected | Confirmed | Runs seen | Discarded builds |",
         "|---|---|---|---|---|",
     ]
-    # union so a job quiet for a whole window still gets its row
-    for job_key in sorted(set(state["job_runs"]) | set(runs_map)):
+    # union so a job with records but a quiet window still gets its row
+    job_keys = set(runs_map) | set(discarded_map) | {
+        k.rsplit("|", 1)[0] for k in state["flakes"]}
+    for job_key in sorted(job_keys):
         origin, repo, job = job_key.split("|", 2)
         rec = state["flakes"].get(f"{job_key}|{JOB_LEVEL_NODEID}")
         s = rec["suspected_count"] if rec else 0
@@ -235,10 +237,6 @@ def render_issue_body(state: dict, cfg: dict, now_iso: str,
         out.append(f"| {job}{link} | {s} | {c} "
                    f"| {runs_map.get(job_key, 0)} "
                    f"| {discarded_map.get(job_key, 0)} |")
-    if not derived:
-        out += ["", "_Run denominators still include pre-ledger history;"
-                " exact windowed counts take over automatically once the"
-                " older entries age out._"]
 
     return "\n".join(out) + "\n"
 

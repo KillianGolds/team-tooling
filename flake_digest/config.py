@@ -24,7 +24,6 @@ def load_config(path: Path | None = None) -> dict:
             if not entry.get(key):
                 raise ValueError(f"config.yml: midstream entry missing `{key}`")
         entry.setdefault("job_level_only", [])
-        entry.setdefault("bare_untrusted_until_migrated", [])
 
     cfg.setdefault("window_days", 30)
     cfg.setdefault("timings_retention_days", 56)
@@ -38,9 +37,3 @@ def is_job_level_only(target: str, entry: dict) -> bool:
     """Targets that never get test-level parsing (structural: they emit
     no usable per-test results at all)."""
     return target in entry["job_level_only"]
-
-
-def bare_untrusted(target: str, entry: dict) -> bool:
-    """Targets whose bare e2e_results.json is a pre-migration clobbered
-    file. Transition-era config; see the comment in config.yml."""
-    return target in entry["bare_untrusted_until_migrated"]

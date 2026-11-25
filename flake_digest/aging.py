@@ -105,29 +105,27 @@ def _recompute(rec: dict, occurrences: list[dict]) -> dict:
     return fresh
 
 
-def window_runs(state: dict, now_ms: int, window_days: int) -> tuple[dict, dict, bool]:
-    """(runs per job_key, discarded per job_key, derived) for the window.
+def job_key_of(build_key: str) -> str:
+    """origin:repo:job:id -> origin|repo|job (repo carries a slash)."""
+    origin_repo, job, _ = build_key.rsplit(":", 2)
+    origin, repo = origin_repo.split(":", 1)
+    return f"{origin}|{repo}|{job}"
 
-    Derived from the ledger when every in-window entry carries the v4
-    shape; if any pre-v4 bare-true entry is still inside the window the
-    ledger can't answer and the caller falls back to the legacy
-    since-bootstrap counters. That fallback retires itself: the old
-    entries age past the floor within one window of the v4 ship."""
+
+def window_runs(state: dict, now_ms: int, window_days: int) -> tuple[dict, dict]:
+    """(runs per job_key, discarded per job_key) for the window, derived
+    from the ledger. The pre-v4 bare-true entries and the legacy counters
+    they forced a fallback to are gone; anything unreadable is skipped."""
     floor_ms = now_ms - window_days * _DAY_MS
     runs: dict[str, int] = {}
     discarded: dict[str, int] = {}
     for key, value in state["processed_builds"].items():
         ms = _key_unix_ms(key)
-        if ms is None or ms < floor_ms:
+        if ms is None or ms < floor_ms or not isinstance(value, dict):
             continue
-        if not isinstance(value, dict):
-            return state["job_runs"], state["discarded"], False
-        # key shape: origin:repo:job:build_id, repo carries a "/"
-        origin_repo, job, _ = key.rsplit(":", 2)
-        origin, repo = origin_repo.split(":", 1)
-        job_key = f"{origin}|{repo}|{job}"
+        job_key = job_key_of(key)
         if value.get("run"):
             runs[job_key] = runs.get(job_key, 0) + 1
         if value.get("discarded"):
             discarded[job_key] = discarded.get(job_key, 0) + 1
-    return runs, discarded, True
+    return runs, discarded

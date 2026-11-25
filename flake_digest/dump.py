@@ -15,6 +15,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from flake_digest import store
+from flake_digest.aging import job_key_of
 from flake_digest.config import load_config
 from flake_digest.gcs_source import fetch_build, list_build_ids, list_job_dirs
 from flake_digest.markdown_formatter import ensure_render_safe, render_issue_body
@@ -59,8 +60,13 @@ def print_evidence(state: dict) -> None:
             msg = occ["fail"].get("failure_message")
             if msg:
                 print(f"    failure: {msg.splitlines()[0][:110]}")
-    if state["discarded"]:
-        print(f"\ndiscarded (unclassifiable) builds: {state['discarded']}")
+    discarded = {}
+    for key, value in state["processed_builds"].items():
+        if isinstance(value, dict) and value.get("discarded"):
+            jk = job_key_of(key)
+            discarded[jk] = discarded.get(jk, 0) + 1
+    if discarded:
+        print(f"\ndiscarded (unclassifiable) builds: {discarded}")
 
 
 def main() -> int:

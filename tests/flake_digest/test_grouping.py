@@ -62,7 +62,6 @@ def _state(*recs):
     state = store.empty_state()
     for r in recs:
         state["flakes"][f"{r['origin']}|{r['repo']}|{r['job']}|{r['nodeid']}"] = r
-    state["job_runs"][f"midstream|{REPO}|e2e-llm-inference-service"] = 42
     return state
 
 
@@ -234,6 +233,6 @@ def test_short_nodeids_render_untouched():
 def test_denominator_only_change_produces_zero_page_diffs():
     state_a = _state(*_param_siblings(2, _bid(0), _bid(3600)))
     state_b = copy.deepcopy(state_a)
-    state_b["job_runs"] = {k: v + 17 for k, v in state_b["job_runs"].items()}
-    state_b["discarded"]["midstream|x|e2e-graph"] = 3
+    state_b["processed_builds"][f"midstream:{REPO}:e2e-graph:{_bid(3600)}"] = {
+        "run": True, "discarded": False, "result": "SUCCESS"}
     assert build_pages(state_a) == build_pages(state_b)

@@ -105,7 +105,8 @@ def test_keys_carry_the_repo():
     _record(state, "100", "failed")
     _record(state, "101", "passed")
     assert list(state["flakes"]) == [KEY]
-    assert f"midstream|{REPO}|{JOB}" in state["job_runs"]
+    entry = state["processed_builds"][f"midstream:{REPO}:{JOB}:100"]
+    assert entry == {"run": True, "discarded": False, "result": None}
     assert all(k.startswith(f"midstream|{REPO}|") for k in state["sha_index"])
 
 
@@ -174,7 +175,7 @@ def test_discarded_build_is_counted_never_paired():
     out = _record(state, "100", "failed", sha=None, discard=True,
                   job_result="FAILURE")
     assert out["discarded"]
-    assert state["discarded"] == {f"midstream|{REPO}|{JOB}": 1}
+    assert state["processed_builds"][f"midstream:{REPO}:{JOB}:100"]["discarded"] is True
     assert state["sha_index"] == {}
     # a later pass at the same sha finds nothing to pair with
     assert _record(state, "101", "passed")["new_occurrences"] == []
@@ -296,7 +297,7 @@ def test_aborted_build_is_not_a_data_point():
     state = store.empty_state()
     out = _record(state, "200", None, job_result="ABORTED")
     assert not out["run_counted"]
-    assert state["job_runs"] == {}
+    assert state["processed_builds"][f"midstream:{REPO}:{JOB}:200"]["run"] is False
     assert state["sha_index"] == {}
 
 
@@ -319,12 +320,13 @@ def test_reprocessing_a_build_changes_nothing():
     assert json.dumps(state, sort_keys=True) == before
 
 
-def test_runs_increment_per_completed_build_per_job():
+def test_ledger_counts_runs_per_completed_build():
     state = store.empty_state()
     _record(state, "100", "failed", job_result="FAILURE")
     _record(state, "101", "passed", job_result="SUCCESS")
     _record(state, "102", None, job_result="ABORTED")
-    assert state["job_runs"] == {f"midstream|{REPO}|{JOB}": 2}
+    runs = [v["run"] for v in state["processed_builds"].values()]
+    assert sorted(runs) == [False, True, True]
 
 
 def test_evidence_sides_carry_branch_and_full_job_name():

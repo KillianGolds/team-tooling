@@ -16,8 +16,7 @@ from flake_digest.runner import build_timing, parse_build_results
 
 REPO = "opendatahub-io/kserve"
 SHA = "a" * 40
-ENTRY = {"repo": REPO, "job_pattern": r".*",
-         "job_level_only": [], "bare_untrusted_until_migrated": []}
+ENTRY = {"repo": REPO, "job_pattern": r".*", "job_level_only": []}
 P = "pr-logs/pull/opendatahub-io_kserve/1/job/100/artifacts/x/x/artifacts/"
 
 
@@ -109,9 +108,9 @@ def test_timing_lands_in_state_and_refold_changes_nothing():
     assert json.dumps(state, sort_keys=True) == before
 
 
-def test_schema_v4_documents_build_timings():
+def test_schema_v5_documents_build_timings():
     schema = store.empty_state()["_schema"]
-    assert schema["version"] == 4
+    assert schema["version"] == 5
     assert "rolling window" in schema["window"]
     for field in ("tests_total_s", "wall_clock_s", "files_parsed",
                   "truncated", "test_phase_s"):

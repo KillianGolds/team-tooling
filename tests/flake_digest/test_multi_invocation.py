@@ -13,8 +13,7 @@ from flake_digest.runner import file_disposition, parse_build_results
 REPO = "opendatahub-io/kserve"
 SHA = "a" * 40
 ENTRY = {"repo": REPO, "job_pattern": r".*",
-         "job_level_only": ["e2e-kserve-module"],
-         "bare_untrusted_until_migrated": ["e2e-raw"]}
+         "job_level_only": ["e2e-kserve-module"]}
 
 P = "pr-logs/pull/opendatahub-io_kserve/1/job/100/artifacts/x/x/artifacts/"
 
@@ -68,12 +67,6 @@ def test_non_results_files_never_match():
 
 
 # --- per-build trust ---
-
-def test_historical_clobbered_raw_build_stays_job_level_only():
-    b = _build("e2e-raw", [(P + "e2e_results.json", _results_json())])
-    assert file_disposition(ENTRY, b) == "bare_untrusted"
-    assert parse_build_results(ENTRY, b) == []
-
 
 def test_migrated_raw_build_gets_test_level_rows():
     b = _build("e2e-raw", [

@@ -4,10 +4,8 @@ State shape (the `_schema` block inside the file restates this for
 outside readers, since the committed JSON is a public interface):
 
     {
-      "_schema": {version, keys, classes},
-      "processed_builds": {"<idempotency key>": true, ...},
-      "job_runs": {"<origin>|<repo>|<job>": <int>, ...},
-      "discarded": {"<origin>|<repo>|<job>": <int>, ...},
+      "_schema": {version, window, keys, classes},
+      "processed_builds": {"<idempotency key>": {run, discarded, result}, ...},
       "sha_index": {"<origin>|<repo>|<job>|<nodeid>|<sha>":
                         {pass: <obs|null>, fail: <obs|null>, counted}, ...},
       "flakes": {"<origin>|<repo>|<job>|<nodeid>": <FlakeRecord dict>, ...},
@@ -23,17 +21,18 @@ failing build may have been processed weeks before the passing one shows
 up. Each side keeps its latest observation (build id, url, timestamp,
 base sha, evidence flags) so the completed pair carries full evidence;
 `counted` stops a sha from being counted as more than one occurrence.
-`discarded` counts builds whose two head-SHA sources disagreed.
 
-The `runs` field inside stored FlakeRecords stays 0; the per-job
-denominator lives in job_runs and gets joined in at render time.
+Per-job run and discard denominators derive from the ledger values for
+whatever window the reader wants (aging.window_runs); the v4-era legacy
+counters and their transition fallback are gone. The `runs` field inside
+stored FlakeRecords stays 0 and is joined at render time.
 """
 import json
 from pathlib import Path
 
 DEFAULT_STATE_PATH = Path(__file__).resolve().parent / "state" / "flakes_state.json"
 
-SCHEMA_VERSION = 4
+SCHEMA_VERSION = 5
 
 
 def _schema() -> dict:
@@ -48,15 +47,11 @@ def _schema() -> dict:
             "flakes": "origin|repo|job|nodeid; job is the normalized target"
                       " (e.g. e2e-predictor), stable across branch renames",
             "sha_index": "origin|repo|job|nodeid|sha",
-            "processed_builds": "idempotency ledger; values since v4 are"
-                                " {run, discarded, result} so windowed"
-                                " per-job denominators derive from it"
-                                " (pre-v4 values are bare true: unknown)",
-            "job_runs": "origin|repo|job; legacy since-bootstrap counters,"
-                        " read only while pre-v4 ledger entries remain in"
-                        " the window, then removable",
-            "discarded": "origin|repo|job (unclassifiable builds; same"
-                         " legacy status as job_runs)",
+            "processed_builds": "idempotency ledger; each value is"
+                                " {run, discarded, result}, and windowed"
+                                " per-job run/discard denominators derive"
+                                " from it (the v5 cleanup removed the old"
+                                " job_runs/discarded counters)",
             "build_timings": "same key as processed_builds; one entry per"
                              " completed build that had parsed results or"
                              " a measured test phase (results-bearing only"
@@ -85,9 +80,8 @@ def _schema() -> dict:
 
 
 def empty_state() -> dict:
-    return {"_schema": _schema(), "processed_builds": {}, "job_runs": {},
-            "discarded": {}, "sha_index": {}, "flakes": {},
-            "build_timings": {}}
+    return {"_schema": _schema(), "processed_builds": {},
+            "sha_index": {}, "flakes": {}, "build_timings": {}}
 
 
 def load_state(path: Path | None = None) -> dict:
@@ -97,6 +91,10 @@ def load_state(path: Path | None = None) -> dict:
     state = json.loads(Path(path).read_text())
     for key, default in empty_state().items():
         state.setdefault(key, default)
+    # retired at v5; dropping them here is what deletes them from the
+    # committed file on the next save
+    state.pop("job_runs", None)
+    state.pop("discarded", None)
     state["_schema"] = _schema()  # always current writer's description
     return state
 

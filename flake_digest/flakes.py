@@ -63,15 +63,7 @@ def record_build(
     if timing is not None:
         state["build_timings"][build_key] = timing
 
-    # legacy since-bootstrap counters, kept incrementing only until no
-    # pre-v4 ledger entries remain in the window; rendering already
-    # prefers the ledger where it can
-    job_key = f"{origin}|{repo}|{job}"
-    if completed:
-        state["job_runs"][job_key] = state["job_runs"].get(job_key, 0) + 1
-
     if discard:
-        state["discarded"][job_key] = state["discarded"].get(job_key, 0) + 1
         return {"skipped": False, "run_counted": completed, "discarded": True,
                 "new_occurrences": []}
 

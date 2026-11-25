@@ -45,7 +45,6 @@ def _state(*recs):
     state = store.empty_state()
     for r in recs:
         state["flakes"][f"{r['origin']}|{r['repo']}|{r['job']}|{r['nodeid']}"] = r
-    state["job_runs"][f"midstream|{REPO}|e2e-predictor"] = 42
     return state
 
 
@@ -173,13 +172,17 @@ def test_confirmed_section_honest_when_empty():
 
 
 def test_job_level_rows_render_for_every_job_seen():
+    from flake_digest.gcs_source import min_build_id_for
+    import time
     state = _state(_rec("a.py::t"))
-    state["job_runs"][f"midstream|{REPO}|e2e-raw"] = 7
-    state["discarded"][f"midstream|{REPO}|e2e-raw"] = 1
+    now_ms = int(time.time() * 1000)
+    base = min_build_id_for(now_ms - 3 * 86_400_000)
+    state["processed_builds"][f"midstream:{REPO}:e2e-raw:{base}"] = {
+        "run": True, "discarded": False, "result": "SUCCESS"}
+    state["processed_builds"][f"midstream:{REPO}:e2e-raw:{base + 1}"] = {
+        "run": True, "discarded": True, "result": "FAILURE"}
     body = render_issue_body(state, CFG, "now")
-    # legacy counters are out-of-window history now; the row survives via
-    # the key union with windowed (zero) denominators
-    assert "| e2e-raw | 0 | 0 | 0 | 0 |" in body
+    assert "| e2e-raw | 0 | 0 | 2 | 1 |" in body
 
 
 def test_job_level_record_from_live_pipeline_renders(tmp_path):

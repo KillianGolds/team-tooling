@@ -165,26 +165,10 @@ def test_denominators_derive_from_the_ledger_per_job():
         "run": True, "discarded": True, "result": "FAILURE"}
     state["processed_builds"][_key("e2e-graph", 40)] = {
         "run": True, "discarded": False, "result": "SUCCESS"}  # outside window
-    runs, discarded, derived = window_runs(state, NOW_MS, 30)
-    assert derived
+    runs, discarded = window_runs(state, NOW_MS, 30)
     assert runs == {f"midstream|{REPO}|e2e-graph": 3,
                     f"midstream|{REPO}|e2e-raw": 1}
     assert discarded == {f"midstream|{REPO}|e2e-raw": 1}
-
-
-def test_legacy_entry_in_window_forces_counter_fallback():
-    state = store.empty_state()
-    state["processed_builds"][_key("e2e-graph", 5)] = True  # pre-v4
-    state["job_runs"]["legacy"] = 42
-    runs, _, derived = window_runs(state, NOW_MS, 30)
-    assert not derived and runs == {"legacy": 42}
-
-
-def test_legacy_entry_outside_window_does_not_force_fallback():
-    state = store.empty_state()
-    state["processed_builds"][_key("e2e-graph", 33)] = True
-    _, _, derived = window_runs(state, NOW_MS, 30)
-    assert derived
 
 
 def test_record_build_writes_the_ledger_shape():
@@ -208,17 +192,6 @@ def test_body_states_the_rolling_window_and_derived_denominators():
     body = render_issue_body(state, CFG, "now", now_ms=NOW_MS)
     assert "rolling 30-day" in body
     assert "| 4 |" in body  # ledger-derived denominator
-    assert "pre-ledger history" not in body
-
-
-def test_body_footnotes_the_legacy_fallback():
-    state = store.empty_state()
-    state["processed_builds"][_key("e2e-predictor", 2)] = True
-    state["job_runs"][f"midstream|{REPO}|e2e-predictor"] = 42
-    state["flakes"][f"midstream|{REPO}|e2e-predictor|a.py::t"] = _rec([_occ(5)])
-    body = render_issue_body(state, CFG, "now", now_ms=NOW_MS)
-    assert "| 42 |" in body
-    assert "pre-ledger history" in body
 
 
 def test_page_shows_tracking_since_when_older_than_window():
