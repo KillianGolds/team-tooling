@@ -1,0 +1,147 @@
+<testsuites>
+  <testsuite name="step graph" tests="45" skipped="0" failures="5" time="1814.069727557">
+    <properties></properties>
+    <testcase name="" time="3.4452e-05">
+      <properties></properties>
+    </testcase>
+    <testcase name="All images are built and tagged into stable" time="1.64e-06">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build git source code into an image and tag it as root" time="958.34155501">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image custom-model-grpc from the repository" time="536.158741353">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image custom-transformer from the repository" time="456.18623498">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image error-404-isvc from the repository" time="255.716070666">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-agent from the repository" time="365.311856499">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-controller from the repository" time="580.723086298">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-localmodel-controller from the repository" time="564.68642302">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-localmodelnode-agent from the repository" time="348.668817037">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-module-controller from the repository" time="289.110662119">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-router from the repository" time="439.860487336">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-storage-initializer from the repository" time="251.193873157">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-tests from the repository" time="206.147294189">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image llmisvc-controller from the repository" time="439.446921676">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image sklearn-serving-runtime from the repository" time="304.996161114">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image success-200-isvc from the repository" time="213.572084183">
+      <properties></properties>
+    </testcase>
+    <testcase name="Clone the correct source code into an image and tag it as src" time="166.605672016">
+      <properties></properties>
+    </testcase>
+    <testcase name="Find the input image ci-hypershift-cli-latest and tag it into the pipeline" time="2.259171077">
+      <properties></properties>
+    </testcase>
+    <testcase name="Find the input image tls-scanner-tool and tag it into the pipeline" time="2.2607087310000002">
+      <properties></properties>
+    </testcase>
+    <testcase name="Find the input image ubi_minimal and tag it into the pipeline" time="2.261804987">
+      <properties></properties>
+    </testcase>
+    <testcase name="Import the release payload &#34;latest&#34; from an external source" time="161.062626196">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step hypershift-hostedcluster-create-hostedcluster" time="1">
+      <properties></properties>
+      <failure message="">-additional-tags prow.k8s.io/build-id=2122405865389559808&#xA;Flag --aws-creds has been deprecated, the AWS SDK default credential chain is used when no explicit credentials are provided; use &#39;--role-arn&#39; to assume a specific role&#xA;{&#34;level&#34;:&#34;info&#34;,&#34;ts&#34;:&#34;2026-11-16T19:35:18Z&#34;,&#34;msg&#34;:&#34;Creating infrastructure&#34;,&#34;id&#34;:&#34;47f03&#34;}&#xA;{&#34;level&#34;:&#34;error&#34;,&#34;ts&#34;:&#34;2026-11-16T19:35:18Z&#34;,&#34;msg&#34;:&#34;Failed to create cluster&#34;,&#34;error&#34;:&#34;could not complete platform specific options: failed to create infra: failed to list availability zones: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 401, RequestID: d5c62b0e-1bc3-4064-bcb5-985751076ff1, api error AuthFailure: AWS was not able to validate the provided access credentials&#34;,&#34;stacktrace&#34;:&#34;github.com/openshift/hypershift/cmd/cluster/aws.NewCreateCommand.func1\n\t/hypershift/cmd/cluster/aws/create.go:578\ngithub.com/spf13/cobra.(*Command).execute\n\t/hypershift/vendor/github.com/spf13/cobra/command.go:1015\ngithub.com/spf13/cobra.(*Command).ExecuteC\n\t/hypershift/vendor/github.com/spf13/cobra/command.go:1148\ngithub.com/spf13/cobra.(*Command).Execute\n\t/hypershift/vendor/github.com/spf13/cobra/command.go:1071\ngithub.com/spf13/cobra.(*Command).ExecuteContext\n\t/hypershift/vendor/github.com/spf13/cobra/command.go:1064\nmain.main\n\t/hypershift/main.go:81\nruntime.main\n\t/usr/lib/golang/src/runtime/proc.go:290&#34;}&#xA;could not complete platform specific options: failed to create infra: failed to list availability zones: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 401, RequestID: d5c62b0e-1bc3-4064-bcb5-985751076ff1, api error AuthFailure: AWS was not able to validate the provided access credentials&#xA;{&#34;component&#34;:&#34;entrypoint&#34;,&#34;error&#34;:&#34;wrapped process failed: exit status 1&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:90&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.Options.internalRun&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Error executing test process&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-16T19:35:18Z&#34;}&#xA;error: failed to execute wrapped command: exit status 1&#xA;</failure>
+    </testcase>
+    <testcase name="Run multi-stage step hypershift-hostedcluster-destroy-hostedcluster" time="0">
+      <properties></properties>
+      <failure message="">1cd71e70ef == *, ]]&#xA;++ printf %s 496c62f1-3975-4bf4-9f80-6a1cd71e70ef&#xA;++ [[ 0 -eq 1 ]]&#xA;+ local names=496c62f1-3975-4bf4-9f80-6a1cd71e70ef&#xA;+ &#39;[&#39; -z 496c62f1-3975-4bf4-9f80-6a1cd71e70ef &#39;]&#39;&#xA;+ local ec=0&#xA;+ lease__release --names=496c62f1-3975-4bf4-9f80-6a1cd71e70ef&#xA;+ local names=&#xA;+ local handle=&#xA;+ local handle_defined=0&#xA;+ local delay=&#xA;+ local scope=&#xA;+ [[ 1 -gt 0 ]]&#xA;+ case &#34;$1&#34; in&#xA;+ names=496c62f1-3975-4bf4-9f80-6a1cd71e70ef&#xA;+ shift&#xA;+ [[ 0 -gt 0 ]]&#xA;+ local exclusive_params=0&#xA;+ [[ -n 496c62f1-3975-4bf4-9f80-6a1cd71e70ef ]]&#xA;+ (( ++exclusive_params ))&#xA;+ &#39;[&#39; 0 -eq 1 &#39;]&#39;&#xA;+ [[ -n &#39;&#39; ]]&#xA;+ (( exclusive_params &gt; 1 ))&#xA;+ (( exclusive_params == 0 ))&#xA;+ &#39;[&#39; -z http://172.24.110.110:8080 &#39;]&#39;&#xA;+ &#39;[&#39; &#39;!&#39; -z &#39;&#39; &#39;]&#39;&#xA;+ &#39;[&#39; &#39;&#39; == test &#39;]&#39;&#xA;+ &#39;[&#39; 0 -eq 1 &#39;]&#39;&#xA;+ &#39;[&#39; -z 496c62f1-3975-4bf4-9f80-6a1cd71e70ef &#39;]&#39;&#xA;++ mktemp --tmpdir=/tmp lease-release-XXXXX&#xA;+ local response_body=/tmp/lease-release-dTHNM&#xA;++ _lease__jq_bin&#xA;++ command -v jq&#xA;++ printf jq&#xA;++ return&#xA;+ local jq_bin=jq&#xA;++ jq -cR &#39;{names: split(&#34;,&#34;)}&#39;&#xA;+ local &#39;request_body={&#34;names&#34;:[&#34;496c62f1-3975-4bf4-9f80-6a1cd71e70ef&#34;]}&#39;&#xA;+ local ec=0&#xA;++ curl --no-progress-meter -X POST -o /tmp/lease-release-dTHNM --retry 5 --retry-delay 10 --retry-all-errors -H &#39;Content-Type: application/json&#39; -d &#39;{&#34;names&#34;:[&#34;496c62f1-3975-4bf4-9f80-6a1cd71e70ef&#34;]}&#39; --write-out &#39;%{response_code}&#39; http://172.24.110.110:8080/lease/release&#xA;+ local response=204&#xA;+ local result=1&#xA;+ &#39;[&#39; 0 -eq 0 &#39;]&#39;&#xA;+ case &#34;$response&#34; in&#xA;+ result=0&#xA;+ printf &#39;%s\n&#39; &#39;496c62f1-3975-4bf4-9f80-6a1cd71e70ef released&#39;&#xA;496c62f1-3975-4bf4-9f80-6a1cd71e70ef released&#xA;+ rm -f /tmp/lease-release-dTHNM&#xA;+ return 0&#xA;+ &#39;[&#39; 0 -ne 0 &#39;]&#39;&#xA;+ printf &#39;&#39;&#xA;+ return 0&#xA;+ return&#xA;+ echo &#39;Failed to release leases&#39;&#xA;Failed to release leases&#xA;{&#34;component&#34;:&#34;entrypoint&#34;,&#34;error&#34;:&#34;wrapped process failed: exit status 1&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:90&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.Options.internalRun&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Error executing test process&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-16T19:36:28Z&#34;}&#xA;error: failed to execute wrapped command: exit status 1&#xA;</failure>
+    </testcase>
+    <testcase name="Run multi-stage step kserve-must-gather" time="0">
+      <properties></properties>
+      <failure message="">p &#34;config.openshift.io&#34; at the cluster scope&#xA;ClusterOperators:&#xA;&#x9;clusteroperators are missing&#xA;&#xA;&#xA;&#xA;&#xA;Error running must-gather collection:&#xA;    creating temp namespace: namespaces is forbidden: User &#34;system:serviceaccount:ci-op-3qibcrvy:e2e-tls-scanner&#34; cannot create resource &#34;namespaces&#34; in API group &#34;&#34; at the cluster scope&#xA;&#xA;Falling back to `oc adm inspect clusteroperators.v1.config.openshift.io` to collect basic cluster information.&#xA;error running backup collection: clusteroperators.config.openshift.io is forbidden: User &#34;system:serviceaccount:ci-op-3qibcrvy:e2e-tls-scanner&#34; cannot list resource &#34;clusteroperators&#34; in API group &#34;config.openshift.io&#34; at the cluster scope&#xA;&#xA;&#xA;Reprinting Cluster State:&#xA;When opening a support case, bugzilla, or issue please include the following summary data along with any other requested information:&#xA;error getting cluster version: clusterversions.config.openshift.io &#34;version&#34; is forbidden: User &#34;system:serviceaccount:ci-op-3qibcrvy:e2e-tls-scanner&#34; cannot get resource &#34;clusterversions&#34; in API group &#34;config.openshift.io&#34; at the cluster scope&#xA;ClusterID: &#xA;ClientVersion: 4.19.0-202611041656.p2.g2709219.assembly.stream.el9-2709219&#xA;ClusterVersion: Installing &#34;&#34; for &lt;unknown&gt;: &lt;unknown&gt;&#xA;error getting cluster operators: clusteroperators.config.openshift.io is forbidden: User &#34;system:serviceaccount:ci-op-3qibcrvy:e2e-tls-scanner&#34; cannot list resource &#34;clusteroperators&#34; in API group &#34;config.openshift.io&#34; at the cluster scope&#xA;ClusterOperators:&#xA;&#x9;clusteroperators are missing&#xA;&#xA;&#xA;error: creating temp namespace: namespaces is forbidden: User &#34;system:serviceaccount:ci-op-3qibcrvy:e2e-tls-scanner&#34; cannot create resource &#34;namespaces&#34; in API group &#34;&#34; at the cluster scope&#xA;{&#34;component&#34;:&#34;entrypoint&#34;,&#34;error&#34;:&#34;wrapped process failed: exit status 1&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:90&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.Options.internalRun&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Error executing test process&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-16T19:35:59Z&#34;}&#xA;error: failed to execute wrapped command: exit status 1&#xA;</failure>
+    </testcase>
+    <testcase name="Run multi-stage step openshift-cluster-bot-rbac" time="0">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step openshift-must-gather" time="0">
+      <properties></properties>
+      <failure message="">p &#34;config.openshift.io&#34; at the cluster scope&#xA;ClusterOperators:&#xA;&#x9;clusteroperators are missing&#xA;&#xA;&#xA;&#xA;&#xA;Error running must-gather collection:&#xA;    creating temp namespace: namespaces is forbidden: User &#34;system:serviceaccount:ci-op-3qibcrvy:e2e-tls-scanner&#34; cannot create resource &#34;namespaces&#34; in API group &#34;&#34; at the cluster scope&#xA;&#xA;Falling back to `oc adm inspect clusteroperators.v1.config.openshift.io` to collect basic cluster information.&#xA;error running backup collection: clusteroperators.config.openshift.io is forbidden: User &#34;system:serviceaccount:ci-op-3qibcrvy:e2e-tls-scanner&#34; cannot list resource &#34;clusteroperators&#34; in API group &#34;config.openshift.io&#34; at the cluster scope&#xA;&#xA;&#xA;Reprinting Cluster State:&#xA;When opening a support case, bugzilla, or issue please include the following summary data along with any other requested information:&#xA;error getting cluster version: clusterversions.config.openshift.io &#34;version&#34; is forbidden: User &#34;system:serviceaccount:ci-op-3qibcrvy:e2e-tls-scanner&#34; cannot get resource &#34;clusterversions&#34; in API group &#34;config.openshift.io&#34; at the cluster scope&#xA;ClusterID: &#xA;ClientVersion: 4.19.0-202611041656.p2.g2709219.assembly.stream.el9-2709219&#xA;ClusterVersion: Installing &#34;&#34; for &lt;unknown&gt;: &lt;unknown&gt;&#xA;error getting cluster operators: clusteroperators.config.openshift.io is forbidden: User &#34;system:serviceaccount:ci-op-3qibcrvy:e2e-tls-scanner&#34; cannot list resource &#34;clusteroperators&#34; in API group &#34;config.openshift.io&#34; at the cluster scope&#xA;ClusterOperators:&#xA;&#x9;clusteroperators are missing&#xA;error: creating temp namespace: namespaces is forbidden: User &#34;system:serviceaccount:ci-op-3qibcrvy:e2e-tls-scanner&#34; cannot create resource &#34;namespaces&#34; in API group &#34;&#34; at the cluster scope&#xA;&#xA;&#xA;{&#34;component&#34;:&#34;entrypoint&#34;,&#34;error&#34;:&#34;wrapped process failed: exit status 1&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:90&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.Options.internalRun&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Error executing test process&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-16T19:36:09Z&#34;}&#xA;error: failed to execute wrapped command: exit status 1&#xA;</failure>
+    </testcase>
+    <testcase name="Run multi-stage step testlog-gather" time="0">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step tls-scanner-workloads-cleanup" time="0">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage test post phase" time="71.430182374">
+      <properties></properties>
+      <system-out>The collected steps of multi-stage phase post.</system-out>
+    </testcase>
+    <testcase name="Run multi-stage test pre phase" time="35.259062496">
+      <properties></properties>
+      <failure message="">&#34;e2e-tls-scanner&#34; pod &#34;e2e-tls-scanner-hypershift-hostedcluster-create-hostedcluster&#34; failed: could not watch pod: the pod ci-op-3qibcrvy/e2e-tls-scanner-hypershift-hostedcluster-create-hostedcluster failed after 20s (failed containers: test): ContainerFailed one or more containers exited&#xA;&#xA;Container test exited with code 1, reason Error&#xA;---&#xA;-additional-tags prow.k8s.io/build-id=2122405865389559808&#xA;Flag --aws-creds has been deprecated, the AWS SDK default credential chain is used when no explicit credentials are provided; use &#39;--role-arn&#39; to assume a specific role&#xA;{&#34;level&#34;:&#34;info&#34;,&#34;ts&#34;:&#34;2026-11-16T19:35:18Z&#34;,&#34;msg&#34;:&#34;Creating infrastructure&#34;,&#34;id&#34;:&#34;47f03&#34;}&#xA;{&#34;level&#34;:&#34;error&#34;,&#34;ts&#34;:&#34;2026-11-16T19:35:18Z&#34;,&#34;msg&#34;:&#34;Failed to create cluster&#34;,&#34;error&#34;:&#34;could not complete platform specific options: failed to create infra: failed to list availability zones: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 401, RequestID: d5c62b0e-1bc3-4064-bcb5-985751076ff1, api error AuthFailure: AWS was not able to validate the provided access credentials&#34;,&#34;stacktrace&#34;:&#34;github.com/openshift/hypershift/cmd/cluster/aws.NewCreateCommand.func1\n\t/hypershift/cmd/cluster/aws/create.go:578\ngithub.com/spf13/cobra.(*Command).execute\n\t/hypershift/vendor/github.com/spf13/cobra/command.go:1015\ngithub.com/spf13/cobra.(*Command).ExecuteC\n\t/hypershift/vendor/github.com/spf13/cobra/command.go:1148\ngithub.com/spf13/cobra.(*Command).Execute\n\t/hypershift/vendor/github.com/spf13/cobra/command.go:1071\ngithub.com/spf13/cobra.(*Command).ExecuteContext\n\t/hypershift/vendor/github.com/spf13/cobra/command.go:1064\nmain.main\n\t/hypershift/main.go:81\nruntime.main\n\t/usr/lib/golang/src/runtime/proc.go:290&#34;}&#xA;could not complete platform specific options: failed to create infra: failed to list availability zones: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 401, RequestID: d5c62b0e-1bc3-4064-bcb5-985751076ff1, api error AuthFailure: AWS was not able to validate the provided access credentials&#xA;{&#34;component&#34;:&#34;entrypoint&#34;,&#34;error&#34;:&#34;wrapped process failed: exit status 1&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:90&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.Options.internalRun&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Error executing test process&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-16T19:35:18Z&#34;}&#xA;error: failed to execute wrapped command: exit status 1&#xA;---&#xA;Link to step on registry info site: https://steps.ci.openshift.org/reference/hypershift-hostedcluster-create-hostedcluster&#xA;Link to job on registry info site: https://steps.ci.openshift.org/job?org=opendatahub-io&amp;repo=kserve&amp;branch=master&amp;test=e2e-tls-scanner</failure>
+      <system-out>The collected steps of multi-stage phase pre.</system-out>
+    </testcase>
+    <testcase name="Tag the image custom-model-grpc into the image stream tag stable:custom-model-grpc" time="0.039443298">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image custom-transformer into the image stream tag stable:custom-transformer" time="0.04353306">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image error-404-isvc into the image stream tag stable:error-404-isvc" time="0.051420153">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-agent into the image stream tag stable:kserve-agent" time="0.039690008">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-controller into the image stream tag stable:kserve-controller" time="0.043606849">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-localmodel-controller into the image stream tag stable:kserve-localmodel-controller" time="0.047137902">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-localmodelnode-agent into the image stream tag stable:kserve-localmodelnode-agent" time="0.038362167">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-module-controller into the image stream tag stable:kserve-module-controller" time="0.03826378">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-router into the image stream tag stable:kserve-router" time="0.041827812">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-storage-initializer into the image stream tag stable:kserve-storage-initializer" time="0.039214337">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-tests into the image stream tag stable:kserve-tests" time="0.038836832">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image llmisvc-controller into the image stream tag stable:llmisvc-controller" time="0.042241637">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image sklearn-serving-runtime into the image stream tag stable:sklearn-serving-runtime" time="0.038674014">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image success-200-isvc into the image stream tag stable:success-200-isvc" time="0.043871495">
+      <properties></properties>
+    </testcase>
+  </testsuite>
+</testsuites>

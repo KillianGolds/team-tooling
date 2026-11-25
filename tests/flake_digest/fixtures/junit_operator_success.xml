@@ -1,0 +1,152 @@
+<testsuites>
+  <testsuite name="step graph" tests="48" skipped="0" failures="0" time="5067.584617841">
+    <properties></properties>
+    <testcase name="" time="7.2942e-05">
+      <properties></properties>
+    </testcase>
+    <testcase name="All images are built and tagged into stable" time="2.88e-06">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build git source code into an image and tag it as root" time="73.318381496">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image custom-model-grpc from the repository" time="997.559985393">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image custom-transformer from the repository" time="718.861678832">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image error-404-isvc from the repository" time="675.706172958">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-agent from the repository" time="1027.257830404">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-controller from the repository" time="680.474275196">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-localmodel-controller from the repository" time="1030.830090785">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-localmodelnode-agent from the repository" time="678.040122686">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-module-controller from the repository" time="547.328813738">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-router from the repository" time="883.18999327">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-storage-initializer from the repository" time="420.207938948">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-tests from the repository" time="366.382894466">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image llmisvc-controller from the repository" time="735.776873458">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image sklearn-serving-runtime from the repository" time="645.376721519">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image success-200-isvc from the repository" time="538.656164778">
+      <properties></properties>
+    </testcase>
+    <testcase name="Clone the correct source code into an image and tag it as src" time="263.860487629">
+      <properties></properties>
+    </testcase>
+    <testcase name="Find the input image ci-hypershift-cli-latest and tag it into the pipeline" time="0.244571573">
+      <properties></properties>
+    </testcase>
+    <testcase name="Find the input image tls-scanner-tool and tag it into the pipeline" time="0.244652115">
+      <properties></properties>
+    </testcase>
+    <testcase name="Find the input image ubi_minimal and tag it into the pipeline" time="0.244629174">
+      <properties></properties>
+    </testcase>
+    <testcase name="Import the release payload &#34;latest&#34; from an external source" time="151.969289936">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step e2e-predictor" time="1648">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step hypershift-hostedcluster-create-hostedcluster" time="681">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step hypershift-hostedcluster-create-wait-for-olm" time="0">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step hypershift-hostedcluster-destroy-hostedcluster" time="723">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step kserve-must-gather" time="86">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step openshift-cluster-bot-rbac" time="1">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step openshift-must-gather" time="203">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step testlog-gather" time="0">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step tls-scanner-run" time="157">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage test post phase" time="1316.165772394">
+      <properties></properties>
+      <system-out>The collected steps of multi-stage phase post.</system-out>
+    </testcase>
+    <testcase name="Run multi-stage test pre phase" time="711.192682676">
+      <properties></properties>
+      <system-out>The collected steps of multi-stage phase pre.</system-out>
+    </testcase>
+    <testcase name="Run multi-stage test test phase" time="1670.849155851">
+      <properties></properties>
+      <system-out>The collected steps of multi-stage phase test.</system-out>
+    </testcase>
+    <testcase name="Tag the image custom-model-grpc into the image stream tag stable:custom-model-grpc" time="0.038143449">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image custom-transformer into the image stream tag stable:custom-transformer" time="0.035015521">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image error-404-isvc into the image stream tag stable:error-404-isvc" time="0.039090466">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-agent into the image stream tag stable:kserve-agent" time="0.038370073">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-controller into the image stream tag stable:kserve-controller" time="0.038531771">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-localmodel-controller into the image stream tag stable:kserve-localmodel-controller" time="0.049889514">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-localmodelnode-agent into the image stream tag stable:kserve-localmodelnode-agent" time="0.037840523">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-module-controller into the image stream tag stable:kserve-module-controller" time="0.041094326">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-router into the image stream tag stable:kserve-router" time="0.042353843">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-storage-initializer into the image stream tag stable:kserve-storage-initializer" time="0.050852902">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-tests into the image stream tag stable:kserve-tests" time="0.049804698">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image llmisvc-controller into the image stream tag stable:llmisvc-controller" time="0.043920559">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image sklearn-serving-runtime into the image stream tag stable:sklearn-serving-runtime" time="0.04134168">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image success-200-isvc into the image stream tag stable:success-200-isvc" time="0.045300856">
+      <properties></properties>
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,16 +1,26 @@
 """Tests for SHA extraction and resolution. Wrong grouping keys fabricate
 or hide flake pairs, so unrecognized formats must resolve to None (build
 unclassifiable), never a guess."""
+from pathlib import Path
+
 from flake_digest.gcs_source import (
     _parse_directory_entry,
     _resolve_head,
     base_sha_from_started,
     build_id_unix_ms,
+    classify_failure,
     classify_no_results,
     head_sha_from_started,
     min_build_id_for,
     normalize_job,
+    parse_step_verdict,
 )
+
+FIXTURES = Path(__file__).parent / "fixtures"
+
+
+def _junit(name):
+    return (FIXTURES / name).read_bytes()
 
 BASE = "f0f22545cfd2410a2e3c70851f299e72dc674712"
 HEAD = "7d2132c0212658ed5a7c238277f72f1db7485c64"
@@ -183,3 +193,85 @@ def test_parse_directory_entry_rejects_odd_shapes():
     other = ("gs://test-platform-results/pr-logs/pull/opendatahub-io_kserve/"
              "1591/some-other-job/2064008614057611264")
     assert _parse_directory_entry(other, "opendatahub-io/kserve", job) is None
+
+
+# --- failure attribution from junit_operator.xml ---
+# fixtures are unmodified junit_operator.xml downloads from live builds
+# (2026-11-25): a green e2e-predictor, a tls-scanner whose hosted cluster
+# never came up, a kserve-module killed mid-pytest by the step timeout,
+# and a kserve-module that died in an image build before any multi-stage
+# phase ran
+
+def test_green_build_has_no_failed_parts():
+    v = parse_step_verdict(_junit("junit_operator_success.xml"),
+                           "e2e-predictor")
+    assert v == {"test_phase_failed": False, "setup_failed": False,
+                 "failed_step": None}
+
+
+def test_pre_phase_death_names_the_dead_step():
+    v = parse_step_verdict(_junit("junit_operator_pre_phase_fail.xml"),
+                           "e2e-tls-scanner")
+    assert v["test_phase_failed"] is False
+    assert v["setup_failed"] is True
+    assert v["failed_step"] == "hypershift-hostedcluster-create-hostedcluster"
+
+
+def test_test_phase_death_names_the_test_step():
+    v = parse_step_verdict(_junit("junit_operator_test_phase_timeout.xml"),
+                           "e2e-kserve-module")
+    assert v["test_phase_failed"] is True
+    assert v["failed_step"] == "e2e-kserve-module"
+
+
+def test_image_build_death_has_no_phase_rows_but_still_reads_setup():
+    v = parse_step_verdict(_junit("junit_operator_image_build_fail.xml"),
+                           "e2e-kserve-module")
+    assert v["test_phase_failed"] is False
+    assert v["setup_failed"] is True
+    assert v["failed_step"] == \
+        "Build image kserve-storage-initializer from the repository"
+
+
+def test_unknown_target_keeps_the_full_pod_name():
+    v = parse_step_verdict(_junit("junit_operator_pre_phase_fail.xml"), None)
+    assert v["failed_step"] == \
+        "e2e-tls-scanner-hypershift-hostedcluster-create-hostedcluster"
+
+
+def test_missing_or_mangled_junit_is_none_not_a_guess():
+    assert parse_step_verdict(None, "e2e-raw") is None
+    assert parse_step_verdict(b"<testsuite", "e2e-raw") is None
+
+
+def _no_log():
+    raise AssertionError("build log fetched when junit already answered")
+
+
+def test_classify_test_phase_with_timeout_marker_is_timeout():
+    v = {"test_phase_failed": True, "setup_failed": False, "failed_step": "x"}
+    log = "...\nProcess did not finish before 2h0m0s timeout\n"
+    assert classify_failure(v, lambda: log) == "timeout"
+
+
+def test_classify_test_phase_without_marker_is_test_failure():
+    v = {"test_phase_failed": True, "setup_failed": False, "failed_step": "x"}
+    assert classify_failure(v, lambda: "scan found open port") == "test_failure"
+    assert classify_failure(v, lambda: None) == "test_failure"
+
+
+def test_classify_setup_death_never_touches_the_log():
+    v = {"test_phase_failed": False, "setup_failed": True, "failed_step": "y"}
+    assert classify_failure(v, _no_log) == "setup_failure"
+
+
+def test_classify_parsed_but_nothing_failed_is_unknown():
+    v = {"test_phase_failed": False, "setup_failed": False, "failed_step": None}
+    assert classify_failure(v, _no_log) == "unknown"
+
+
+def test_classify_without_junit_falls_back_to_log_markers():
+    log = "provisioning...\nStarting E2E tests\ncollected 61 items\n"
+    assert classify_failure(None, lambda: log) == "unknown"
+    assert classify_failure(None, lambda: "cluster never ready") == \
+        "setup_failure"

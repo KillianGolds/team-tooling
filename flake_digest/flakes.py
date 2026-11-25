@@ -36,6 +36,7 @@ def record_build(
     discard: bool = False,
     has_results: bool = False,
     no_results_reason: str | None = None,
+    failed_step: str | None = None,
     branch: str | None = None,
     job_name: str | None = None,
     timestamp: str | None,
@@ -74,10 +75,13 @@ def record_build(
                   no_results_reason=no_results_reason)
     if sha:
         if job_result in ("SUCCESS", "FAILURE"):
+            # the job-level row has no pytest message to carry; the
+            # failed ci-operator step is its equivalent evidence
             occ = _record_outcome(
                 state, origin, repo, job, JOB_LEVEL_NODEID, sha,
                 passed=(job_result == "SUCCESS"), has_results=has_results,
-                failure_message=None, **common)
+                failure_message=(f"failed step: {failed_step}"
+                                 if failed_step else None), **common)
             if occ:
                 new.append(occ)
         for r in test_results:

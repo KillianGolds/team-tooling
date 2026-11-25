@@ -76,6 +76,16 @@ def _schema() -> dict:
                    " files present, head SHA verified by two sources, no"
                    " environment drift such as a moved base); suspected ="
                    " same head SHA but weaker evidence. Never summed.",
+        "reasons": "no_results_reason on failing builds without results"
+                   " files: setup_failure (died before the job's own test"
+                   " phase: provisioning, image builds), test_failure (the"
+                   " test phase ran and failed but writes no"
+                   " machine-readable results, normal for kserve-module"
+                   " and the TLS scanner), timeout (the test phase hit"
+                   " the step ceiling), unknown. Attributed from"
+                   " junit_operator.xml phase results since 2026-11, from"
+                   " build-log markers before that and as fallback, so"
+                   " entries older than that never say test_failure.",
     }
 
 

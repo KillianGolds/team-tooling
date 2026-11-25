@@ -136,6 +136,7 @@ def fold_build(state: dict, build: ProwBuild, results) -> dict:
         discard=build.sha_conflict or build.target is None,
         has_results=build.has_results_file,
         no_results_reason=build.no_results_reason,
+        failed_step=build.failed_step,
         branch=build.branch, job_name=build.job,
         timestamp=build.timestamp, url=build.url,
         job_result=build.result, test_results=results)

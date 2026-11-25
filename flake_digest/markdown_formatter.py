@@ -193,7 +193,7 @@ def render_issue_body(state: dict, cfg: dict, now_iso: str,
         out += ["", "### Job-level incidents (waves)", "",
                 "_Several jobs failing and passing together, grouped when "
                 "their fail builds share one trigger wave and one failure "
-                "reason. One row here is one infra event, not N flakes._",
+                "reason. One row here is one shared event, not N flakes._",
                 ""]
         for inc in waves[:WAVE_DISPLAY_CAP]:
             links = ", ".join(

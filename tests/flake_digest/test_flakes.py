@@ -391,3 +391,36 @@ def test_state_file_is_self_describing(tmp_path):
     assert "origin|repo|job|nodeid" in schema["keys"]["flakes"]
     assert "sha_index" in schema["keys"]
     assert "confirmed" in schema["classes"] and "suspected" in schema["classes"]
+
+
+def test_job_level_fail_carries_the_failed_step_as_evidence():
+    state = store.empty_state()
+    record_build(state, origin="midstream", repo=REPO, job=JOB,
+                 build_key=f"midstream:{REPO}:{JOB}:300", sha=SHA_A,
+                 base_sha=BASE_1, sha_verified=True, has_results=False,
+                 no_results_reason="test_failure",
+                 failed_step="e2e-kserve-module",
+                 timestamp="2026-07-01T00:00:00+00:00", url="https://prow/300",
+                 job_result="FAILURE")
+    record_build(state, origin="midstream", repo=REPO, job=JOB,
+                 build_key=f"midstream:{REPO}:{JOB}:301", sha=SHA_A,
+                 base_sha=BASE_1, sha_verified=True, has_results=False,
+                 timestamp="2026-07-01T01:00:00+00:00", url="https://prow/301",
+                 job_result="SUCCESS")
+    occ = state["flakes"][f"midstream|{REPO}|{JOB}|{JOB_LEVEL_NODEID}"][
+        "occurrences"][0]
+    assert occ["fail"]["failure_message"] == "failed step: e2e-kserve-module"
+    assert occ["fail"]["no_results_reason"] == "test_failure"
+
+
+def test_job_level_fail_without_step_evidence_stays_none():
+    state = store.empty_state()
+    record_build(state, origin="midstream", repo=REPO, job=JOB,
+                 build_key=f"midstream:{REPO}:{JOB}:302", sha=SHA_A,
+                 base_sha=BASE_1, sha_verified=True, has_results=False,
+                 no_results_reason="unknown",
+                 timestamp="2026-07-01T00:00:00+00:00", url="https://prow/302",
+                 job_result="FAILURE")
+    entry = state["sha_index"][
+        f"midstream|{REPO}|{JOB}|{JOB_LEVEL_NODEID}|{SHA_A}"]
+    assert entry["fail"]["failure_message"] is None

@@ -27,3 +27,11 @@ midstream:
     # only until that changes.
     job_level_only:
       - e2e-kserve-module
+      # the TLS scanner's only per-test output is a junit whose test
+      # identities are pod IPs and generated pod names, different every
+      # build, so there is nothing stable to track below job level
+      - e2e-tls-scanner
+      # optional smoke wrapper around the module harness; listed ahead
+      # of its first-ever run on the assumption it reports like
+      # kserve-module does
+      - e2e-kserve-module-post-release

@@ -33,6 +33,7 @@ import json
 import re
 import sys
 import time
+import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from urllib.parse import quote
@@ -105,7 +106,9 @@ class ProwBuild:
     finished_unix: int | None = None
     test_phase_s: float | None = None  # ci-operator test-phase elapsed
     has_results_file: bool = False
-    no_results_reason: str | None = None   # timeout / setup_failure / unknown
+    # timeout / setup_failure / test_failure / unknown
+    no_results_reason: str | None = None
+    failed_step: str | None = None     # evidence string from junit_operator
     results_files: list[tuple[str, bytes]] = field(default_factory=list)
     result_paths: list[str] = field(default_factory=list)
 
@@ -134,16 +137,97 @@ def normalize_job(job: str, repo: str) -> tuple[str, str] | None:
     return rest[marker + 1:], rest[:marker]
 
 
-# no_results_reason markers, checked in this order: Prow's entrypoint
-# writes "Process did not finish" on its ~2h SIGTERM; the e2e script
-# prints "Starting E2E" once pytest is actually reached, so its absence
-# points at setup/provisioning death.
+# build-log markers, the fallback classification source: Prow's
+# entrypoint writes "Process did not finish" on a step timeout; the e2e
+# script prints "Starting E2E" once pytest is actually reached, so its
+# absence points at setup/provisioning death. The log alone can't tell a
+# non-pytest job's real test failure from setup death (neither prints
+# the pytest marker), which is why junit_operator.xml is consulted
+# first; see parse_step_verdict.
 TIMEOUT_MARKER = "Process did not finish"
 PYTEST_REACHED_MARKER = "Starting E2E"
 
 # don't pull huge logs just to classify; over this size the reason stays
 # unknown
 MAX_BUILD_LOG_BYTES = 8_000_000
+
+_PHASE_PRE = "Run multi-stage test pre phase"
+_PHASE_TEST = "Run multi-stage test test phase"
+_PHASE_POST = "Run multi-stage test post phase"
+_FAILED_POD_RE = re.compile(r'pod "([^"]+)" failed')
+
+
+def parse_step_verdict(raw: bytes | None, target: str | None) -> dict | None:
+    """Which part of a failed build died, from junit_operator.xml.
+
+    ci-operator writes one testcase per step plus pre/test/post phase
+    summaries; a failed one carries a <failure> child. Two shapes I
+    verified against live builds (2026-11-25): when setup dies, the test
+    phase testcase is absent rather than failed, and a failure that
+    happens before the multi-stage phases at all (an image build, say)
+    shows up as its own failed testcase with no phase rows. The phase
+    failure text names the dead pod as <target>-<step>, which is where
+    failed_step comes from.
+
+    Returns {"test_phase_failed", "setup_failed", "failed_step"} or None
+    when the file is missing or unparseable, in which case the caller
+    falls back to the build-log markers.
+    """
+    if not raw:
+        return None
+    try:
+        root = ET.fromstring(raw)
+    except ET.ParseError:
+        return None
+    failed: dict[str, str] = {}
+    for tc in root.iter("testcase"):
+        f = tc.find("failure")
+        if f is not None:
+            failed[tc.get("name") or ""] = f.text or ""
+    phases = {_PHASE_PRE, _PHASE_TEST, _PHASE_POST}
+    others = [n for n in failed if n not in phases]
+    verdict = {
+        "test_phase_failed": _PHASE_TEST in failed,
+        "setup_failed": _PHASE_PRE in failed or bool(others),
+        "failed_step": None,
+    }
+    message = failed.get(_PHASE_TEST) or failed.get(_PHASE_PRE)
+    if message:
+        m = _FAILED_POD_RE.search(message)
+        if m:
+            pod = m.group(1)
+            strip = f"{target}-" if target else ""
+            verdict["failed_step"] = (pod[len(strip):]
+                                      if strip and pod.startswith(strip)
+                                      else pod)
+    elif others:
+        verdict["failed_step"] = others[0]
+    return verdict
+
+
+def classify_failure(verdict: dict | None, build_log_fn) -> str:
+    """no_results_reason for a failed build without results files.
+
+    The junit phase attribution is the primary source; the build log is
+    consulted only to tell a test-phase timeout from a test-phase
+    failure, or as the whole story when the junit is unusable. Note a
+    pre-phase step that hit its own timeout reads setup_failure here on
+    purpose: what timed out was provisioning, not the tests, and the 2h
+    test-phase ceiling story belongs to "timeout" alone.
+
+    build_log_fn is a zero-arg callable so setup failures skip the log
+    download entirely.
+    """
+    if verdict is None:
+        return classify_no_results(build_log_fn())
+    if verdict["test_phase_failed"]:
+        log = build_log_fn()
+        if log and TIMEOUT_MARKER in log:
+            return "timeout"
+        return "test_failure"
+    if verdict["setup_failed"]:
+        return "setup_failure"
+    return "unknown"
 
 
 def classify_no_results(build_log: str | None) -> str:
@@ -289,17 +373,21 @@ def fetch_build(repo: str, pr_number: int, job: str, build_id: str) -> ProwBuild
             (path, raw) for path in build.result_paths
             if (raw := _fetch(path)) is not None
         ]
-    elif build.result == "FAILURE":
-        # only the minority of builds lack results; the build log tells
-        # timeout apart from setup death, which have different owners
-        build.no_results_reason = classify_no_results(
-            _fetch_build_log(prefix))
 
     if build.result in ("SUCCESS", "FAILURE"):
         # aborted builds' phase times are partial by definition; only
-        # completed ones are trend data
-        build.test_phase_s = parse_test_phase(
-            _fetch(prefix + "artifacts/junit_operator.xml"))
+        # completed ones are trend data. The same junit also carries
+        # per-step pass/fail, so one fetch feeds both the phase time and
+        # the failure attribution.
+        junit_raw = _fetch(prefix + "artifacts/junit_operator.xml")
+        build.test_phase_s = parse_test_phase(junit_raw)
+        if build.result == "FAILURE":
+            verdict = parse_step_verdict(junit_raw, build.target)
+            if verdict:
+                build.failed_step = verdict["failed_step"]
+            if not build.result_paths:
+                build.no_results_reason = classify_failure(
+                    verdict, lambda: _fetch_build_log(prefix))
     return build
 
 

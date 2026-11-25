@@ -1,0 +1,154 @@
+<testsuites>
+  <testsuite name="step graph" tests="48" skipped="0" failures="2" time="10598.254999832">
+    <properties></properties>
+    <testcase name="" time="4.1191e-05">
+      <properties></properties>
+    </testcase>
+    <testcase name="All images are built and tagged into stable" time="2.851e-06">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build git source code into an image and tag it as root" time="378.793588325">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image custom-model-grpc from the repository" time="630.36355209">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image custom-transformer from the repository" time="811.140766095">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image error-404-isvc from the repository" time="525.71110454">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-agent from the repository" time="767.353336494">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-controller from the repository" time="613.678548375">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-localmodel-controller from the repository" time="739.629340309">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-localmodelnode-agent from the repository" time="792.348544381">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-module-controller from the repository" time="298.592265962">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-router from the repository" time="661.891258999">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-storage-initializer from the repository" time="632.710092097">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-tests from the repository" time="677.655937136">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image llmisvc-controller from the repository" time="909.166753849">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image sklearn-serving-runtime from the repository" time="441.347558336">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image success-200-isvc from the repository" time="593.289222763">
+      <properties></properties>
+    </testcase>
+    <testcase name="Clone the correct source code into an image and tag it as src" time="198.57373668">
+      <properties></properties>
+    </testcase>
+    <testcase name="Find the input image ci-hypershift-cli-latest and tag it into the pipeline" time="1.2570854439999999">
+      <properties></properties>
+    </testcase>
+    <testcase name="Find the input image tls-scanner-tool and tag it into the pipeline" time="1.254057244">
+      <properties></properties>
+    </testcase>
+    <testcase name="Find the input image ubi_minimal and tag it into the pipeline" time="1.257682916">
+      <properties></properties>
+    </testcase>
+    <testcase name="Import the release payload &#34;latest&#34; from an external source" time="147.856925829">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step e2e-kserve-module" time="7216">
+      <properties></properties>
+      <failure message=""> [ 23%]&#xA;test_modelcache.py::TestModelCacheDisable::test_disable_cleans_up_resources ERROR [ 25%]&#xA;test_modelcache.py::TestModelCacheCELValidation::test_rejects_managed_without_cache_size ERROR [ 26%]&#xA;test_modelcache.py::TestModelCacheCELValidation::test_rejects_managed_without_node_selection ERROR [ 27%]&#xA;test_modelcache.py::TestModelCacheCELValidation::test_rejects_both_node_names_and_selector ERROR [ 29%]&#xA;test_modelcache.py::TestModelCacheRecovery::test_deleted_lmng_is_recreated ERROR [ 30%]&#xA;test_modelexpress.py::TestModelExpressLifecycle::test_default_removed_installs_nothing ERROR [ 31%]&#xA;test_modelexpress.py::TestModelExpressLifecycle::test_managed_installs_operator ERROR [ 33%]&#xA;test_modelexpress.py::TestModelExpressLifecycle::test_managed_to_removed_cleans_up_and_keeps_crds ERROR [ 34%]&#xA;test_modelexpress.py::TestModelExpressLifecycle::test_removed_waits_for_finalizer_holding_servers {&#34;component&#34;:&#34;entrypoint&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:178&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.Options.ExecuteProcess&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Process did not finish before 2h0m0s timeout&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-03T17:48:47Z&#34;}&#xA;{&#34;component&#34;:&#34;entrypoint&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:292&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.gracefullyTerminate&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Process did not exit before 15s grace period&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-03T17:49:02Z&#34;}&#xA;{&#34;component&#34;:&#34;entrypoint&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:303&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.gracefullyTerminate&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Process did not terminate after SIGKILL; a child process may be holding the log pipe open&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-03T17:49:03Z&#34;}&#xA;{&#34;component&#34;:&#34;entrypoint&#34;,&#34;error&#34;:&#34;process timed out&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:90&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.Options.internalRun&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Error executing test process&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-03T17:49:03Z&#34;}&#xA;error: failed to execute wrapped command: exit status 127&#xA;</failure>
+    </testcase>
+    <testcase name="Run multi-stage step hypershift-hostedcluster-create-hostedcluster" time="826">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step hypershift-hostedcluster-create-wait-for-olm" time="0">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step hypershift-hostedcluster-destroy-hostedcluster" time="588">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step kserve-module-must-gather" time="0">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step openshift-cluster-bot-rbac" time="2">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step openshift-must-gather" time="36">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step testlog-gather" time="0">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage step tls-scanner-run" time="203">
+      <properties></properties>
+    </testcase>
+    <testcase name="Run multi-stage test post phase" time="972.034514779">
+      <properties></properties>
+      <system-out>The collected steps of multi-stage phase post.</system-out>
+    </testcase>
+    <testcase name="Run multi-stage test pre phase" time="885.207623062">
+      <properties></properties>
+      <system-out>The collected steps of multi-stage phase pre.</system-out>
+    </testcase>
+    <testcase name="Run multi-stage test test phase" time="7250.199311788">
+      <properties></properties>
+      <failure message="">&#34;e2e-kserve-module&#34; pod &#34;e2e-kserve-module-e2e-kserve-module&#34; failed: could not watch pod: the pod ci-op-8fthjjq4/e2e-kserve-module-e2e-kserve-module failed after 2h0m48s (failed containers: test): ContainerFailed one or more containers exited&#xA;&#xA;Container test exited with code 127, reason Error&#xA;---&#xA;[ 23%]&#xA;test_modelcache.py::TestModelCacheDisable::test_disable_cleans_up_resources ERROR [ 25%]&#xA;test_modelcache.py::TestModelCacheCELValidation::test_rejects_managed_without_cache_size ERROR [ 26%]&#xA;test_modelcache.py::TestModelCacheCELValidation::test_rejects_managed_without_node_selection ERROR [ 27%]&#xA;test_modelcache.py::TestModelCacheCELValidation::test_rejects_both_node_names_and_selector ERROR [ 29%]&#xA;test_modelcache.py::TestModelCacheRecovery::test_deleted_lmng_is_recreated ERROR [ 30%]&#xA;test_modelexpress.py::TestModelExpressLifecycle::test_default_removed_installs_nothing ERROR [ 31%]&#xA;test_modelexpress.py::TestModelExpressLifecycle::test_managed_installs_operator ERROR [ 33%]&#xA;test_modelexpress.py::TestModelExpressLifecycle::test_managed_to_removed_cleans_up_and_keeps_crds ERROR [ 34%]&#xA;test_modelexpress.py::TestModelExpressLifecycle::test_removed_waits_for_finalizer_holding_servers {&#34;component&#34;:&#34;entrypoint&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:178&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.Options.ExecuteProcess&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Process did not finish before 2h0m0s timeout&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-03T17:48:47Z&#34;}&#xA;{&#34;component&#34;:&#34;entrypoint&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:292&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.gracefullyTerminate&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Process did not exit before 15s grace period&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-03T17:49:02Z&#34;}&#xA;{&#34;component&#34;:&#34;entrypoint&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:303&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.gracefullyTerminate&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Process did not terminate after SIGKILL; a child process may be holding the log pipe open&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-03T17:49:03Z&#34;}&#xA;{&#34;component&#34;:&#34;entrypoint&#34;,&#34;error&#34;:&#34;process timed out&#34;,&#34;file&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint/run.go:90&#34;,&#34;func&#34;:&#34;sigs.k8s.io/prow/pkg/entrypoint.Options.internalRun&#34;,&#34;level&#34;:&#34;error&#34;,&#34;msg&#34;:&#34;Error executing test process&#34;,&#34;severity&#34;:&#34;error&#34;,&#34;time&#34;:&#34;2026-11-03T17:49:03Z&#34;}&#xA;error: failed to execute wrapped command: exit status 127&#xA;---&#xA;Link to step on registry info site: https://steps.ci.openshift.org/reference/e2e-kserve-module&#xA;Link to job on registry info site: https://steps.ci.openshift.org/job?org=opendatahub-io&amp;repo=kserve&amp;branch=master&amp;test=e2e-kserve-module</failure>
+      <system-out>The collected steps of multi-stage phase test.</system-out>
+    </testcase>
+    <testcase name="Tag the image custom-model-grpc into the image stream tag stable:custom-model-grpc" time="0.036788954">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image custom-transformer into the image stream tag stable:custom-transformer" time="0.048214954">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image error-404-isvc into the image stream tag stable:error-404-isvc" time="0.041239318">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-agent into the image stream tag stable:kserve-agent" time="0.040126968">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-controller into the image stream tag stable:kserve-controller" time="0.04292194">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-localmodel-controller into the image stream tag stable:kserve-localmodel-controller" time="0.040391784">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-localmodelnode-agent into the image stream tag stable:kserve-localmodelnode-agent" time="0.039385304">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-module-controller into the image stream tag stable:kserve-module-controller" time="0.038123939">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-router into the image stream tag stable:kserve-router" time="0.038956355">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-storage-initializer into the image stream tag stable:kserve-storage-initializer" time="0.040637637">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-tests into the image stream tag stable:kserve-tests" time="0.040958106">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image llmisvc-controller into the image stream tag stable:llmisvc-controller" time="0.039306427">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image sklearn-serving-runtime into the image stream tag stable:sklearn-serving-runtime" time="0.046847431">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image success-200-isvc into the image stream tag stable:success-200-isvc" time="0.047181651">
+      <properties></properties>
+    </testcase>
+  </testsuite>
+</testsuites>

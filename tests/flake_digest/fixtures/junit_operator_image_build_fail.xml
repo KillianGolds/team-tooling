@@ -1,0 +1,105 @@
+<testsuites>
+  <testsuite name="step graph" tests="33" skipped="0" failures="1" time="26.432895329">
+    <properties></properties>
+    <testcase name="" time="6.0592e-05">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build git source code into an image and tag it as root" time="1.485063577">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image custom-model-grpc from the repository" time="2.848682605">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image custom-transformer from the repository" time="2.973704425">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image error-404-isvc from the repository" time="2.354490246">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-agent from the repository" time="3.453319604">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-controller from the repository" time="4.474858414">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-localmodel-controller from the repository" time="3.966717828">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-localmodelnode-agent from the repository" time="4.625942176">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-module-controller from the repository" time="3.22912199">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-router from the repository" time="3.224558449">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image kserve-storage-initializer from the repository" time="3.020555506">
+      <properties></properties>
+      <failure message="">error occurred handling build kserve-storage-initializer-amd64: the build kserve-storage-initializer-amd64 failed after 3m50s with reason DockerBuildFailed: Dockerfile build strategy has failed.&#xA;&#xA;Problem: cannot install both krb5-libs-1.21.1-10.el9_8.1....os-rpms and krb5-libs-1.21.1-10.el9_9.2.x86_64 from @System&#xA;  - package krb5-workstation-1.21.1-10.el9_8.1.x86_64 from...21.1-10.el9_8.1, but none of the providers can be installed&#xA;  - cannot install the best candidate for the job&#xA;  - conflicting requests&#xA;error: build error: building at STEP &#34;RUN microdnf install...usr/bin/python3.11 1&#34;: while running runtime: exit status 1</failure>
+    </testcase>
+    <testcase name="Build image kserve-tests from the repository" time="2.756202188">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image llmisvc-controller from the repository" time="3.783065171">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image sklearn-serving-runtime from the repository" time="4.314182766">
+      <properties></properties>
+    </testcase>
+    <testcase name="Build image success-200-isvc from the repository" time="2.507984927">
+      <properties></properties>
+    </testcase>
+    <testcase name="Clone the correct source code into an image and tag it as src" time="1.293291089">
+      <properties></properties>
+    </testcase>
+    <testcase name="Find the input image ci-hypershift-cli-latest and tag it into the pipeline" time="0.039415273">
+      <properties></properties>
+    </testcase>
+    <testcase name="Find the input image ubi_minimal and tag it into the pipeline" time="0.045725566">
+      <properties></properties>
+    </testcase>
+    <testcase name="Import the release payload &#34;latest&#34; from an external source" time="20.611781486">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image custom-model-grpc into the image stream tag stable:custom-model-grpc" time="5.029411342">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image custom-transformer into the image stream tag stable:custom-transformer" time="3.622506354">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image error-404-isvc into the image stream tag stable:error-404-isvc" time="4.821036689">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-agent into the image stream tag stable:kserve-agent" time="3.420814515">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-controller into the image stream tag stable:kserve-controller" time="4.027504303">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-localmodel-controller into the image stream tag stable:kserve-localmodel-controller" time="5.820963889">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-localmodelnode-agent into the image stream tag stable:kserve-localmodelnode-agent" time="4.2209022">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-module-controller into the image stream tag stable:kserve-module-controller" time="4.42136693">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-router into the image stream tag stable:kserve-router" time="5.422867028">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image kserve-tests into the image stream tag stable:kserve-tests" time="5.656410295">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image llmisvc-controller into the image stream tag stable:llmisvc-controller" time="5.222038501">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image sklearn-serving-runtime into the image stream tag stable:sklearn-serving-runtime" time="4.621346669">
+      <properties></properties>
+    </testcase>
+    <testcase name="Tag the image success-200-isvc into the image stream tag stable:success-200-isvc" time="3.821039607">
+      <properties></properties>
+    </testcase>
+  </testsuite>
+</testsuites>
