@@ -7,6 +7,9 @@ window_days: 30
 # least as long as any headroom trailing window (James may want
 # release-cycle scale, pending his answer)
 timings_retention_days: 56
+# the headroom section's stats window; the trend doubles it, so
+# timings_retention_days must stay >= 2x this
+headroom_recent_days: 14
 
 # the pinned issue the cron rewrites; evidence links point at this
 # repo's reports/ directory

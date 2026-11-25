@@ -99,6 +99,7 @@ def render_issue_body(state: dict, cfg: dict, now_iso: str,
     # day grouping ever needs a formatter helper
     from flake_digest.grouping import compute_incidents
     from flake_digest.aging import window_runs
+    from flake_digest.headroom import compute_headroom, thin_headroom
 
     if now_ms is None:
         now_ms = int(time.time() * 1000)
@@ -238,7 +239,60 @@ def render_issue_body(state: dict, cfg: dict, now_iso: str,
                    f"| {runs_map.get(job_key, 0)} "
                    f"| {discarded_map.get(job_key, 0)} |")
 
+    headroom_days = cfg.get("headroom_recent_days", 14)
+    stats = compute_headroom(state, now_ms, recent_days=headroom_days)
+    if stats:
+        out += [
+            "",
+            "### Runtime headroom (test phase vs the 2h step ceiling)",
+            "",
+            f"_Test-phase elapsed for successful runs over the last "
+            f"{headroom_days} days, against the 2h per-step timeout that "
+            "kills a job mid-run. The phase spans every step in the test "
+            "block, not just pytest, so these numbers read slightly high; "
+            "the error is in the safe direction. Trend compares medians "
+            f"with the prior {headroom_days} days and stays empty under "
+            "5 runs a side. Runs at 2h counts completed builds of any "
+            "result whose phase reached the ceiling._",
+            "",
+            "| Job | Successes | Median | p90 | Max | Runs at 2h "
+            "| Median trend |",
+            "|---|---|---|---|---|---|---|",
+        ]
+        # least headroom first; jobs with no successful runs sink to the
+        # bottom but keep their row, since vanishing would hide the worst
+        # case
+        ordered = sorted(stats.items(),
+                         key=lambda kv: (-(kv[1]["p90_s"] or -1), kv[0]))
+        for job_key, row in ordered:
+            job = job_key.split("|", 2)[2]
+            out.append(
+                f"| {job} | {row['successes']} "
+                f"| {_fmt_dur(row['median_s'])} | {_fmt_dur(row['p90_s'])} "
+                f"| {_fmt_dur(row['max_s'])} | {row['at_ceiling']} "
+                f"| {_fmt_trend(row['trend_s'])} |")
+        flagged = thin_headroom(stats)
+        if flagged:
+            jobs = ", ".join(k.split("|", 2)[2] for k in flagged)
+            out += ["", f"_Headroom looks thin for: {jobs}. That means a "
+                        "p90 within 25 percent of the ceiling, or runs "
+                        "already reaching it, in the current window._"]
+
     return "\n".join(out) + "\n"
+
+
+def _fmt_dur(seconds: float | None) -> str:
+    if seconds is None:
+        return "n/a"
+    m = round(seconds / 60)
+    return f"{m // 60}h{m % 60:02d}m" if m >= 60 else f"{m}m"
+
+
+def _fmt_trend(delta_s: float | None) -> str:
+    if delta_s is None:
+        return "n/a"
+    m = round(delta_s / 60)
+    return f"{m:+d}m"
 
 
 def _display_nodeid(nodeid: str, limit: int = 70) -> str:
