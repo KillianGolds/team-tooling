@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 5 · **Suspected:** 9
-**First seen:** 2026-10-27T04:26:24+00:00 · **Last seen:** 2026-11-19T17:11:26+00:00 · **Tracking since:** 2026-07-19T09:42:38+00:00
+**Confirmed:** 5 · **Suspected:** 8
+**First seen:** 2026-10-27T23:41:32+00:00 · **Last seen:** 2026-11-19T17:11:26+00:00 · **Tracking since:** 2026-07-19T09:42:38+00:00
 
 ### confirmed (same_base) at `6488274b8c5d`
 - **FAIL** 2026-10-27T19:48:16+00:00 · build `2115140882217832448` · branch `master` · base `fd466456c6e2` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2125/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115140882217832448)
@@ -46,11 +46,6 @@
 - **FAIL** 2026-11-10T22:15:14+00:00 · build `2120273942596816896` · branch `master` · base `e0c6c8559bd7` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2120273942596816896)
   - no results file: setup_failure
 - **PASS** 2026-11-10T20:50:21+00:00 · build `2120226371136393216` · branch `master` · base `12508378db40` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2120226371136393216)
-
-### suspected (same_base) at `7e8946e81a21`
-- **FAIL** 2026-10-22T19:25:38+00:00 · build `2113320958780510208` · branch `release-v0.17` · base `206ea028f68b` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2130/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2113320958780510208)
-  - no results file: setup_failure
-- **PASS** 2026-10-27T04:26:24+00:00 · build `2114893774520848384` · branch `release-v0.17` · base `206ea028f68b` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2130/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2114893774520848384)
 
 ### confirmed (same_base) at `076a091bea8e`
 - **FAIL** 2026-10-31T17:06:26+00:00 · build `2116551593359839232` · branch `release-v0.17` · base `aaefcec9cd60` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2155/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2116551593359839232)

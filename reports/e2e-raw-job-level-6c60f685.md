@@ -1,8 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-raw · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 3 · **Suspected:** 6
-**First seen:** 2026-10-27T03:24:15+00:00 · **Last seen:** 2026-11-19T17:11:05+00:00 · **Tracking since:** 2026-06-30T15:29:19+00:00
+**Confirmed:** 3 · **Suspected:** 5
+**First seen:** 2026-10-28T13:11:19+00:00 · **Last seen:** 2026-11-19T17:11:05+00:00 · **Tracking since:** 2026-06-30T15:29:19+00:00
 
 ### confirmed (same_base) at `33a0df575200`
 - **FAIL** 2026-10-28T11:50:48+00:00 · build `2115384979922882560` · branch `master` · base `958de5310307` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2125/pull-ci-opendatahub-io-kserve-master-e2e-raw/2115384979922882560)
@@ -34,11 +34,6 @@
 - **FAIL** 2026-11-10T22:15:15+00:00 · build `2120273942739423232` · branch `master` · base `e0c6c8559bd7` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2120273942739423232)
   - no results file: setup_failure
 - **PASS** 2026-11-10T19:56:51+00:00 · build `2120227182985875456` · branch `master` · base `12508378db40` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2147/pull-ci-opendatahub-io-kserve-master-e2e-raw/2120227182985875456)
-
-### suspected (same_base) at `7e8946e81a21`
-- **FAIL** 2026-10-22T19:50:08+00:00 · build `2113320958843424768` · branch `release-v0.17` · base `206ea028f68b` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2130/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-raw/2113320958843424768)
-  - no results file: timeout
-- **PASS** 2026-10-27T03:24:15+00:00 · build `2114893774600540160` · branch `release-v0.17` · base `206ea028f68b` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2130/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-raw/2114893774600540160)
 
 ### suspected (same_base) at `f1a35d768636`
 - **FAIL** 2026-11-18T19:16:40+00:00 · build `2123130450124738560` · branch `stable-2.x` · base `938d98ba5f04` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2190/pull-ci-opendatahub-io-kserve-stable-2.x-e2e-raw/2123130450124738560)
