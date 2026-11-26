@@ -1,8 +1,8 @@
 `llmisvc/test_llm_model_routing_only.py::test_model_based_routing_only[cluster_single_node-cluster_cpu-gateway]`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 5 · **Suspected:** 1
-**First seen:** 2026-10-27T23:41:32+00:00 · **Last seen:** 2026-11-06T22:27:58+00:00 · **Tracking since:** 2026-10-13T14:19:46+00:00
+**Confirmed:** 6 · **Suspected:** 1
+**First seen:** 2026-10-27T23:41:32+00:00 · **Last seen:** 2026-11-26T09:51:34+00:00 · **Tracking since:** 2026-10-13T14:19:46+00:00
 
 ### confirmed (same_base) at `6488274b8c5d`
 - **FAIL** 2026-10-27T19:48:16+00:00 · build `2115140882217832448` · branch `master` · base `fd466456c6e2` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2125/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115140882217832448)
@@ -33,3 +33,8 @@
 - **FAIL** 2026-10-31T15:22:52+00:00 · build `2116515437112987648` · branch `release-v0.17` · base `aaefcec9cd60` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2155/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2116515437112987648)
   - `requests.exceptions.ConnectionError: HTTPConnectionPool(host='adc79961c48ab408d9e7571074c8613e-799004705.us-west-2.elb.amazonaws.com', port=80): Max retries exceeded with url: /e2e-test-model-based-ro`
 - **PASS** 2026-10-31T17:06:26+00:00 · build `2116551593359839232` · branch `release-v0.17` · base `aaefcec9cd60` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2155/pull-ci-opendatahub-io-kserve-release-v0.17-e2e-llm-inference-service/2116551593359839232)
+
+### confirmed (same_base) at `30d43077b3c5`
+- **FAIL** 2026-11-25T17:54:21+00:00 · build `2125618474280554496` · branch `master` · base `ddb1c88a6828` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2206/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2125618474280554496)
+  - `requests.exceptions.ConnectionError: HTTPConnectionPool(host='a26b2134192e64ebcac4bf5a12bc8b7b-1179282413.us-west-2.elb.amazonaws.com', port=80): Max retries exceeded with url: /e2e-test-model-based-r`
+- **PASS** 2026-11-26T09:51:34+00:00 · build `2125861157829873664` · branch `master` · base `ddb1c88a6828` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2206/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2125861157829873664)
