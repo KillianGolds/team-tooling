@@ -1,18 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-predictor · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 0 · **Suspected:** 10
-**First seen:** 2026-10-28T13:20:37+00:00 · **Last seen:** 2026-11-25T17:34:37+00:00 · **Tracking since:** 2026-07-14T03:59:14+00:00
-
-### suspected (same_base) at `33a0df575200`
-- **FAIL** 2026-10-28T11:32:49+00:00 · build `2115384979885133824` · branch `master` · base `958de5310307` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2125/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2115384979885133824)
-  - no results file: setup_failure
-- **PASS** 2026-10-28T13:20:37+00:00 · build `2115416140632035328` · branch `master` · base `958de5310307` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2125/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2115416140632035328)
-
-### suspected (same_base) at `4ec412737935`
-- **FAIL** 2026-10-28T11:24:11+00:00 · build `2115384652490346496` · branch `master` · base `958de5310307` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2095/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2115384652490346496)
-  - no results file: setup_failure
-- **PASS** 2026-10-28T13:58:51+00:00 · build `2115425920809439232` · branch `master` · base `958de5310307` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2095/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2115425920809439232)
+**Confirmed:** 0 · **Suspected:** 8
+**First seen:** 2026-10-30T17:28:04+00:00 · **Last seen:** 2026-11-25T17:34:37+00:00 · **Tracking since:** 2026-07-14T03:59:14+00:00
 
 ### suspected (base_moved) at `d1751b2516ca`
 - **FAIL** 2026-10-30T17:28:04+00:00 · build `2116216238773374976` · branch `master` · base `20376b43e186` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2113/pull-ci-opendatahub-io-kserve-master-e2e-predictor/2116216238773374976)
