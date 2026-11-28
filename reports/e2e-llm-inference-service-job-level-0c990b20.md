@@ -1,12 +1,8 @@
 `<job-level>`
 
 **Job:** e2e-llm-inference-service · **Repo:** opendatahub-io/kserve (midstream)
-**Confirmed:** 4 · **Suspected:** 8
-**First seen:** 2026-10-28T23:00:56+00:00 · **Last seen:** 2026-11-26T09:51:34+00:00 · **Tracking since:** 2026-07-19T09:42:38+00:00
-
-### suspected (base_moved) at `61c6bb0aa2a1`
-- **FAIL** 2026-10-28T23:00:56+00:00 · build `2115548408201613312` · branch `master` · base `6302141aa9dc` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2088/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115548408201613312)
-- **PASS** 2026-10-28T13:41:09+00:00 · build `2115407713155420160` · branch `master` · base `958de5310307` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2088/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2115407713155420160)
+**Confirmed:** 4 · **Suspected:** 7
+**First seen:** 2026-10-30T12:04:48+00:00 · **Last seen:** 2026-11-26T09:51:34+00:00 · **Tracking since:** 2026-07-19T09:42:38+00:00
 
 ### confirmed (same_base) at `d1751b2516ca`
 - **FAIL** 2026-10-30T09:57:40+00:00 · build `2116072593621520384` · branch `master` · base `c6f8caad6b3d` · [prow](https://prow.ci.openshift.org/view/gs/test-platform-results/pr-logs/pull/opendatahub-io_kserve/2113/pull-ci-opendatahub-io-kserve-master-e2e-llm-inference-service/2116072593621520384)
